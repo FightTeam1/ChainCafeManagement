@@ -34,3 +34,12 @@ exports.productType_update_put = (req, res) => {
     res.send({isSuccess: true, productType: updatedProductType})
   })
 }
+
+exports.productType_delete = (req, res) => {
+  if (!req.params.code) return res.send({isSuccess: false, error: 'Không tìm thấy loại sản phẩm ' + req.params.code})
+
+  ProductType.findOneAndRemove({code: req.params.code}, (err, deletedProductType) => {
+    if (err) return res.send({isSuccess: false, error: 'Xóa thất bại'})
+    res.send({isSuccess: true, productType: deletedProductType})
+  })
+}
