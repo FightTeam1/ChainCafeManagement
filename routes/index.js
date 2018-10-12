@@ -30,5 +30,6 @@ router.put('/customer/update/:customerId', customerController.customer_update_pu
 
 router.post('/productType/create', productTypeController.productType_create_post)
 router.get('/productTypes', productTypeController.productType_list)
+router.put('/productType/update/:productTypeId', productTypeController.productType_update_put)
 
 module.exports = router;

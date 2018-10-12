@@ -22,3 +22,15 @@ exports.productType_create_post = (req, res) => {
     res.send({isSuccess: true, productType: newProductType})
   })
 }
+
+
+exports.productType_update_put = (req, res) => {
+  if (!req.params.productTypeId) return res.send({isSuccess: false, error: 'Loại sản phẩm không tồn tại'})
+  if (!req.body.code) return res.send({isSuccess: false, error: 'Thiếu mã loại sản phẩm'})
+  if (!req.body.name) return res.send({isSuccess: false, error: 'Thiếu tên loại sản phẩm'})
+
+  ProductType.findByIdAndUpdate(req.params.productTypeId, req.body, {new: true}, (err, updatedProductType) => {
+    if (err) return res.send({isSuccess: false, error: 'Cập nhật thất bại'})
+    res.send({isSuccess: true, productType: updatedProductType})
+  })
+}
