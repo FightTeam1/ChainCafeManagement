@@ -52,14 +52,14 @@ exports.productType_create_post = (req, res) => {
 
 
 exports.productType_update_put = (req, res) => {
-  if (!req.params.code) return res.send({isSuccess: false, error: `Loại sản phẩm ${req.params.code} không tồn tại`})
+  if (!req.params.id) return res.send({isSuccess: false, error: `Thiếu loại sản phẩm`})
   if (!req.body.code) return res.send({isSuccess: false, error: 'Thiếu mã loại sản phẩm'})
   if (!req.body.name) return res.send({isSuccess: false, error: 'Thiếu tên loại sản phẩm'})
 
   
-  ProductType.findOneAndUpdate({code: req.params.code}, req.body, {new: true}, (err, updatedProductType) => {
+  ProductType.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedProductType) => {
     if (err) {
-      console.error('Error: ', err)
+      console.error('Error: ' + err)
       return res.send({isSuccess: false, error: 'Cập nhật thất bại'})
     }
     res.send({isSuccess: true, productType: updatedProductType})
@@ -67,10 +67,13 @@ exports.productType_update_put = (req, res) => {
 }
 
 exports.productType_delete = (req, res) => {
-  if (!req.params.code) return res.send({isSuccess: false, error: 'Không tìm thấy loại sản phẩm ' + req.params.code})
+  if (!req.params.id) return res.send({isSuccess: false, error: 'Thiếu loại sản phẩm'})
 
-  ProductType.findOneAndRemove({code: req.params.code}, (err, deletedProductType) => {
-    if (err) return res.send({isSuccess: false, error: 'Xóa thất bại'})
+  ProductType.findByIdAndRemove(req.params.id, (err, deletedProductType) => {
+    if (err) {
+      console.error('Error: ' + err)
+      return res.send({isSuccess: false, error: 'Lỗi hệ thống'})
+    }
     res.send({isSuccess: true, productType: deletedProductType})
   })
 }

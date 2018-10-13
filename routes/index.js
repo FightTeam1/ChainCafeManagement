@@ -30,8 +30,8 @@ router.put('/customer/update/:customerId', customerController.customer_update_pu
 
 router.post('/productType/create', productTypeController.productType_create_post)
 router.get('/productTypes', productTypeController.productType_list)
-router.put('/productType/update/:code', productTypeController.productType_update_put)
-router.delete('/productType/delete/:code', productTypeController.productType_delete)
+router.put('/productType/update/:id', productTypeController.productType_update_put)
+router.delete('/productType/delete/:id', productTypeController.productType_delete)
 
 
 router.post('/product/create', productController.product_create_post)
