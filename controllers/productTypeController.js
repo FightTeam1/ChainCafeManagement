@@ -1,4 +1,5 @@
 var ProductType = require('../models/productType')
+var Product = require('../models/product')
 var async = require('async')
 
 exports.productType_list = function (req, res) {
@@ -69,11 +70,31 @@ exports.productType_update_put = (req, res) => {
 exports.productType_delete = (req, res) => {
   if (!req.params.id) return res.send({isSuccess: false, error: 'Thiếu loại sản phẩm'})
 
-  ProductType.findByIdAndRemove(req.params.id, (err, deletedProductType) => {
-    if (err) {
-      console.error('Error: ' + err)
-      return res.send({isSuccess: false, error: 'Lỗi hệ thống'})
+  async.waterfall([
+    // check references
+    (done) => {
+      Product.findOne({type: req.params.id})
+      .exec((err, found) => {
+        if (err) {
+          console.error('Error: ' + err)
+          return done('Lỗi hệ thống', null)
+        }
+        if (found) return done('Không thể xóa, Loại sản phẩm đang được sử dụng')
+        done(null)
+      })
+    },
+    // delete product type
+    (done) => {
+      ProductType.findByIdAndRemove(req.params.id, (err, deletedProductType) => {
+        if (err) {
+          console.error('Error: ' + err)
+          return done('Lỗi hệ thống', null)
+        }
+        done(null, deletedProductType)
+      })
     }
-    res.send({isSuccess: true, productType: deletedProductType})
+  ], (err, product) => {
+    if (err) return res.send({isSuccess: false, error: err})
+    res.send({isSuccess: true, product: product})
   })
 }
