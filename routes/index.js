@@ -3,7 +3,7 @@ var router = express.Router();
 
 var customerController = require('../controllers/customerController')
 var productTypeController = require('../controllers/productTypeController')
-
+var productController = require('../controllers/productController')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -32,5 +32,11 @@ router.post('/productType/create', productTypeController.productType_create_post
 router.get('/productTypes', productTypeController.productType_list)
 router.put('/productType/update/:code', productTypeController.productType_update_put)
 router.delete('/productType/delete/:code', productTypeController.productType_delete)
+
+
+router.post('/product/create', productController.product_create_post)
+router.get('/products', productController.product_list)
+router.delete('/product/delete/:id', productController.product_delete)
+router.put('/product/update/:id', productController.product_update_put)
 
 module.exports = router;
