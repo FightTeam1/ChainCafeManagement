@@ -66,9 +66,9 @@ exports.product_list = (req, res) => {
 }
 
 exports.product_delete = (req, res) => {
-  if (!req.params.id) return res.send({isSuccess: false, error: 'Thiếu id sản phẩm'})
+  if (!req.params.code) return res.send({isSuccess: false, error: 'Thiếu mã sản phẩm'})
   
-  Product.findByIdAndRemove(req.params.id, (err, removedProduct) => {
+  Product.findOneAndRemove({code: req.params.code}, (err, removedProduct) => {
     if (err) {
       console.error(err)
       return res.send({isSuccess: false, error: 'Lỗi hệ thống'})
