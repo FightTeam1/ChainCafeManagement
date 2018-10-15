@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 
 var customerController = require('../controllers/customerController')
-var loaiSPController = require('../controllers/LoaiSPController')
-var productController = require('../controllers/productController')
+var loaiSPController = require('../controllers/loaiSPController')
+var sanPhamController = require('../controllers/sanPhamController')
 var billController = require('../controllers/billController')
 
 /* GET home page. */
@@ -35,10 +35,10 @@ router.put('/loaiSP/update/:MaLoaiSP', loaiSPController.loaiSP_update_put)
 router.delete('/loaiSP/delete/:MaLoaiSP', loaiSPController.loaiSP_delete)
 
 
-router.post('/product/create', productController.product_create_post)
-router.get('/products', productController.product_list)
-router.delete('/product/delete/:code', productController.product_delete)
-router.put('/product/update/:code', productController.product_update_put)
+router.post('/sanPham/create', sanPhamController.sanPham_create_post)
+router.get('/dsSanPham', sanPhamController.sanPham_list)
+router.delete('/sanPham/delete/:MaSP', sanPhamController.sanPham_delete)
+router.put('/sanPham/update/:MaSP', sanPhamController.sanPham_update_put)
 
 router.post('/bill/create', billController.bill_create_post)
 router.delete('/bill/delete/:id', billController.bill_delete)

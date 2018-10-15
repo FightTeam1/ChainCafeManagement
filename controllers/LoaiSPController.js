@@ -1,5 +1,5 @@
 var LoaiSP = require('../models/LoaiSP')
-// var SanPham = require('../models/SanPham')
+var SanPham = require('../models/SanPham')
 var async = require('async')
 
 exports.loaiSP_list = function (req, res) {
