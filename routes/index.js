@@ -37,8 +37,8 @@ router.delete('/productType/delete/:code', productTypeController.productType_del
 
 router.post('/product/create', productController.product_create_post)
 router.get('/products', productController.product_list)
-router.delete('/product/delete/:id', productController.product_delete)
-router.put('/product/update/:id', productController.product_update_put)
+router.delete('/product/delete/:code', productController.product_delete)
+router.put('/product/update/:code', productController.product_update_put)
 
 router.post('/bill/create', billController.bill_create_post)
 router.delete('/bill/delete/:id', billController.bill_delete)

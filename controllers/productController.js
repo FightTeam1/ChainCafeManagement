@@ -78,12 +78,12 @@ exports.product_delete = (req, res) => {
 }
 
 exports.product_update_put = (req, res) => {
-  if (!req.params.id) return res.send({isSuccess: false, error: 'Thiếu id sản phẩm'})
+  if (!req.params.code) return res.send({isSuccess: false, error: 'Thiếu mã sản phẩm'})
   if (!req.body.code) return res.send({isSuccess: false, error: 'Thiếu mã sản phẩm'})
   if (!req.body.name) return res.send({isSuccess: false, error: 'Thiếu tên sản phẩm'})
-  if (!req.body.type) return res.send({isSuccess: false, error: 'Thiếu loại sản phẩm'})
+  if (!req.body.productTypeCode) return res.send({isSuccess: false, error: 'Thiếu mã loại sản phẩm'})
 
-  Product.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedProduct) => {
+  Product.findOneAndUpdate({code: req.params.code}, req.body, {new: true}, (err, updatedProduct) => {
     if (err) {
       console.error('Error: ' + err)
       return res.send({isSuccess: false, error: 'Lỗi hệ thống'})
