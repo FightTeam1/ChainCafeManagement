@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var customerController = require('../controllers/customerController')
-var productTypeController = require('../controllers/productTypeController')
+var loaiSPController = require('../controllers/LoaiSPController')
 var productController = require('../controllers/productController')
 var billController = require('../controllers/billController')
 
@@ -29,10 +29,10 @@ router.post('/customer/create', customerController.customer_create_post)
 router.delete('/customer/delete/:customerId', customerController.customer_delete)
 router.put('/customer/update/:customerId', customerController.customer_update_put)
 
-router.post('/productType/create', productTypeController.productType_create_post)
-router.get('/productTypes', productTypeController.productType_list)
-router.put('/productType/update/:code', productTypeController.productType_update_put)
-router.delete('/productType/delete/:code', productTypeController.productType_delete)
+router.post('/loaiSP/create', loaiSPController.loaiSP_create_post)
+router.get('/dsLoaiSP', loaiSPController.loaiSP_list)
+router.put('/loaiSP/update/:MaLoaiSP', loaiSPController.loaiSP_update_put)
+router.delete('/loaiSP/delete/:MaLoaiSP', loaiSPController.loaiSP_delete)
 
 
 router.post('/product/create', productController.product_create_post)

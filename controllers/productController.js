@@ -1,5 +1,5 @@
 var Product = require('../models/product')
-var ProductType = require('../models/productType')
+var ProductType = require('../models/LoaiSP')
 var async = require('async')
 
 exports.product_create_post = (req, res) => {

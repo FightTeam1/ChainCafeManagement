@@ -1,15 +1,15 @@
 var mongoose = require('mongoose')
 var Schema = mongoose.Schema
-var ProductTypeSchema = new Schema({
-  code: {
+var LoaiSPSchema = new Schema({
+  MaLoaiSP: {
     type: String,
     unique: [true, 'Mã loại sản phẩm đã tồn tại'],
     required: [true, 'Mã loại sản phẩm không được để trống']
   },
-  name: {
+  TenLoaiSP: {
     type: String,
     required: [true, 'Tên loại sản phẩm không được để trống']
   }
 })
 
-module.exports = mongoose.model('ProductType', ProductTypeSchema, 'ProductType')
+module.exports = mongoose.model('LoaiSP', LoaiSPSchema, 'LoaiSP')
