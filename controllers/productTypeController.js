@@ -11,7 +11,7 @@ exports.productType_list = function (req, res) {
 }
 
 exports.productType_create_post = (req, res) => {
-  console.log('============ ' + req.body)
+  console.log('============ ' + JSON.stringify(req.body))
   if (!req.body.code) return res.send({isSuccess: false, error: 'Thiếu mã loại sản phẩm'})
   if (!req.body.name) return res.send({isSuccess: false, error: 'Thiếu tên loại sản phẩm'})
 
