@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var customerController = require('../controllers/customerController')
+var khachHangController = require('../controllers/khachHangController')
 var loaiSPController = require('../controllers/loaiSPController')
 var sanPhamController = require('../controllers/sanPhamController')
 var billController = require('../controllers/billController')
@@ -25,9 +25,9 @@ router.post('/employee/create', function (req, res) {
 	console.log(JSON.stringify(req.body))
 })
 
-router.post('/customer/create', customerController.customer_create_post)
-router.delete('/customer/delete/:customerId', customerController.customer_delete)
-router.put('/customer/update/:customerId', customerController.customer_update_put)
+router.post('/khachHang/create', khachHangController.khachHang_create_post)
+router.delete('/khachHang/delete/:TenDangNhap', khachHangController.khachHang_delete)
+router.put('/khachHang/update/:TenDangNhap', khachHangController.khachHang_update_put)
 
 router.post('/loaiSP/create', loaiSPController.loaiSP_create_post)
 router.get('/dsLoaiSP', loaiSPController.loaiSP_list)
