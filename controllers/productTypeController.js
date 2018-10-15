@@ -53,12 +53,12 @@ exports.productType_create_post = (req, res) => {
 
 
 exports.productType_update_put = (req, res) => {
-  if (!req.params.id) return res.send({isSuccess: false, error: `Thiếu loại sản phẩm`})
+  if (!req.params.code) return res.send({isSuccess: false, error: `Thiếu loại sản phẩm`})
   if (!req.body.code) return res.send({isSuccess: false, error: 'Thiếu mã loại sản phẩm'})
   if (!req.body.name) return res.send({isSuccess: false, error: 'Thiếu tên loại sản phẩm'})
 
   
-  ProductType.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedProductType) => {
+  ProductType.findOneAndUpdate({code: req.params.code}, req.body, {new: true}, (err, updatedProductType) => {
     if (err) {
       console.error('Error: ' + err)
       return res.send({isSuccess: false, error: 'Cập nhật thất bại'})
@@ -68,24 +68,24 @@ exports.productType_update_put = (req, res) => {
 }
 
 exports.productType_delete = (req, res) => {
-  if (!req.params.id) return res.send({isSuccess: false, error: 'Thiếu loại sản phẩm'})
+  if (!req.params.code) return res.send({isSuccess: false, error: 'Thiếu loại sản phẩm'})
 
   async.waterfall([
-    // check references
-    (done) => {
-      Product.findOne({type: req.params.id})
-      .exec((err, found) => {
-        if (err) {
-          console.error('Error: ' + err)
-          return done('Lỗi hệ thống', null)
-        }
-        if (found) return done('Không thể xóa, Loại sản phẩm đang được sử dụng')
-        done(null)
-      })
-    },
+    // // check references
+    // (done) => {
+    //   Product.findOne({type: req.params.id})
+    //   .exec((err, found) => {
+    //     if (err) {
+    //       console.error('Error: ' + err)
+    //       return done('Lỗi hệ thống', null)
+    //     }
+    //     if (found) return done('Không thể xóa, Loại sản phẩm đang được sử dụng')
+    //     done(null)
+    //   })
+    // },
     // delete product type
     (done) => {
-      ProductType.findByIdAndRemove(req.params.id, (err, deletedProductType) => {
+      ProductType.findOneAndRemove({code: req.params.code}, (err, deletedProductType) => {
         if (err) {
           console.error('Error: ' + err)
           return done('Lỗi hệ thống', null)

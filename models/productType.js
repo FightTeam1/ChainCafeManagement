@@ -3,11 +3,12 @@ var Schema = mongoose.Schema
 var ProductTypeSchema = new Schema({
   code: {
     type: String,
-    unique: [true, 'Mã loại sản phẩm đã tồn tại']
+    unique: [true, 'Mã loại sản phẩm đã tồn tại'],
+    required: [true, 'Mã loại sản phẩm không được để trống']
   },
   name: {
     type: String,
-    unique: [true, 'Tên loại sản phẩm đã tồn tại']
+    required: [true, 'Tên loại sản phẩm không được để trống']
   }
 })
 

@@ -17,14 +17,12 @@ var CustomerSchema = new Schema({
   },
   phoneNumber: {
     type: String,
-    min: [10, 'Số điện thoại phải đủ 10 ký tự số'],
     max: [10, 'Số điện thoại phải đủ 10 ký tự số']
   },
   email: {
     type: String,
     trim: true,
     lowercase: true,
-    unique: true,
     match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Địa chỉ email không hợp lệ']
   },
   score: {
