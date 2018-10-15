@@ -5,7 +5,7 @@ var async = require('async')
 exports.product_create_post = (req, res) => {
   if (!req.body.code) return res.send({isSuccess: false, error: 'Thiếu mã sản phẩm'})
   if (!req.body.name) return res.send({isSuccess: false, error: 'Thiếu tên sản phẩm'})
-  if (!req.body.type) return res.send({isSuccess: false, error: 'Thiếu loại sản phẩm'})
+  if (!req.body.productTypeCode) return res.send({isSuccess: false, error: 'Thiếu loại sản phẩm'})
 
   async.waterfall([
     (done) => {
@@ -21,7 +21,7 @@ exports.product_create_post = (req, res) => {
     },
 
     (done) => {
-      ProductType.findById(req.body.type)
+      ProductType.findOne({code: req.body.productTypeCode})
       .exec((err, found) => {
         if (err) {
           console.error(err)
@@ -36,7 +36,7 @@ exports.product_create_post = (req, res) => {
       let product = new Product({
         code: req.body.code,
         name: req.body.name,
-        type: req.body.type
+        productTypeCode: req.body.productTypeCode
       })
 
       product.save((err, newProduct) => {

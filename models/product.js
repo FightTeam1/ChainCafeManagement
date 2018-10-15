@@ -12,10 +12,9 @@ var ProductSchema = new Schema({
     max: [50, 'Tên sản phẩm không được vượt quá 50 ký tự'],
     default: 'N/A'
   },
-  type: {
-    type: Schema.Types.ObjectId,
-    ref: 'ProductType',
-    required: [true, 'Thiếu loại sản phẩm']
+  productTypeCode: {
+    type: String,
+    required: [true, 'Thiếu mã loại sản phẩm']
   }
 })
 
