@@ -109,3 +109,4 @@ D:\VisualStudioProjects\WebServiceChainCafeManagement\WebService\obj\Debug\WebSe
 D:\VisualStudioProjects\WebServiceChainCafeManagement\WebService\obj\Debug\WebService.csproj.CopyComplete
 D:\VisualStudioProjects\WebServiceChainCafeManagement\WebService\obj\Debug\WebService.dll
 D:\VisualStudioProjects\WebServiceChainCafeManagement\WebService\obj\Debug\WebService.pdb
+D:\VisualStudioProjects\WebServiceChainCafeManagement\WebService\obj\Debug\WebService.csprojAssemblyReference.cache
