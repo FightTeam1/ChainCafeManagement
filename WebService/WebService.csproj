@@ -70,6 +70,7 @@
   <ItemGroup>
     <Content Include="Web.config" />
     <Content Include="WS_KhachHang.asmx" />
+    <Content Include="WS_LoaiNhanVien.asmx" />
     <Content Include="WS_LoaiSP.asmx" />
     <Content Include="WS_SanPham.asmx" />
   </ItemGroup>
@@ -87,6 +88,10 @@
     </Compile>
     <Compile Include="WS_KhachHang.asmx.cs">
       <DependentUpon>WS_KhachHang.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WS_LoaiNhanVien.asmx.cs">
+      <DependentUpon>WS_LoaiNhanVien.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="WS_LoaiSP.asmx.cs">
