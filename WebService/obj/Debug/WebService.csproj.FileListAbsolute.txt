@@ -105,7 +105,6 @@ D:\VisualStudioProjects\WebServiceChainCafeManagement\WebService\bin\roslyn\VBCS
 D:\VisualStudioProjects\WebServiceChainCafeManagement\WebService\bin\roslyn\VBCSCompiler.exe.config
 D:\VisualStudioProjects\WebServiceChainCafeManagement\WebService\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\VisualStudioProjects\WebServiceChainCafeManagement\WebService\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\VisualStudioProjects\WebServiceChainCafeManagement\WebService\obj\Debug\WebService.csprojAssemblyReference.cache
 D:\VisualStudioProjects\WebServiceChainCafeManagement\WebService\obj\Debug\WebService.csproj.CoreCompileInputs.cache
 D:\VisualStudioProjects\WebServiceChainCafeManagement\WebService\obj\Debug\WebService.csproj.CopyComplete
 D:\VisualStudioProjects\WebServiceChainCafeManagement\WebService\obj\Debug\WebService.dll
