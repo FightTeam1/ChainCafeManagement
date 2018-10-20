@@ -73,6 +73,7 @@
     <Content Include="WS_KhachHang.asmx" />
     <Content Include="WS_LoaiNhanVien.asmx" />
     <Content Include="WS_LoaiSP.asmx" />
+    <Content Include="WS_NhanVien.asmx" />
     <Content Include="WS_SanPham.asmx" />
   </ItemGroup>
   <ItemGroup>
@@ -101,6 +102,10 @@
     </Compile>
     <Compile Include="WS_LoaiSP.asmx.cs">
       <DependentUpon>WS_LoaiSP.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WS_NhanVien.asmx.cs">
+      <DependentUpon>WS_NhanVien.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="WS_SanPham.asmx.cs">
