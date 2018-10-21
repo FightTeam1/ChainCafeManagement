@@ -39,9 +39,6 @@ namespace WebService
     partial void InsertCHITIETPHIEUNHAP(CHITIETPHIEUNHAP instance);
     partial void UpdateCHITIETPHIEUNHAP(CHITIETPHIEUNHAP instance);
     partial void DeleteCHITIETPHIEUNHAP(CHITIETPHIEUNHAP instance);
-    partial void InsertCOSO(COSO instance);
-    partial void UpdateCOSO(COSO instance);
-    partial void DeleteCOSO(COSO instance);
     partial void InsertDSMANHINH(DSMANHINH instance);
     partial void UpdateDSMANHINH(DSMANHINH instance);
     partial void DeleteDSMANHINH(DSMANHINH instance);
@@ -87,6 +84,9 @@ namespace WebService
     partial void InsertTINTUC(TINTUC instance);
     partial void UpdateTINTUC(TINTUC instance);
     partial void DeleteTINTUC(TINTUC instance);
+    partial void InsertCOSO(COSO instance);
+    partial void UpdateCOSO(COSO instance);
+    partial void DeleteCOSO(COSO instance);
     #endregion
 		
 		public DataClassesDataContext() : 
@@ -140,14 +140,6 @@ namespace WebService
 			get
 			{
 				return this.GetTable<CHITIETPHIEUNHAP>();
-			}
-		}
-		
-		public System.Data.Linq.Table<COSO> COSOs
-		{
-			get
-			{
-				return this.GetTable<COSO>();
 			}
 		}
 		
@@ -268,6 +260,14 @@ namespace WebService
 			get
 			{
 				return this.GetTable<TINTUC>();
+			}
+		}
+		
+		public System.Data.Linq.Table<COSO> COSOs
+		{
+			get
+			{
+				return this.GetTable<COSO>();
 			}
 		}
 	}
@@ -476,9 +476,9 @@ namespace WebService
 		
 		private System.Nullable<int> _SL;
 		
-		private EntityRef<COSO> _COSO;
-		
 		private EntityRef<NGUYENLIEU> _NGUYENLIEU;
+		
+		private EntityRef<COSO> _COSO;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -494,8 +494,8 @@ namespace WebService
 		
 		public TONKHO()
 		{
-			this._COSO = default(EntityRef<COSO>);
 			this._NGUYENLIEU = default(EntityRef<NGUYENLIEU>);
+			this._COSO = default(EntityRef<COSO>);
 			OnCreated();
 		}
 		
@@ -567,40 +567,6 @@ namespace WebService
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="COSO_TONKHO", Storage="_COSO", ThisKey="MACS", OtherKey="MACS", IsForeignKey=true)]
-		public COSO COSO
-		{
-			get
-			{
-				return this._COSO.Entity;
-			}
-			set
-			{
-				COSO previousValue = this._COSO.Entity;
-				if (((previousValue != value) 
-							|| (this._COSO.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._COSO.Entity = null;
-						previousValue.TONKHOs.Remove(this);
-					}
-					this._COSO.Entity = value;
-					if ((value != null))
-					{
-						value.TONKHOs.Add(this);
-						this._MACS = value.MACS;
-					}
-					else
-					{
-						this._MACS = default(string);
-					}
-					this.SendPropertyChanged("COSO");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NGUYENLIEU_TONKHO", Storage="_NGUYENLIEU", ThisKey="MANGUYENLIEU", OtherKey="MANGUYENLIEU", IsForeignKey=true)]
 		public NGUYENLIEU NGUYENLIEU
 		{
@@ -631,6 +597,40 @@ namespace WebService
 						this._MANGUYENLIEU = default(string);
 					}
 					this.SendPropertyChanged("NGUYENLIEU");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="COSO_TONKHO", Storage="_COSO", ThisKey="MACS", OtherKey="MACS", IsForeignKey=true)]
+		public COSO COSO
+		{
+			get
+			{
+				return this._COSO.Entity;
+			}
+			set
+			{
+				COSO previousValue = this._COSO.Entity;
+				if (((previousValue != value) 
+							|| (this._COSO.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._COSO.Entity = null;
+						previousValue.TONKHOs.Remove(this);
+					}
+					this._COSO.Entity = value;
+					if ((value != null))
+					{
+						value.TONKHOs.Add(this);
+						this._MACS = value.MACS;
+					}
+					else
+					{
+						this._MACS = default(string);
+					}
+					this.SendPropertyChanged("COSO");
 				}
 			}
 		}
@@ -958,196 +958,6 @@ namespace WebService
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.COSO")]
-	public partial class COSO : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _MACS;
-		
-		private string _TENCS;
-		
-		private string _DIACHI;
-		
-		private string _SDT;
-		
-		private EntitySet<TONKHO> _TONKHOs;
-		
-		private EntitySet<NHANVIEN> _NHANVIENs;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMACSChanging(string value);
-    partial void OnMACSChanged();
-    partial void OnTENCSChanging(string value);
-    partial void OnTENCSChanged();
-    partial void OnDIACHIChanging(string value);
-    partial void OnDIACHIChanged();
-    partial void OnSDTChanging(string value);
-    partial void OnSDTChanged();
-    #endregion
-		
-		public COSO()
-		{
-			this._TONKHOs = new EntitySet<TONKHO>(new Action<TONKHO>(this.attach_TONKHOs), new Action<TONKHO>(this.detach_TONKHOs));
-			this._NHANVIENs = new EntitySet<NHANVIEN>(new Action<NHANVIEN>(this.attach_NHANVIENs), new Action<NHANVIEN>(this.detach_NHANVIENs));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MACS", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MACS
-		{
-			get
-			{
-				return this._MACS;
-			}
-			set
-			{
-				if ((this._MACS != value))
-				{
-					this.OnMACSChanging(value);
-					this.SendPropertyChanging();
-					this._MACS = value;
-					this.SendPropertyChanged("MACS");
-					this.OnMACSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TENCS", DbType="NVarChar(100)")]
-		public string TENCS
-		{
-			get
-			{
-				return this._TENCS;
-			}
-			set
-			{
-				if ((this._TENCS != value))
-				{
-					this.OnTENCSChanging(value);
-					this.SendPropertyChanging();
-					this._TENCS = value;
-					this.SendPropertyChanged("TENCS");
-					this.OnTENCSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIACHI", DbType="NVarChar(100)")]
-		public string DIACHI
-		{
-			get
-			{
-				return this._DIACHI;
-			}
-			set
-			{
-				if ((this._DIACHI != value))
-				{
-					this.OnDIACHIChanging(value);
-					this.SendPropertyChanging();
-					this._DIACHI = value;
-					this.SendPropertyChanged("DIACHI");
-					this.OnDIACHIChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SDT", DbType="VarChar(10)")]
-		public string SDT
-		{
-			get
-			{
-				return this._SDT;
-			}
-			set
-			{
-				if ((this._SDT != value))
-				{
-					this.OnSDTChanging(value);
-					this.SendPropertyChanging();
-					this._SDT = value;
-					this.SendPropertyChanged("SDT");
-					this.OnSDTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="COSO_TONKHO", Storage="_TONKHOs", ThisKey="MACS", OtherKey="MACS")]
-		internal EntitySet<TONKHO> TONKHOs
-		{
-			get
-			{
-				return this._TONKHOs;
-			}
-			set
-			{
-				this._TONKHOs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="COSO_NHANVIEN", Storage="_NHANVIENs", ThisKey="MACS", OtherKey="MACS")]
-		internal EntitySet<NHANVIEN> NHANVIENs
-		{
-			get
-			{
-				return this._NHANVIENs;
-			}
-			set
-			{
-				this._NHANVIENs.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_TONKHOs(TONKHO entity)
-		{
-			this.SendPropertyChanging();
-			entity.COSO = this;
-		}
-		
-		private void detach_TONKHOs(TONKHO entity)
-		{
-			this.SendPropertyChanging();
-			entity.COSO = null;
-		}
-		
-		private void attach_NHANVIENs(NHANVIEN entity)
-		{
-			this.SendPropertyChanging();
-			entity.COSO = this;
-		}
-		
-		private void detach_NHANVIENs(NHANVIEN entity)
-		{
-			this.SendPropertyChanging();
-			entity.COSO = null;
 		}
 	}
 	
@@ -2439,9 +2249,9 @@ namespace WebService
 		
 		private EntitySet<TINTUC> _TINTUCs;
 		
-		private EntityRef<COSO> _COSO;
-		
 		private EntityRef<LOAINHANVIEN> _LOAINHANVIEN;
+		
+		private EntityRef<COSO> _COSO;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2472,8 +2282,8 @@ namespace WebService
 			this._HOADONs = new EntitySet<HOADON>(new Action<HOADON>(this.attach_HOADONs), new Action<HOADON>(this.detach_HOADONs));
 			this._PHIEUNHAPs = new EntitySet<PHIEUNHAP>(new Action<PHIEUNHAP>(this.attach_PHIEUNHAPs), new Action<PHIEUNHAP>(this.detach_PHIEUNHAPs));
 			this._TINTUCs = new EntitySet<TINTUC>(new Action<TINTUC>(this.attach_TINTUCs), new Action<TINTUC>(this.detach_TINTUCs));
-			this._COSO = default(EntityRef<COSO>);
 			this._LOAINHANVIEN = default(EntityRef<LOAINHANVIEN>);
+			this._COSO = default(EntityRef<COSO>);
 			OnCreated();
 		}
 		
@@ -2704,40 +2514,6 @@ namespace WebService
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="COSO_NHANVIEN", Storage="_COSO", ThisKey="MACS", OtherKey="MACS", IsForeignKey=true)]
-		public COSO COSO
-		{
-			get
-			{
-				return this._COSO.Entity;
-			}
-			set
-			{
-				COSO previousValue = this._COSO.Entity;
-				if (((previousValue != value) 
-							|| (this._COSO.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._COSO.Entity = null;
-						previousValue.NHANVIENs.Remove(this);
-					}
-					this._COSO.Entity = value;
-					if ((value != null))
-					{
-						value.NHANVIENs.Add(this);
-						this._MACS = value.MACS;
-					}
-					else
-					{
-						this._MACS = default(string);
-					}
-					this.SendPropertyChanged("COSO");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LOAINHANVIEN_NHANVIEN", Storage="_LOAINHANVIEN", ThisKey="MALOAINV", OtherKey="MALOAINV", IsForeignKey=true)]
 		public LOAINHANVIEN LOAINHANVIEN
 		{
@@ -2768,6 +2544,40 @@ namespace WebService
 						this._MALOAINV = default(string);
 					}
 					this.SendPropertyChanged("LOAINHANVIEN");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="COSO_NHANVIEN", Storage="_COSO", ThisKey="MACS", OtherKey="MACS", IsForeignKey=true)]
+		public COSO COSO
+		{
+			get
+			{
+				return this._COSO.Entity;
+			}
+			set
+			{
+				COSO previousValue = this._COSO.Entity;
+				if (((previousValue != value) 
+							|| (this._COSO.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._COSO.Entity = null;
+						previousValue.NHANVIENs.Remove(this);
+					}
+					this._COSO.Entity = value;
+					if ((value != null))
+					{
+						value.NHANVIENs.Add(this);
+						this._MACS = value.MACS;
+					}
+					else
+					{
+						this._MACS = default(string);
+					}
+					this.SendPropertyChanged("COSO");
 				}
 			}
 		}
@@ -4171,6 +3981,220 @@ namespace WebService
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.COSO")]
+	public partial class COSO : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _MACS;
+		
+		private string _TENCS;
+		
+		private string _DIACHI;
+		
+		private string _SDT;
+		
+		private string _HinhAnh;
+		
+		private EntitySet<TONKHO> _TONKHOs;
+		
+		private EntitySet<NHANVIEN> _NHANVIENs;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMACSChanging(string value);
+    partial void OnMACSChanged();
+    partial void OnTENCSChanging(string value);
+    partial void OnTENCSChanged();
+    partial void OnDIACHIChanging(string value);
+    partial void OnDIACHIChanged();
+    partial void OnSDTChanging(string value);
+    partial void OnSDTChanged();
+    partial void OnHinhAnhChanging(string value);
+    partial void OnHinhAnhChanged();
+    #endregion
+		
+		public COSO()
+		{
+			this._TONKHOs = new EntitySet<TONKHO>(new Action<TONKHO>(this.attach_TONKHOs), new Action<TONKHO>(this.detach_TONKHOs));
+			this._NHANVIENs = new EntitySet<NHANVIEN>(new Action<NHANVIEN>(this.attach_NHANVIENs), new Action<NHANVIEN>(this.detach_NHANVIENs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MACS", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MACS
+		{
+			get
+			{
+				return this._MACS;
+			}
+			set
+			{
+				if ((this._MACS != value))
+				{
+					this.OnMACSChanging(value);
+					this.SendPropertyChanging();
+					this._MACS = value;
+					this.SendPropertyChanged("MACS");
+					this.OnMACSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TENCS", DbType="NVarChar(100)")]
+		public string TENCS
+		{
+			get
+			{
+				return this._TENCS;
+			}
+			set
+			{
+				if ((this._TENCS != value))
+				{
+					this.OnTENCSChanging(value);
+					this.SendPropertyChanging();
+					this._TENCS = value;
+					this.SendPropertyChanged("TENCS");
+					this.OnTENCSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIACHI", DbType="NVarChar(100)")]
+		public string DIACHI
+		{
+			get
+			{
+				return this._DIACHI;
+			}
+			set
+			{
+				if ((this._DIACHI != value))
+				{
+					this.OnDIACHIChanging(value);
+					this.SendPropertyChanging();
+					this._DIACHI = value;
+					this.SendPropertyChanged("DIACHI");
+					this.OnDIACHIChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SDT", DbType="VarChar(10)")]
+		public string SDT
+		{
+			get
+			{
+				return this._SDT;
+			}
+			set
+			{
+				if ((this._SDT != value))
+				{
+					this.OnSDTChanging(value);
+					this.SendPropertyChanging();
+					this._SDT = value;
+					this.SendPropertyChanged("SDT");
+					this.OnSDTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HinhAnh", DbType="NVarChar(100)")]
+		public string HinhAnh
+		{
+			get
+			{
+				return this._HinhAnh;
+			}
+			set
+			{
+				if ((this._HinhAnh != value))
+				{
+					this.OnHinhAnhChanging(value);
+					this.SendPropertyChanging();
+					this._HinhAnh = value;
+					this.SendPropertyChanged("HinhAnh");
+					this.OnHinhAnhChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="COSO_TONKHO", Storage="_TONKHOs", ThisKey="MACS", OtherKey="MACS")]
+		internal EntitySet<TONKHO> TONKHOs
+		{
+			get
+			{
+				return this._TONKHOs;
+			}
+			set
+			{
+				this._TONKHOs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="COSO_NHANVIEN", Storage="_NHANVIENs", ThisKey="MACS", OtherKey="MACS")]
+		internal EntitySet<NHANVIEN> NHANVIENs
+		{
+			get
+			{
+				return this._NHANVIENs;
+			}
+			set
+			{
+				this._NHANVIENs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_TONKHOs(TONKHO entity)
+		{
+			this.SendPropertyChanging();
+			entity.COSO = this;
+		}
+		
+		private void detach_TONKHOs(TONKHO entity)
+		{
+			this.SendPropertyChanging();
+			entity.COSO = null;
+		}
+		
+		private void attach_NHANVIENs(NHANVIEN entity)
+		{
+			this.SendPropertyChanging();
+			entity.COSO = this;
+		}
+		
+		private void detach_NHANVIENs(NHANVIEN entity)
+		{
+			this.SendPropertyChanging();
+			entity.COSO = null;
 		}
 	}
 }

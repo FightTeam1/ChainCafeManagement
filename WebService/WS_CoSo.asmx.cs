@@ -19,7 +19,7 @@ namespace WebService
         DataClassesDataContext dc = new DataClassesDataContext();
 
         [WebMethod(Description = "Add CoSo")]
-        public bool Add(string MaCS, string TenCS, string DiaChi, string Sdt)
+        public bool Add(string MaCS, string TenCS, string DiaChi, string Sdt, string HinhAnh)
         {
             try
             {
@@ -28,6 +28,7 @@ namespace WebService
                 coSo.TENCS = TenCS;
                 coSo.DIACHI = DiaChi;
                 coSo.SDT = Sdt;
+                coSo.HinhAnh = HinhAnh;
 
                 dc.COSOs.InsertOnSubmit(coSo);
                 dc.SubmitChanges();
@@ -82,7 +83,7 @@ namespace WebService
         }
 
         [WebMethod(Description = "Update CoSo by MaCS")]
-        public bool Update(string MaCS, string TenCS, string DiaChi, string Sdt)
+        public bool Update(string MaCS, string TenCS, string DiaChi, string Sdt, string HinhAnh)
         {
             try
             {
@@ -90,6 +91,7 @@ namespace WebService
                 coSo.TENCS = TenCS;
                 coSo.DIACHI = DiaChi;
                 coSo.SDT = Sdt;
+                coSo.HinhAnh = HinhAnh;
                 dc.SubmitChanges();
                 return true;
             }
