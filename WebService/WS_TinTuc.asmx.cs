@@ -87,8 +87,8 @@ namespace WebService
         [WebMethod(Description = "Update TinTuc by MaTin")]
         public bool Update(string MaTin, string TieuDe, string NoiDung, string HinhAnh, string MaNV, DateTime NgayDang)
         {
-            try
-            {
+            //try
+            //{
                 TINTUC tinTuc = dc.TINTUCs.Single(t => t.MATIN == MaTin);
                 tinTuc.TIEUDE = TieuDe;
                 tinTuc.NOIDUNG = NoiDung;
@@ -98,11 +98,12 @@ namespace WebService
                 
                 dc.SubmitChanges();
                 return true;
-            }
-            catch
-            {
-                return false;
-            }
+            //}
+            //catch
+            //{
+            //    return false;
+            //}
+
         }
     }
 }
