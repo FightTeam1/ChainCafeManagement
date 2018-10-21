@@ -60,9 +60,6 @@ namespace WebService
     partial void InsertLOAINHANVIEN_NHOMQUYEN(LOAINHANVIEN_NHOMQUYEN instance);
     partial void UpdateLOAINHANVIEN_NHOMQUYEN(LOAINHANVIEN_NHOMQUYEN instance);
     partial void DeleteLOAINHANVIEN_NHOMQUYEN(LOAINHANVIEN_NHOMQUYEN instance);
-    partial void InsertLOAISP(LOAISP instance);
-    partial void UpdateLOAISP(LOAISP instance);
-    partial void DeleteLOAISP(LOAISP instance);
     partial void InsertNGUYENLIEU(NGUYENLIEU instance);
     partial void UpdateNGUYENLIEU(NGUYENLIEU instance);
     partial void DeleteNGUYENLIEU(NGUYENLIEU instance);
@@ -87,6 +84,9 @@ namespace WebService
     partial void InsertSANPHAM(SANPHAM instance);
     partial void UpdateSANPHAM(SANPHAM instance);
     partial void DeleteSANPHAM(SANPHAM instance);
+    partial void InsertLOAISP(LOAISP instance);
+    partial void UpdateLOAISP(LOAISP instance);
+    partial void DeleteLOAISP(LOAISP instance);
     #endregion
 		
 		public DataClassesDataContext() : 
@@ -199,14 +199,6 @@ namespace WebService
 			}
 		}
 		
-		public System.Data.Linq.Table<LOAISP> LOAISPs
-		{
-			get
-			{
-				return this.GetTable<LOAISP>();
-			}
-		}
-		
 		public System.Data.Linq.Table<NGUYENLIEU> NGUYENLIEUs
 		{
 			get
@@ -268,6 +260,14 @@ namespace WebService
 			get
 			{
 				return this.GetTable<SANPHAM>();
+			}
+		}
+		
+		public System.Data.Linq.Table<LOAISP> LOAISPs
+		{
+			get
+			{
+				return this.GetTable<LOAISP>();
 			}
 		}
 	}
@@ -2215,120 +2215,6 @@ namespace WebService
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LOAISP")]
-	public partial class LOAISP : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _MALOAISP;
-		
-		private string _TENLOAISP;
-		
-		private EntitySet<SANPHAM> _SANPHAMs;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMALOAISPChanging(string value);
-    partial void OnMALOAISPChanged();
-    partial void OnTENLOAISPChanging(string value);
-    partial void OnTENLOAISPChanged();
-    #endregion
-		
-		public LOAISP()
-		{
-			this._SANPHAMs = new EntitySet<SANPHAM>(new Action<SANPHAM>(this.attach_SANPHAMs), new Action<SANPHAM>(this.detach_SANPHAMs));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MALOAISP", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MALOAISP
-		{
-			get
-			{
-				return this._MALOAISP;
-			}
-			set
-			{
-				if ((this._MALOAISP != value))
-				{
-					this.OnMALOAISPChanging(value);
-					this.SendPropertyChanging();
-					this._MALOAISP = value;
-					this.SendPropertyChanged("MALOAISP");
-					this.OnMALOAISPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TENLOAISP", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string TENLOAISP
-		{
-			get
-			{
-				return this._TENLOAISP;
-			}
-			set
-			{
-				if ((this._TENLOAISP != value))
-				{
-					this.OnTENLOAISPChanging(value);
-					this.SendPropertyChanging();
-					this._TENLOAISP = value;
-					this.SendPropertyChanged("TENLOAISP");
-					this.OnTENLOAISPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LOAISP_SANPHAM", Storage="_SANPHAMs", ThisKey="MALOAISP", OtherKey="MALOAISP")]
-		internal EntitySet<SANPHAM> SANPHAMs
-		{
-			get
-			{
-				return this._SANPHAMs;
-			}
-			set
-			{
-				this._SANPHAMs.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_SANPHAMs(SANPHAM entity)
-		{
-			this.SendPropertyChanging();
-			entity.LOAISP = this;
-		}
-		
-		private void detach_SANPHAMs(SANPHAM entity)
-		{
-			this.SendPropertyChanging();
-			entity.LOAISP = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.NGUYENLIEU")]
 	public partial class NGUYENLIEU : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -4147,6 +4033,144 @@ namespace WebService
 		{
 			this.SendPropertyChanging();
 			entity.SANPHAM = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LOAISP")]
+	public partial class LOAISP : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _MALOAISP;
+		
+		private string _TENLOAISP;
+		
+		private string _HinhAnh;
+		
+		private EntitySet<SANPHAM> _SANPHAMs;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMALOAISPChanging(string value);
+    partial void OnMALOAISPChanged();
+    partial void OnTENLOAISPChanging(string value);
+    partial void OnTENLOAISPChanged();
+    partial void OnHinhAnhChanging(string value);
+    partial void OnHinhAnhChanged();
+    #endregion
+		
+		public LOAISP()
+		{
+			this._SANPHAMs = new EntitySet<SANPHAM>(new Action<SANPHAM>(this.attach_SANPHAMs), new Action<SANPHAM>(this.detach_SANPHAMs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MALOAISP", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MALOAISP
+		{
+			get
+			{
+				return this._MALOAISP;
+			}
+			set
+			{
+				if ((this._MALOAISP != value))
+				{
+					this.OnMALOAISPChanging(value);
+					this.SendPropertyChanging();
+					this._MALOAISP = value;
+					this.SendPropertyChanged("MALOAISP");
+					this.OnMALOAISPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TENLOAISP", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string TENLOAISP
+		{
+			get
+			{
+				return this._TENLOAISP;
+			}
+			set
+			{
+				if ((this._TENLOAISP != value))
+				{
+					this.OnTENLOAISPChanging(value);
+					this.SendPropertyChanging();
+					this._TENLOAISP = value;
+					this.SendPropertyChanged("TENLOAISP");
+					this.OnTENLOAISPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HinhAnh", DbType="NVarChar(100)")]
+		public string HinhAnh
+		{
+			get
+			{
+				return this._HinhAnh;
+			}
+			set
+			{
+				if ((this._HinhAnh != value))
+				{
+					this.OnHinhAnhChanging(value);
+					this.SendPropertyChanging();
+					this._HinhAnh = value;
+					this.SendPropertyChanged("HinhAnh");
+					this.OnHinhAnhChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LOAISP_SANPHAM", Storage="_SANPHAMs", ThisKey="MALOAISP", OtherKey="MALOAISP")]
+		internal EntitySet<SANPHAM> SANPHAMs
+		{
+			get
+			{
+				return this._SANPHAMs;
+			}
+			set
+			{
+				this._SANPHAMs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_SANPHAMs(SANPHAM entity)
+		{
+			this.SendPropertyChanging();
+			entity.LOAISP = this;
+		}
+		
+		private void detach_SANPHAMs(SANPHAM entity)
+		{
+			this.SendPropertyChanging();
+			entity.LOAISP = null;
 		}
 	}
 }

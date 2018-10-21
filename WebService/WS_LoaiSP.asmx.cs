@@ -19,13 +19,14 @@ namespace WebService
         DataClassesDataContext dc = new DataClassesDataContext();
 
         [WebMethod (Description = "Add LoaiSP")]
-        public bool Add(string MaLoaiSP, string TenLoaiSP)
+        public bool Add(string MaLoaiSP, string TenLoaiSP, string HinhAnh)
         {
             try
             {
                 LOAISP loaiSP = new LOAISP();
                 loaiSP.MALOAISP = MaLoaiSP;
                 loaiSP.TENLOAISP = TenLoaiSP;
+                loaiSP.HinhAnh = HinhAnh;
                 dc.LOAISPs.InsertOnSubmit(loaiSP);
                 dc.SubmitChanges();
                 return true;
@@ -79,12 +80,13 @@ namespace WebService
         }
 
         [WebMethod (Description = "Update LoaiSP by MaLoaiSP")]
-        public bool Update(string MaLoaiSP, string TenLoaiSP)
+        public bool Update(string MaLoaiSP, string TenLoaiSP, string HinhAnh)
         {
             try
             {
                 LOAISP loaiSP = dc.LOAISPs.Single(t => t.MALOAISP == MaLoaiSP);
                 loaiSP.TENLOAISP = TenLoaiSP;
+                loaiSP.HinhAnh = HinhAnh;
                 dc.SubmitChanges();
                 return true;
             }

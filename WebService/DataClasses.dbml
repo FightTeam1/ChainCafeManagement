@@ -96,13 +96,6 @@
       <Association Name="NHOMQUYEN_LOAINHANVIEN_NHOMQUYEN" Member="NHOMQUYEN" ThisKey="MANHOM" OtherKey="MANHOM" Type="NHOMQUYEN" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.LOAISP" Member="LOAISPs">
-    <Type Name="LOAISP">
-      <Column Name="MALOAISP" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TENLOAISP" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Association Name="LOAISP_SANPHAM" Member="SANPHAMs" AccessModifier="Internal" ThisKey="MALOAISP" OtherKey="MALOAISP" Type="SANPHAM" />
-    </Type>
-  </Table>
   <Table Name="dbo.NGUYENLIEU" Member="NGUYENLIEUs">
     <Type Name="NGUYENLIEU">
       <Column Name="MANGUYENLIEU" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -188,6 +181,14 @@
       <Association Name="SANPHAM_CHITIETHOADON" Member="CHITIETHOADONs" AccessModifier="Internal" ThisKey="MASP" OtherKey="MASP" Type="CHITIETHOADON" />
       <Association Name="SANPHAM_SP_NGUYENLIEU" Member="SP_NGUYENLIEUs" AccessModifier="Internal" ThisKey="MASP" OtherKey="MASP" Type="SP_NGUYENLIEU" />
       <Association Name="LOAISP_SANPHAM" Member="LOAISP" ThisKey="MALOAISP" OtherKey="MALOAISP" Type="LOAISP" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LOAISP" Member="LOAISPs">
+    <Type Name="LOAISP">
+      <Column Name="MALOAISP" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENLOAISP" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="HinhAnh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="LOAISP_SANPHAM" Member="SANPHAMs" AccessModifier="Internal" ThisKey="MALOAISP" OtherKey="MALOAISP" Type="SANPHAM" />
     </Type>
   </Table>
 </Database>
