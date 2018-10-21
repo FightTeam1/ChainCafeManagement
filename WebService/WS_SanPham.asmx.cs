@@ -45,7 +45,7 @@ namespace WebService
         }
 
         [WebMethod (Description = "Add SanPham")]
-        public bool Add (string MaSP, string MaLoaiSP, string TenSP, int DonGia)
+        public bool Add (string MaSP, string MaLoaiSP, string TenSP, int DonGia, string HinhAnh)
         {
             try
             {
@@ -54,6 +54,7 @@ namespace WebService
                 sanPham.MALOAISP = MaLoaiSP;
                 sanPham.TENSP = TenSP;
                 sanPham.DONGIA = DonGia;
+                sanPham.HinhAnh = HinhAnh;
                 dc.SANPHAMs.InsertOnSubmit(sanPham);
                 dc.SubmitChanges();
                 return true;
@@ -81,7 +82,7 @@ namespace WebService
         }
 
         [WebMethod(Description = "Update SanPham by MaSP")]
-        public bool Update(string MaSP, string MaLoaiSP, string TenSP, int DonGia)
+        public bool Update(string MaSP, string MaLoaiSP, string TenSP, int DonGia, string HinhAnh)
         {
             try
             {
@@ -89,6 +90,7 @@ namespace WebService
                 sanPham.MALOAISP = MaLoaiSP;
                 sanPham.TENSP = TenSP;
                 sanPham.DONGIA = DonGia;
+                sanPham.HinhAnh = HinhAnh;
                 dc.SubmitChanges();
                 return true;
             }

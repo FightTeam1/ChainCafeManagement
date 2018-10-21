@@ -158,17 +158,6 @@
       <Association Name="NHANVIEN_PHIEUNHAP" Member="NHANVIEN" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.SANPHAM" Member="SANPHAMs">
-    <Type Name="SANPHAM">
-      <Column Name="MASP" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MALOAISP" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="TENSP" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="DONGIA" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
-      <Association Name="SANPHAM_CHITIETHOADON" Member="CHITIETHOADONs" AccessModifier="Internal" ThisKey="MASP" OtherKey="MASP" Type="CHITIETHOADON" />
-      <Association Name="SANPHAM_SP_NGUYENLIEU" Member="SP_NGUYENLIEUs" AccessModifier="Internal" ThisKey="MASP" OtherKey="MASP" Type="SP_NGUYENLIEU" />
-      <Association Name="LOAISP_SANPHAM" Member="LOAISP" ThisKey="MALOAISP" OtherKey="MALOAISP" Type="LOAISP" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.SP_NGUYENLIEU" Member="SP_NGUYENLIEUs">
     <Type Name="SP_NGUYENLIEU">
       <Column Name="MASP" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -187,6 +176,18 @@
       <Column Name="MANV" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Column Name="NGAYDANG" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="NHANVIEN_TINTUC" Member="NHANVIEN" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SANPHAM" Member="SANPHAMs">
+    <Type Name="SANPHAM">
+      <Column Name="MASP" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MALOAISP" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="TENSP" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DONGIA" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="HinhAnh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="SANPHAM_CHITIETHOADON" Member="CHITIETHOADONs" AccessModifier="Internal" ThisKey="MASP" OtherKey="MASP" Type="CHITIETHOADON" />
+      <Association Name="SANPHAM_SP_NGUYENLIEU" Member="SP_NGUYENLIEUs" AccessModifier="Internal" ThisKey="MASP" OtherKey="MASP" Type="SP_NGUYENLIEU" />
+      <Association Name="LOAISP_SANPHAM" Member="LOAISP" ThisKey="MALOAISP" OtherKey="MALOAISP" Type="LOAISP" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

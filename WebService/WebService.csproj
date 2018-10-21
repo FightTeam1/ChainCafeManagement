@@ -77,6 +77,7 @@
     <Content Include="WS_LoaiSP.asmx" />
     <Content Include="WS_NhanVien.asmx" />
     <Content Include="WS_SanPham.asmx" />
+    <Content Include="WS_TinTuc.asmx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataClasses.designer.cs">
@@ -122,6 +123,10 @@
       <DependentUpon>WS_SanPham.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="WS_TinTuc.asmx.cs">
+      <DependentUpon>WS_TinTuc.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="DataClasses.dbml">
@@ -146,6 +151,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="resources\images\sanpham\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
