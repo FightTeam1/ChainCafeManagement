@@ -45,7 +45,7 @@ namespace WebService
         }
 
         [WebMethod(Description = "Add KHACHHANG")]
-        public bool Add(string TenDangNhap, string HoTenKH, string Sdt, string Email, int DiemTich, string MatKhau)
+        public bool Add(string TenDangNhap, string HoTenKH, string Sdt, string Email, int DiemTich, string MatKhau, string HinhAnh)
         {
             try
             {
@@ -56,6 +56,7 @@ namespace WebService
                 khachHang.EMAIL = Email;
                 khachHang.DIEMTICH = DiemTich;
                 khachHang.MATKHAU = MatKhau;
+                khachHang.HinhAnh = HinhAnh;
                 dc.KHACHHANGs.InsertOnSubmit(khachHang);
                 dc.SubmitChanges();
                 return true;
@@ -83,7 +84,7 @@ namespace WebService
         }
 
         [WebMethod(Description = "Update KHACHHANG by TenDangNhap")]
-        public bool Update(string TenDangNhap, string HoTenKH, string Sdt, string Email, int DiemTich, string MatKhau)
+        public bool Update(string TenDangNhap, string HoTenKH, string Sdt, string Email, int DiemTich, string MatKhau, string HinhAnh)
         {
             try
             {
@@ -93,6 +94,7 @@ namespace WebService
                 khachHang.EMAIL = Email;
                 khachHang.DIEMTICH = DiemTich;
                 khachHang.MATKHAU = MatKhau;
+                khachHang.HinhAnh = HinhAnh;
                 dc.SubmitChanges();
                 return true;
             }

@@ -55,19 +55,8 @@
       <Column Name="TRANGTHAI" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="DIACHI" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Association Name="HOADON_CHITIETHOADON" Member="CHITIETHOADONs" AccessModifier="Internal" ThisKey="MAHOADON" OtherKey="MAHOADON" Type="CHITIETHOADON" />
-      <Association Name="KHACHHANG_HOADON" Member="KHACHHANG" ThisKey="TENDANGNHAP" OtherKey="TENDANGNHAP" Type="KHACHHANG" IsForeignKey="true" />
       <Association Name="NHANVIEN_HOADON" Member="NHANVIEN" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.KHACHHANG" Member="KHACHHANGs">
-    <Type Name="KHACHHANG">
-      <Column Name="TENDANGNHAP" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="HOTENKH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="SDT" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="EMAIL" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="DIEMTICH" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MATKHAU" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Association Name="KHACHHANG_HOADON" Member="HOADONs" AccessModifier="Internal" ThisKey="TENDANGNHAP" OtherKey="TENDANGNHAP" Type="HOADON" />
+      <Association Name="KHACHHANG_HOADON" Member="KHACHHANG" ThisKey="TENDANGNHAP" OtherKey="TENDANGNHAP" Type="KHACHHANG" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.LOAINHANVIEN" Member="LOAINHANVIENs">
@@ -190,6 +179,18 @@
       <Column Name="HinhAnh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Association Name="COSO_TONKHO" Member="TONKHOs" AccessModifier="Internal" ThisKey="MACS" OtherKey="MACS" Type="TONKHO" />
       <Association Name="COSO_NHANVIEN" Member="NHANVIENs" AccessModifier="Internal" ThisKey="MACS" OtherKey="MACS" Type="NHANVIEN" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KHACHHANG" Member="KHACHHANGs">
+    <Type Name="KHACHHANG">
+      <Column Name="TENDANGNHAP" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HOTENKH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="EMAIL" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="DIEMTICH" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MATKHAU" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="HinhAnh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="KHACHHANG_HOADON" Member="HOADONs" AccessModifier="Internal" ThisKey="TENDANGNHAP" OtherKey="TENDANGNHAP" Type="HOADON" />
     </Type>
   </Table>
 </Database>
