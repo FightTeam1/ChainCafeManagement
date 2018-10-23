@@ -20,14 +20,14 @@ namespace WebService
         DataClassesDataContext dc = new DataClassesDataContext();
 
         [WebMethod(Description = "Add HoaDon")]
-        public bool Add(string MaHoaDon, string MaNV, string TenDangNhap_KH, DateTime NgayGioLap, int ThanhTien, string TrangThai, string DiaChi)
+        public bool Add(string MaHoaDon, string MaNV, string Sdt_KH, DateTime NgayGioLap, int ThanhTien, string TrangThai, string DiaChi)
         {
             try
             {
                 HOADON hoaDon = new HOADON();
                 hoaDon.MAHOADON = MaHoaDon;
                 hoaDon.MANV = MaNV;
-                hoaDon.TENDANGNHAP = TenDangNhap_KH;
+                hoaDon.SDT_KH = Sdt_KH;
                 hoaDon.NGAYGIOLAP = NgayGioLap;
                 hoaDon.THANHTIEN = ThanhTien;
                 hoaDon.TRANGTHAI = TrangThai;
@@ -85,13 +85,13 @@ namespace WebService
         }
 
         [WebMethod(Description = "Update HoaDon by MaHoaDon")]
-        public bool Update(string MaHoaDon, string MaNV, string TenDangNhap_KH, DateTime NgayGioLap, int ThanhTien, string TrangThai, string DiaChi)
+        public bool Update(string MaHoaDon, string MaNV, string Sdt_KH, DateTime NgayGioLap, int ThanhTien, string TrangThai, string DiaChi)
         {
             try
             {
                 HOADON hoaDon = dc.HOADONs.Single(t => t.MAHOADON == MaHoaDon);
                 hoaDon.MANV = MaNV;
-                hoaDon.TENDANGNHAP = TenDangNhap_KH;
+                hoaDon.SDT_KH = Sdt_KH;
                 hoaDon.NGAYGIOLAP = NgayGioLap;
                 hoaDon.THANHTIEN = ThanhTien;
                 hoaDon.TRANGTHAI = TrangThai;

@@ -31,12 +31,12 @@ namespace WebService
             }
         }
 
-        [WebMethod(Description = "Find KhachHang by TenDangNhap")]
-        public KHACHHANG Find(string TenDangNhap)
+        [WebMethod(Description = "Find KhachHang by Sdt")]
+        public KHACHHANG Find(string Sdt)
         {
             try
             {
-                return dc.KHACHHANGs.Single(kh => kh.TENDANGNHAP == TenDangNhap);
+                return dc.KHACHHANGs.Single(kh => kh.SDT == Sdt);
             }
             catch
             {
@@ -45,17 +45,15 @@ namespace WebService
         }
 
         [WebMethod(Description = "Add KHACHHANG")]
-        public bool Add(string TenDangNhap, string HoTenKH, string Sdt, string Email, int DiemTich, string MatKhau, string HinhAnh)
+        public bool Add(string HoTenKH, string Sdt, string Email, int DiemTich, string HinhAnh)
         {
             try
             {
                 KHACHHANG khachHang = new KHACHHANG();
-                khachHang.TENDANGNHAP = TenDangNhap;
                 khachHang.HOTENKH = HoTenKH;
                 khachHang.SDT = Sdt;
                 khachHang.EMAIL = Email;
                 khachHang.DIEMTICH = DiemTich;
-                khachHang.MATKHAU = MatKhau;
                 khachHang.HinhAnh = HinhAnh;
                 dc.KHACHHANGs.InsertOnSubmit(khachHang);
                 dc.SubmitChanges();
@@ -67,12 +65,12 @@ namespace WebService
             }
         }
 
-        [WebMethod(Description = "Delete KHACHHANG by TenDangNhap")]
-        public bool Delete(string TenDangNhap)
+        [WebMethod(Description = "Delete KHACHHANG by Sdt")]
+        public bool Delete(string Sdt)
         {
             try
             {
-                KHACHHANG khachHang = dc.KHACHHANGs.Single(kh => kh.TENDANGNHAP == TenDangNhap);
+                KHACHHANG khachHang = dc.KHACHHANGs.Single(kh => kh.SDT == Sdt);
                 dc.KHACHHANGs.DeleteOnSubmit(khachHang);
                 dc.SubmitChanges();
                 return true;
@@ -83,17 +81,15 @@ namespace WebService
             }
         }
 
-        [WebMethod(Description = "Update KHACHHANG by TenDangNhap")]
-        public bool Update(string TenDangNhap, string HoTenKH, string Sdt, string Email, int DiemTich, string MatKhau, string HinhAnh)
+        [WebMethod(Description = "Update KHACHHANG by Sdt")]
+        public bool Update(string HoTenKH, string Sdt, string Email, int DiemTich, string HinhAnh)
         {
             try
             {
-                KHACHHANG khachHang = dc.KHACHHANGs.Single(kh => kh.TENDANGNHAP == TenDangNhap);
+                KHACHHANG khachHang = dc.KHACHHANGs.Single(kh => kh.SDT == Sdt);
                 khachHang.HOTENKH = HoTenKH;
-                khachHang.SDT = Sdt;
                 khachHang.EMAIL = Email;
                 khachHang.DIEMTICH = DiemTich;
-                khachHang.MATKHAU = MatKhau;
                 khachHang.HinhAnh = HinhAnh;
                 dc.SubmitChanges();
                 return true;

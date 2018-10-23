@@ -26,11 +26,22 @@ namespace WebService.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-4H0UN8P\\SQLEXPRESS;Initial Catalog=QL_ChuoiQuanCafe;User ID=c" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=WINDOWS-INSTANC\\SQLEXPRESS;Initial Catalog=QL_ChuoiQuanCafe;User ID=c" +
             "afe;Password=cafe")]
         public string QL_ChuoiQuanCafeConnectionString {
             get {
                 return ((string)(this["QL_ChuoiQuanCafeConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=WINDOWS-INSTANC\\SQLEXPRESS;Initial Catalog=QL_ChuoiQuanCafe;User ID=c" +
+            "afe")]
+        public string QL_ChuoiQuanCafeConnectionString1 {
+            get {
+                return ((string)(this["QL_ChuoiQuanCafeConnectionString1"]));
             }
         }
     }

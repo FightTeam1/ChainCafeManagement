@@ -68,7 +68,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="WS_ChiTietHoaDon.asmx" />
     <Content Include="WS_CoSo.asmx" />
     <Content Include="WS_HoaDon.asmx" />
@@ -80,7 +82,7 @@
     <Content Include="WS_TinTuc.asmx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataClasses.designer.cs">
+    <Compile Include="DataClasses1.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClasses.dbml</DependentUpon>
@@ -131,8 +133,8 @@
   <ItemGroup>
     <Content Include="DataClasses.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>DataClasses.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
     </Content>
     <None Include="DataClasses.dbml.layout">
       <DependentUpon>DataClasses.dbml</DependentUpon>

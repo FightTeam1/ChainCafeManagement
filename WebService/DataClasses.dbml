@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QL_ChuoiQuanCafe" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-4H0UN8P\SQLEXPRESS;Initial Catalog=QL_ChuoiQuanCafe;User ID=cafe" SettingsObjectName="WebService.Properties.Settings" SettingsPropertyName="QL_ChuoiQuanCafeConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=WINDOWS-INSTANC\SQLEXPRESS;Initial Catalog=QL_ChuoiQuanCafe;User ID=cafe" SettingsObjectName="WebService.Properties.Settings" SettingsPropertyName="QL_ChuoiQuanCafeConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.CHITIETHOADON" Member="CHITIETHOADONs">
     <Type Name="CHITIETHOADON">
       <Column Name="MAHOADON" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="MASP" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="SL_SP" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="HOADON_CHITIETHOADON" Member="HOADON" ThisKey="MAHOADON" OtherKey="MAHOADON" Type="HOADON" IsForeignKey="true" />
       <Association Name="SANPHAM_CHITIETHOADON" Member="SANPHAM" ThisKey="MASP" OtherKey="MASP" Type="SANPHAM" IsForeignKey="true" />
+      <Association Name="HOADON_CHITIETHOADON" Member="HOADON" ThisKey="MAHOADON" OtherKey="MAHOADON" Type="HOADON" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TONKHO" Member="TONKHOs">
@@ -14,8 +14,8 @@
       <Column Name="MANGUYENLIEU" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="MACS" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="SL" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="NGUYENLIEU_TONKHO" Member="NGUYENLIEU" ThisKey="MANGUYENLIEU" OtherKey="MANGUYENLIEU" Type="NGUYENLIEU" IsForeignKey="true" />
       <Association Name="COSO_TONKHO" Member="COSO" ThisKey="MACS" OtherKey="MACS" Type="COSO" IsForeignKey="true" />
+      <Association Name="NGUYENLIEU_TONKHO" Member="NGUYENLIEU" ThisKey="MANGUYENLIEU" OtherKey="MANGUYENLIEU" Type="NGUYENLIEU" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.CHITIETPHIEUNHAP" Member="CHITIETPHIEUNHAPs">
@@ -29,6 +29,17 @@
       <Association Name="DVT_CHITIETPHIEUNHAP" Member="DVT" ThisKey="MADVT" OtherKey="MADVT" Type="DVT" IsForeignKey="true" />
       <Association Name="NGUYENLIEU_CHITIETPHIEUNHAP" Member="NGUYENLIEU" ThisKey="MANGUYENLIEU" OtherKey="MANGUYENLIEU" Type="NGUYENLIEU" IsForeignKey="true" />
       <Association Name="PHIEUNHAP_CHITIETPHIEUNHAP" Member="PHIEUNHAP" ThisKey="MAPHIEU" OtherKey="MAPHIEU" Type="PHIEUNHAP" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.COSO" Member="COSOs">
+    <Type Name="COSO">
+      <Column Name="MACS" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENCS" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DIACHI" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="HinhAnh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="COSO_TONKHO" Member="TONKHOs" AccessModifier="Internal" ThisKey="MACS" OtherKey="MACS" Type="TONKHO" />
+      <Association Name="COSO_NHANVIEN" Member="NHANVIENs" AccessModifier="Internal" ThisKey="MACS" OtherKey="MACS" Type="NHANVIEN" />
     </Type>
   </Table>
   <Table Name="dbo.DSMANHINH" Member="DSMANHINHs">
@@ -45,25 +56,11 @@
       <Association Name="DVT_CHITIETPHIEUNHAP" Member="CHITIETPHIEUNHAPs" AccessModifier="Internal" ThisKey="MADVT" OtherKey="MADVT" Type="CHITIETPHIEUNHAP" />
     </Type>
   </Table>
-  <Table Name="dbo.HOADON" Member="HOADONs">
-    <Type Name="HOADON">
-      <Column Name="MAHOADON" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MANV" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="TENDANGNHAP" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="NGAYGIOLAP" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="THANHTIEN" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
-      <Column Name="TRANGTHAI" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="DIACHI" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Association Name="HOADON_CHITIETHOADON" Member="CHITIETHOADONs" AccessModifier="Internal" ThisKey="MAHOADON" OtherKey="MAHOADON" Type="CHITIETHOADON" />
-      <Association Name="NHANVIEN_HOADON" Member="NHANVIEN" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" IsForeignKey="true" />
-      <Association Name="KHACHHANG_HOADON" Member="KHACHHANG" ThisKey="TENDANGNHAP" OtherKey="TENDANGNHAP" Type="KHACHHANG" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.LOAINHANVIEN" Member="LOAINHANVIENs">
     <Type Name="LOAINHANVIEN">
       <Column Name="MALOAINV" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="TENLOAINV" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="LOAINHANVIEN_LOAINHANVIEN_NHOMQUYEN" Member="LOAINHANVIEN_NHOMQUYENs" ThisKey="MALOAINV" OtherKey="MALOAINV" Type="LOAINHANVIEN_NHOMQUYEN" />
+      <Association Name="LOAINHANVIEN_LOAINHANVIEN_NHOMQUYEN" Member="LOAINHANVIEN_NHOMQUYENs" AccessModifier="Internal" ThisKey="MALOAINV" OtherKey="MALOAINV" Type="LOAINHANVIEN_NHOMQUYEN" />
       <Association Name="LOAINHANVIEN_NHANVIEN" Member="NHANVIENs" AccessModifier="Internal" ThisKey="MALOAINV" OtherKey="MALOAINV" Type="NHANVIEN" />
     </Type>
   </Table>
@@ -73,6 +70,14 @@
       <Column Name="MANHOM" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Association Name="LOAINHANVIEN_LOAINHANVIEN_NHOMQUYEN" Member="LOAINHANVIEN" ThisKey="MALOAINV" OtherKey="MALOAINV" Type="LOAINHANVIEN" IsForeignKey="true" />
       <Association Name="NHOMQUYEN_LOAINHANVIEN_NHOMQUYEN" Member="NHOMQUYEN" ThisKey="MANHOM" OtherKey="MANHOM" Type="NHOMQUYEN" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LOAISP" Member="LOAISPs">
+    <Type Name="LOAISP">
+      <Column Name="MALOAISP" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENLOAISP" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="HinhAnh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="LOAISP_SANPHAM" Member="SANPHAMs" AccessModifier="Internal" ThisKey="MALOAISP" OtherKey="MALOAISP" Type="SANPHAM" />
     </Type>
   </Table>
   <Table Name="dbo.NGUYENLIEU" Member="NGUYENLIEUs">
@@ -96,11 +101,11 @@
       <Column Name="EMAIL" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="DIACHI_NV" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="MATKHAU" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Association Name="NHANVIEN_HOADON" Member="HOADONs" AccessModifier="Internal" ThisKey="MANV" OtherKey="MANV" Type="HOADON" />
       <Association Name="NHANVIEN_PHIEUNHAP" Member="PHIEUNHAPs" AccessModifier="Internal" ThisKey="MANV" OtherKey="MANV" Type="PHIEUNHAP" />
       <Association Name="NHANVIEN_TINTUC" Member="TINTUCs" AccessModifier="Internal" ThisKey="MANV" OtherKey="MANV" Type="TINTUC" />
-      <Association Name="LOAINHANVIEN_NHANVIEN" Member="LOAINHANVIEN" ThisKey="MALOAINV" OtherKey="MALOAINV" Type="LOAINHANVIEN" IsForeignKey="true" />
+      <Association Name="NHANVIEN_HOADON" Member="HOADONs" AccessModifier="Internal" ThisKey="MANV" OtherKey="MANV" Type="HOADON" />
       <Association Name="COSO_NHANVIEN" Member="COSO" ThisKey="MACS" OtherKey="MACS" Type="COSO" IsForeignKey="true" />
+      <Association Name="LOAINHANVIEN_NHANVIEN" Member="LOAINHANVIEN" ThisKey="MALOAINV" OtherKey="MALOAINV" Type="LOAINHANVIEN" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.NHOMQUYEN" Member="NHOMQUYENs">
@@ -130,15 +135,6 @@
       <Association Name="NHANVIEN_PHIEUNHAP" Member="NHANVIEN" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.SP_NGUYENLIEU" Member="SP_NGUYENLIEUs">
-    <Type Name="SP_NGUYENLIEU">
-      <Column Name="MASP" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MANGUYENLIEU" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="SL_DVT_NHO" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="NGUYENLIEU_SP_NGUYENLIEU" Member="NGUYENLIEU" ThisKey="MANGUYENLIEU" OtherKey="MANGUYENLIEU" Type="NGUYENLIEU" IsForeignKey="true" />
-      <Association Name="SANPHAM_SP_NGUYENLIEU" Member="SANPHAM" ThisKey="MASP" OtherKey="MASP" Type="SANPHAM" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.SANPHAM" Member="SANPHAMs">
     <Type Name="SANPHAM">
       <Column Name="MASP" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -151,12 +147,13 @@
       <Association Name="LOAISP_SANPHAM" Member="LOAISP" ThisKey="MALOAISP" OtherKey="MALOAISP" Type="LOAISP" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.LOAISP" Member="LOAISPs">
-    <Type Name="LOAISP">
-      <Column Name="MALOAISP" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TENLOAISP" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="HinhAnh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Association Name="LOAISP_SANPHAM" Member="SANPHAMs" AccessModifier="Internal" ThisKey="MALOAISP" OtherKey="MALOAISP" Type="SANPHAM" />
+  <Table Name="dbo.SP_NGUYENLIEU" Member="SP_NGUYENLIEUs">
+    <Type Name="SP_NGUYENLIEU">
+      <Column Name="MASP" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MANGUYENLIEU" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SL_DVT_NHO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="NGUYENLIEU_SP_NGUYENLIEU" Member="NGUYENLIEU" ThisKey="MANGUYENLIEU" OtherKey="MANGUYENLIEU" Type="NGUYENLIEU" IsForeignKey="true" />
+      <Association Name="SANPHAM_SP_NGUYENLIEU" Member="SANPHAM" ThisKey="MASP" OtherKey="MASP" Type="SANPHAM" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TINTUC" Member="TINTUCs">
@@ -170,27 +167,28 @@
       <Association Name="NHANVIEN_TINTUC" Member="NHANVIEN" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.COSO" Member="COSOs">
-    <Type Name="COSO">
-      <Column Name="MACS" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TENCS" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="DIACHI" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="SDT" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="HinhAnh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Association Name="COSO_TONKHO" Member="TONKHOs" AccessModifier="Internal" ThisKey="MACS" OtherKey="MACS" Type="TONKHO" />
-      <Association Name="COSO_NHANVIEN" Member="NHANVIENs" AccessModifier="Internal" ThisKey="MACS" OtherKey="MACS" Type="NHANVIEN" />
-    </Type>
-  </Table>
   <Table Name="dbo.KHACHHANG" Member="KHACHHANGs">
     <Type Name="KHACHHANG">
-      <Column Name="TENDANGNHAP" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="HOTENKH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="SDT" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="EMAIL" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="DIEMTICH" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MATKHAU" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="HinhAnh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Association Name="KHACHHANG_HOADON" Member="HOADONs" AccessModifier="Internal" ThisKey="TENDANGNHAP" OtherKey="TENDANGNHAP" Type="HOADON" />
+      <Association Name="KHACHHANG_HOADON" Member="HOADONs" AccessModifier="Internal" ThisKey="SDT" OtherKey="SDT_KH" Type="HOADON" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HOADON" Member="HOADONs">
+    <Type Name="HOADON">
+      <Column Name="MAHOADON" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MANV" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="SDT_KH" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="NGAYGIOLAP" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="THANHTIEN" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="TRANGTHAI" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DIACHI" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="HOADON_CHITIETHOADON" Member="CHITIETHOADONs" AccessModifier="Internal" ThisKey="MAHOADON" OtherKey="MAHOADON" Type="CHITIETHOADON" />
+      <Association Name="KHACHHANG_HOADON" Member="KHACHHANG" ThisKey="SDT_KH" OtherKey="SDT" Type="KHACHHANG" IsForeignKey="true" />
+      <Association Name="NHANVIEN_HOADON" Member="NHANVIEN" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
