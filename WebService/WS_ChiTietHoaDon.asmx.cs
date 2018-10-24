@@ -18,6 +18,7 @@ namespace WebService
     {
         DataClassesDataContext dc = new DataClassesDataContext();
 
+
         [WebMethod(Description = "Add ChiTietHoaDon")]
         public bool Add(string MaHoaDon, string MaSP, int SL_SP)
         {
@@ -29,6 +30,12 @@ namespace WebService
                 ctHD.SL_SP = SL_SP;
 
                 dc.CHITIETHOADONs.InsertOnSubmit(ctHD);
+                dc.SubmitChanges();
+
+                // update ThanhTien of HoaDon
+                SANPHAM sp = dc.SANPHAMs.Single(t => t.MASP == MaSP);
+                HOADON hd = dc.HOADONs.Single(t => t.MAHOADON == MaHoaDon);
+                hd.THANHTIEN += SL_SP * sp.DONGIA;
                 dc.SubmitChanges();
                 return true;
             }
@@ -72,6 +79,13 @@ namespace WebService
                 CHITIETHOADON ctHD = dc.CHITIETHOADONs.Single(t => t.MAHOADON == MaHoaDon && t.MASP == MaSP);
                 dc.CHITIETHOADONs.DeleteOnSubmit(ctHD);
                 dc.SubmitChanges();
+
+                // update ThanhTien of HoaDon
+                SANPHAM sp = dc.SANPHAMs.Single(t => t.MASP == MaSP);
+                HOADON hd = dc.HOADONs.Single(t => t.MAHOADON == MaHoaDon);
+                hd.THANHTIEN -= ctHD.SL_SP * sp.DONGIA;
+                dc.SubmitChanges();
+
                 return true;
             }
             catch
@@ -86,7 +100,12 @@ namespace WebService
             try
             {
                 CHITIETHOADON ctHD = dc.CHITIETHOADONs.Single(t => t.MAHOADON == MaHoaDon && t.MASP == MaSP);
+                int? old_SL_SP = ctHD.SL_SP;
                 ctHD.SL_SP = SL_SP;
+
+                SANPHAM sp = dc.SANPHAMs.Single(t => t.MASP == MaSP);
+                HOADON hd = dc.HOADONs.Single(t => t.MAHOADON == MaHoaDon);
+                hd.THANHTIEN += (SL_SP - old_SL_SP) * sp.DONGIA;
                 dc.SubmitChanges();
                 return true;
             }
