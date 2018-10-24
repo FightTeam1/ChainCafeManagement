@@ -99,5 +99,18 @@ namespace WebService
                 return false;
             }
         }
+
+        [WebMethod(Description = "Count all KhachHang by Sdt, return boolean")]
+        public int Count(string Sdt)
+        {
+            try
+            {
+                return (dc.KHACHHANGs.Single(t => t.SDT == Sdt)) == null ? 0 : 1;
+            }
+            catch
+            {
+                return -1;
+            }
+        }
     }
 }

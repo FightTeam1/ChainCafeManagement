@@ -170,7 +170,7 @@
   <Table Name="dbo.KHACHHANG" Member="KHACHHANGs">
     <Type Name="KHACHHANG">
       <Column Name="HOTENKH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="SDT" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(14) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="EMAIL" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="DIEMTICH" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="HinhAnh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
@@ -181,11 +181,12 @@
     <Type Name="HOADON">
       <Column Name="MAHOADON" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="MANV" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="SDT_KH" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="SDT_KH" Type="System.String" DbType="VarChar(14)" CanBeNull="true" />
       <Column Name="NGAYGIOLAP" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="THANHTIEN" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
       <Column Name="TRANGTHAI" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="DIACHI" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LOAIHD" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Association Name="HOADON_CHITIETHOADON" Member="CHITIETHOADONs" AccessModifier="Internal" ThisKey="MAHOADON" OtherKey="MAHOADON" Type="CHITIETHOADON" />
       <Association Name="KHACHHANG_HOADON" Member="KHACHHANG" ThisKey="SDT_KH" OtherKey="SDT" Type="KHACHHANG" IsForeignKey="true" />
       <Association Name="NHANVIEN_HOADON" Member="NHANVIEN" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" IsForeignKey="true" />

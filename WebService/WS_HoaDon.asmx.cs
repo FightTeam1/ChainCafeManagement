@@ -20,18 +20,20 @@ namespace WebService
         DataClassesDataContext dc = new DataClassesDataContext();
 
         [WebMethod(Description = "Add HoaDon")]
-        public bool Add(string MaHoaDon, string MaNV, string Sdt_KH, DateTime NgayGioLap, int ThanhTien, string TrangThai, string DiaChi)
+        public bool Add(string MaHoaDon, string MaNV, string Sdt_KH, string DiaChi)
         {
             try
             {
+                string LoaiHD = MaNV == "" ? "online" : "offline";
                 HOADON hoaDon = new HOADON();
                 hoaDon.MAHOADON = MaHoaDon;
-                hoaDon.MANV = MaNV;
+                hoaDon.MANV = LoaiHD == "online" ? "NV001" : MaNV;
                 hoaDon.SDT_KH = Sdt_KH;
-                hoaDon.NGAYGIOLAP = NgayGioLap;
-                hoaDon.THANHTIEN = ThanhTien;
-                hoaDon.TRANGTHAI = TrangThai;
-                hoaDon.DIACHI = DiaChi;
+                hoaDon.NGAYGIOLAP = DateTime.Now;
+                hoaDon.THANHTIEN = 0;
+                hoaDon.TRANGTHAI = LoaiHD == "online" ? "Đang chờ duyệt" : "Đã duyệt";
+                hoaDon.DIACHI = LoaiHD == "online" ? DiaChi : "Tại cửa hàng";
+                hoaDon.LOAIHD = LoaiHD;
                 dc.HOADONs.InsertOnSubmit(hoaDon);
                 dc.SubmitChanges();
                 return true;
@@ -85,7 +87,7 @@ namespace WebService
         }
 
         [WebMethod(Description = "Update HoaDon by MaHoaDon")]
-        public bool Update(string MaHoaDon, string MaNV, string Sdt_KH, DateTime NgayGioLap, int ThanhTien, string TrangThai, string DiaChi)
+        public bool Update(string MaHoaDon, string MaNV, string Sdt_KH, DateTime NgayGioLap, int ThanhTien, string TrangThai, string DiaChi, string LoaiHD)
         {
             try
             {
@@ -96,6 +98,7 @@ namespace WebService
                 hoaDon.THANHTIEN = ThanhTien;
                 hoaDon.TRANGTHAI = TrangThai;
                 hoaDon.DIACHI = DiaChi;
+                hoaDon.LOAIHD = LoaiHD;
 
                 dc.SubmitChanges();
                 return true;

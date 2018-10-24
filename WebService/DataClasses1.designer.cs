@@ -3732,7 +3732,7 @@ namespace WebService
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SDT", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SDT", DbType="VarChar(14) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string SDT
 		{
 			get
@@ -3878,6 +3878,8 @@ namespace WebService
 		
 		private string _DIACHI;
 		
+		private string _LOAIHD;
+		
 		private EntitySet<CHITIETHOADON> _CHITIETHOADONs;
 		
 		private EntityRef<KHACHHANG> _KHACHHANG;
@@ -3902,6 +3904,8 @@ namespace WebService
     partial void OnTRANGTHAIChanged();
     partial void OnDIACHIChanging(string value);
     partial void OnDIACHIChanged();
+    partial void OnLOAIHDChanging(string value);
+    partial void OnLOAIHDChanged();
     #endregion
 		
 		public HOADON()
@@ -3956,7 +3960,7 @@ namespace WebService
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SDT_KH", DbType="VarChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SDT_KH", DbType="VarChar(14)")]
 		public string SDT_KH
 		{
 			get
@@ -4056,6 +4060,26 @@ namespace WebService
 					this._DIACHI = value;
 					this.SendPropertyChanged("DIACHI");
 					this.OnDIACHIChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LOAIHD", DbType="NVarChar(30)")]
+		public string LOAIHD
+		{
+			get
+			{
+				return this._LOAIHD;
+			}
+			set
+			{
+				if ((this._LOAIHD != value))
+				{
+					this.OnLOAIHDChanging(value);
+					this.SendPropertyChanging();
+					this._LOAIHD = value;
+					this.SendPropertyChanged("LOAIHD");
+					this.OnLOAIHDChanged();
 				}
 			}
 		}
