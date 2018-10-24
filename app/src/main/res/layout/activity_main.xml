@@ -1,81 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:scrollbars="vertical"
-    android:background="#f7f7f7"
-    android:scrollbarAlwaysDrawVerticalTrack="true"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".MainActivity">
-    <android.support.v7.widget.Toolbar
-        android:outlineSpotShadowColor="#ea8025"
-        android:outlineAmbientShadowColor="#ea8025"
+    <FrameLayout
+        android:id="@+id/frame_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_mavigation_view" />
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_mavigation_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:background="#fff"
-        android:minHeight="?attr/actionBarSize"
-        android:id="@+id/toolbar_main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </android.support.v7.widget.Toolbar>
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <android.support.v7.widget.RecyclerView
-                android:layout_marginLeft="10dp"
-                android:id="@+id/recyclerview_3function"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                </android.support.v7.widget.RecyclerView>
-            <TextView
-                android:id="@+id/txt3function"
-                android:layout_below="@+id/recyclerview_3function"
-                android:textStyle="bold"
-                android:textColor="#000"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="15dp"
-                android:text="Dành cho bạn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <android.support.v7.widget.RecyclerView
-                android:layout_below="@+id/txt3function"
-                android:id="@+id/recyclerview_foryou"
-                android:layout_marginLeft="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            </android.support.v7.widget.RecyclerView>
-            <TextView
-                android:id="@+id/txtFoyou"
-                android:layout_below="@+id/recyclerview_foryou"
-                android:textStyle="bold"
-                android:textColor="#000"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="15dp"
-                android:text="Tin tức"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <android.support.v7.widget.RecyclerView
-                android:layout_below="@+id/txtFoyou"
-                android:overScrollMode="never"
-                android:id="@+id/recyclerview_news"
-                android:layout_marginLeft="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            </android.support.v7.widget.RecyclerView>
-        </RelativeLayout>
-    </ScrollView>
-    <TableLayout
-        android:tabSelectedTextColor="#ea8025"
-        android:tabMode="fixed"
-        android:tabIndicatorColor="#ea8025"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-    </TableLayout>
-</LinearLayout>
+        app:itemIconTint="@color/bottom_navigation"
+        app:itemTextColor="@color/bottom_navigation"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_navigation" />
+</RelativeLayout>

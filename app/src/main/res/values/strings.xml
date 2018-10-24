@@ -1,4 +1,11 @@
 <resources>
-    <string name="app_name">My Application</string>
-    <string name="toolbar">demooo</string>
+    <string name="news">Tin tức</string>
+    <string name="others">Đặt hàng</string>
+    <string name="store">Cửa hàng</string>
+    <string name="account">Tài khoản</string>
+    <string name="facebook_app_id">2397027180524138</string>
+    <string name="app_name">fighttech</string>
+    <string name="FACEBOOK_APP_ID">2397027180524138</string>
+    <string name="ACCOUNT_KIT_CLIENT_TOKEN">ed32835a5e4bf305df8fa0ad5b873412</string>
+    <string name="ak_login_protocol_sheme">aked32835a5e4bf305df8fa0ad5b873412</string>
 </resources>
