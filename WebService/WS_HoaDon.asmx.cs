@@ -20,27 +20,45 @@ namespace WebService
         DataClassesDataContext dc = new DataClassesDataContext();
 
         [WebMethod(Description = "Add HoaDon")]
-        public bool Add(string MaHoaDon, string MaNV, string Sdt_KH, string DiaChi)
+        public string Add(string MaNV, string Sdt_KH, string DiaChi)
         {
             try
             {
                 string LoaiHD = MaNV == "" ? "online" : "offline";
                 HOADON hoaDon = new HOADON();
-                hoaDon.MAHOADON = MaHoaDon;
+                if (dc.HOADONs.Count() == 0)
+                {
+                    hoaDon.MAHOADON = "HD1";
+                }
+                else
+                {
+                    var list = dc.HOADONs.ToList();
+                    string MaHD = "HD1";
+                    string prefix = "HD";
+                    foreach (var hd in list)
+                    {
+                        int num = int.Parse(hd.MAHOADON.Substring(prefix.Length));
+                        if (num > int.Parse(MaHD.Substring(prefix.Length)))
+                        {
+                            MaHD = hd.MAHOADON;
+                        }
+                    }
+                    hoaDon.MAHOADON = Util.autoGenerationCode("HD", MaHD);
+                }
                 hoaDon.MANV = LoaiHD == "online" ? "NV001" : MaNV;
                 hoaDon.SDT_KH = Sdt_KH;
                 hoaDon.NGAYGIOLAP = DateTime.Now;
                 hoaDon.THANHTIEN = 0;
-                hoaDon.TRANGTHAI = LoaiHD == "online" ? "Đang chờ duyệt" : "Đã duyệt";
+                hoaDon.TRANGTHAI = LoaiHD == "online" ? "Mới" : "Đã duyệt";
                 hoaDon.DIACHI = LoaiHD == "online" ? DiaChi : "Tại cửa hàng";
                 hoaDon.LOAIHD = LoaiHD;
                 dc.HOADONs.InsertOnSubmit(hoaDon);
                 dc.SubmitChanges();
-                return true;
+                return hoaDon.MAHOADON;
             }
-            catch
+            catch (Exception ex)
             {
-                return false;
+                return ex.Message;
             }
         }
 
