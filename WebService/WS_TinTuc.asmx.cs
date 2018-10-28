@@ -42,6 +42,8 @@ namespace WebService
             }
         }
 
+
+
         [WebMethod(Description = "Find all TinTuc")]
         public List<TINTUC> FindAll()
         {

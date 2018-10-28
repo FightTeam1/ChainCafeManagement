@@ -126,5 +126,49 @@ namespace WebService
                 return false;
             }
         }
+
+        [WebMethod(Description = "Update TrangThai of HoaDon by MaHoaDon")]
+        public bool UpdateTrangThai(string MaHoaDon, string TrangThai)
+        {
+            try
+            {
+                HOADON hoaDon = dc.HOADONs.Single(t => t.MAHOADON == MaHoaDon);
+                hoaDon.TRANGTHAI = TrangThai;
+
+                dc.SubmitChanges();
+
+                if (TrangThai == "Đặt hàng")
+                {
+                    DIEUPHOI dieuPhoi = new DIEUPHOI();
+                    WS_DieuPhoi wsDieuPhoi = new WS_DieuPhoi();
+                    wsDieuPhoi.Distribute(MaHoaDon);
+                    hoaDon.TRANGTHAI = "Đang chờ duyệt";
+                    dc.SubmitChanges();
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        [WebMethod(Description = "Update DiaChi of HoaDon by MaHoaDon")]
+        public bool UpdateDiaChi(string MaHoaDon, string DiaChi)
+        {
+            try
+            {
+                HOADON hoaDon = dc.HOADONs.Single(t => t.MAHOADON == MaHoaDon);
+                hoaDon.DIACHI = DiaChi;
+
+                dc.SubmitChanges();
+                
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

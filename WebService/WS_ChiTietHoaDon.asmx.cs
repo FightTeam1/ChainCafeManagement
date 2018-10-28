@@ -71,6 +71,19 @@ namespace WebService
             }
         }
 
+        [WebMethod(Description = "Find CHITIETHOADON by MaHoaDon")]
+        public List<CHITIETHOADON> FindByMaHD(string MaHoaDon)
+        {
+            try
+            {
+                return (from ct in dc.CHITIETHOADONs where ct.MAHOADON == MaHoaDon select ct).ToList();
+            }
+            catch
+            {
+                return new List<CHITIETHOADON>();
+            }
+        }
+
         [WebMethod(Description = "Delete CHITIETHOADON by MaHoaDon and MaSP")]
         public bool Delete(string MaHoaDon, string MaSP)
         {

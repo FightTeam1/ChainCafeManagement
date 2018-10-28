@@ -73,6 +73,7 @@
     </Content>
     <Content Include="WS_ChiTietHoaDon.asmx" />
     <Content Include="WS_CoSo.asmx" />
+    <Content Include="WS_DieuPhoi.asmx" />
     <Content Include="WS_HoaDon.asmx" />
     <Content Include="WS_KhachHang.asmx" />
     <Content Include="WS_LoaiNhanVien.asmx" />
@@ -100,6 +101,10 @@
     </Compile>
     <Compile Include="WS_CoSo.asmx.cs">
       <DependentUpon>WS_CoSo.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WS_DieuPhoi.asmx.cs">
+      <DependentUpon>WS_DieuPhoi.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="WS_HoaDon.asmx.cs">
