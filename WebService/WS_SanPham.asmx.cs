@@ -45,6 +45,20 @@ namespace WebService
             }
         }
 
+
+        [WebMethod(Description = "Find SanPham by MaLoaiSP")]
+        public List<SANPHAM> FindByMaLoaiSP(string MaLoaiSP)
+        {
+            try
+            {
+                return (from sp in dc.SANPHAMs where sp.MALOAISP == MaLoaiSP select sp).ToList();
+            }
+            catch
+            {
+                return new List<SANPHAM>();
+            }
+        }
+
         [WebMethod (Description = "Add SanPham")]
         public bool Add (string MaSP, string MaLoaiSP, string TenSP, int DonGia, string HinhAnh)
         {
