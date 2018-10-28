@@ -42,17 +42,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bllChiTietHoaDon.cs" />
     <Compile Include="bllCoSo.cs" />
     <Compile Include="bllDangNhap.cs" />
+    <Compile Include="bllDieuPhoi.cs" />
+    <Compile Include="bllHoaDon.cs" />
     <Compile Include="bllKhachHang.cs" />
     <Compile Include="bllLoaiSanPham.cs" />
+    <Compile Include="bllNhanVien.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Web References\serviceChiTietHoaDon\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\serviceCoSo\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\serviceDieuPhoi\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\serviceHoaDon\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -80,6 +99,17 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <WebReferenceUrl Include="http://35.231.193.118/ChainCafeManagerment/WS_ChiTietHoaDon.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\serviceChiTietHoaDon\</RelPath>
+      <UpdateFromURL>http://35.231.193.118/ChainCafeManagerment/WS_ChiTietHoaDon.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BLL_serviceChiTietHoaDon_WS_ChiTietHoaDon</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://35.231.193.118/ChainCafeManagerment/WS_coso.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\serviceCoSo\</RelPath>
@@ -90,6 +120,28 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>BLL_serviceCoSo_WS_CoSo</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://35.231.193.118/ChainCafeManagerment/WS_DieuPhoi.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\serviceDieuPhoi\</RelPath>
+      <UpdateFromURL>http://35.231.193.118/ChainCafeManagerment/WS_DieuPhoi.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BLL_serviceDieuPhoi_WS_DieuPhoi</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://35.231.193.118/ChainCafeManagerment/WS_hoadon.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\serviceHoaDon\</RelPath>
+      <UpdateFromURL>http://35.231.193.118/ChainCafeManagerment/WS_hoadon.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BLL_serviceHoaDon_WS_HoaDon</CachedSettingsPropName>
     </WebReferenceUrl>
     <WebReferenceUrl Include="http://35.231.193.118/ChainCafeManagerment/WS_khachhang.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
@@ -131,6 +183,14 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Web References\serviceChiTietHoaDon\CHITIETHOADON.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\serviceChiTietHoaDon\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\serviceChiTietHoaDon\WS_ChiTietHoaDon.wsdl" />
     <None Include="Web References\serviceCoSo\COSO.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
@@ -139,6 +199,22 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\serviceCoSo\WS_coso.wsdl" />
+    <None Include="Web References\serviceDieuPhoi\DIEUPHOI.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\serviceDieuPhoi\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\serviceDieuPhoi\WS_DieuPhoi.wsdl" />
+    <None Include="Web References\serviceHoaDon\HOADON.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\serviceHoaDon\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\serviceHoaDon\WS_hoadon.wsdl" />
     <None Include="Web References\serviceKhachHang\KHACHHANG.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
@@ -175,6 +251,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\serviceNhanVien\WS_nhanvien.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\serviceDieuPhoi\WS_DieuPhoi.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\serviceChiTietHoaDon\WS_ChiTietHoaDon.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\serviceHoaDon\WS_hoadon.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

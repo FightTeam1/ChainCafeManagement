@@ -4,3 +4,10 @@ C:\Users\Admin\Desktop\DoAn\BLL\bin\Debug\BLL.dll
 C:\Users\Admin\Desktop\DoAn\BLL\bin\Debug\BLL.pdb
 C:\Users\Admin\Desktop\DoAn\BLL\obj\Debug\BLL.dll
 C:\Users\Admin\Desktop\DoAn\BLL\obj\Debug\BLL.pdb
+D:\VisualStudioProjects\GUIChainCafeManagement\BLL\bin\Debug\BLL.dll.config
+D:\VisualStudioProjects\GUIChainCafeManagement\BLL\bin\Debug\BLL.dll
+D:\VisualStudioProjects\GUIChainCafeManagement\BLL\bin\Debug\BLL.pdb
+D:\VisualStudioProjects\GUIChainCafeManagement\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\VisualStudioProjects\GUIChainCafeManagement\BLL\obj\Debug\BLL.dll
+D:\VisualStudioProjects\GUIChainCafeManagement\BLL\obj\Debug\BLL.pdb
+D:\VisualStudioProjects\GUIChainCafeManagement\BLL\obj\Debug\BLL.csprojAssemblyReference.cache

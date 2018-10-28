@@ -12,7 +12,7 @@ namespace BLL.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.7.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.8.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -60,6 +60,36 @@ namespace BLL.Properties {
         public string BLL_serviceNhanVien_WS_NhanVien {
             get {
                 return ((string)(this["BLL_serviceNhanVien_WS_NhanVien"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://35.231.193.118/ChainCafeManagerment/WS_DieuPhoi.asmx")]
+        public string BLL_serviceDieuPhoi_WS_DieuPhoi {
+            get {
+                return ((string)(this["BLL_serviceDieuPhoi_WS_DieuPhoi"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://35.231.193.118/ChainCafeManagerment/WS_ChiTietHoaDon.asmx")]
+        public string BLL_serviceChiTietHoaDon_WS_ChiTietHoaDon {
+            get {
+                return ((string)(this["BLL_serviceChiTietHoaDon_WS_ChiTietHoaDon"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://35.231.193.118/ChainCafeManagerment/WS_hoadon.asmx")]
+        public string BLL_serviceHoaDon_WS_HoaDon {
+            get {
+                return ((string)(this["BLL_serviceHoaDon_WS_HoaDon"]));
             }
         }
     }
