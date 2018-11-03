@@ -201,28 +201,10 @@ namespace GUI
             else
             {
                 nameMa = ((TileItem)ob).Name;
-                //Controls.Add(new frmSoLuong(this));
-                //Controls[Controls.Count - 1].Show();
-                //layoutControl1.Hide();
-
                 if (order)
                 {
-
-
-
                     frmSoLuong1 frmmm = new frmSoLuong1(this);
                     frmmm.Show();
-
-                    //if (lt.Kq)
-                    //{
-                    //    MessageBox.Show(lt.Kq.ToString() + " " + lt.Sl.ToString());
-
-                    //    bllChiTietHoaDon.addChiTietHoaDon(hd.MAHOADON, ((TileItem)ob).Name, lt.Sl);
-                    //    hd = bllHoaDon.getByMaHD(hd.MAHOADON);
-                    //    gridControl1.DataSource = bllChiTietHoaDon.getChiTietHDByMaHD(hd.MAHOADON);
-                    //    ganGiaTri(hd);
-                    //    return;
-                    //}
                 }
                 
             }
