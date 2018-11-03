@@ -56,7 +56,8 @@ namespace GUI
 
         private void tileItem7_ItemClick(object sender, TileItemEventArgs e)
         {
-
+            frmReport frm = new frmReport();
+            frm.Show();
         }
     }
 }
