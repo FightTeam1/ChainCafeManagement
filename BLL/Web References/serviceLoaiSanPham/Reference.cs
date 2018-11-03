@@ -39,6 +39,8 @@ namespace BLL.serviceLoaiSanPham {
         
         private System.Threading.SendOrPostCallback UpdateOperationCompleted;
         
+        private System.Threading.SendOrPostCallback UploadFileOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -91,6 +93,9 @@ namespace BLL.serviceLoaiSanPham {
         
         /// <remarks/>
         public event UpdateCompletedEventHandler UpdateCompleted;
+        
+        /// <remarks/>
+        public event UploadFileCompletedEventHandler UploadFileCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Add", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -240,6 +245,37 @@ namespace BLL.serviceLoaiSanPham {
             if ((this.UpdateCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.UpdateCompleted(this, new UpdateCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UploadFile", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string UploadFile([System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")] byte[] f, string fileName) {
+            object[] results = this.Invoke("UploadFile", new object[] {
+                        f,
+                        fileName});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void UploadFileAsync(byte[] f, string fileName) {
+            this.UploadFileAsync(f, fileName, null);
+        }
+        
+        /// <remarks/>
+        public void UploadFileAsync(byte[] f, string fileName, object userState) {
+            if ((this.UploadFileOperationCompleted == null)) {
+                this.UploadFileOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUploadFileOperationCompleted);
+            }
+            this.InvokeAsync("UploadFile", new object[] {
+                        f,
+                        fileName}, this.UploadFileOperationCompleted, userState);
+        }
+        
+        private void OnUploadFileOperationCompleted(object arg) {
+            if ((this.UploadFileCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UploadFileCompleted(this, new UploadFileCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -433,6 +469,32 @@ namespace BLL.serviceLoaiSanPham {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void UploadFileCompletedEventHandler(object sender, UploadFileCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class UploadFileCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal UploadFileCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
             }
         }
     }

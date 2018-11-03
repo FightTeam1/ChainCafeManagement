@@ -38,8 +38,25 @@
           <s:element minOccurs="0" maxOccurs="1" name="MAHOADON" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="MASP" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="SL_SP" nillable="true" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="HOADON" type="tns:HOADON" />
           <s:element minOccurs="0" maxOccurs="1" name="SANPHAM" type="tns:SANPHAM" />
+          <s:element minOccurs="0" maxOccurs="1" name="HOADON" type="tns:HOADON" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SANPHAM">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MASP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MALOAISP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TENSP" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DONGIA" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="HinhAnh" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LOAISP" type="tns:LOAISP" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LOAISP">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MALOAISP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TENLOAISP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HinhAnh" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="HOADON">
@@ -48,21 +65,12 @@
           <s:element minOccurs="0" maxOccurs="1" name="MANV" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="SDT_KH" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="NGAYGIOLAP" nillable="true" type="s:dateTime" />
-          <s:element minOccurs="1" maxOccurs="1" name="THANHTIEN" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="THANHTIEN" nillable="true" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="TRANGTHAI" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="DIACHI" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="LOAIHD" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="KHACHHANG" type="tns:KHACHHANG" />
           <s:element minOccurs="0" maxOccurs="1" name="NHANVIEN" type="tns:NHANVIEN" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="KHACHHANG">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="HOTENKH" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="SDT" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="EMAIL" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="DIEMTICH" nillable="true" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="HinhAnh" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KHACHHANG" type="tns:KHACHHANG" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="NHANVIEN">
@@ -95,21 +103,14 @@
           <s:element minOccurs="0" maxOccurs="1" name="TENLOAINV" type="s:string" />
         </s:sequence>
       </s:complexType>
-      <s:complexType name="SANPHAM">
+      <s:complexType name="KHACHHANG">
         <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="MASP" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="MALOAISP" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="TENSP" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="DONGIA" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="HOTENKH" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SDT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EMAIL" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DIEMTICH" nillable="true" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="HinhAnh" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="LOAISP" type="tns:LOAISP" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="LOAISP">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="MALOAISP" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="TENLOAISP" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="HinhAnh" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MATHANHVIEN" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:element name="Find">
@@ -619,16 +620,16 @@
   </wsdl:binding>
   <wsdl:service name="WS_ChiTietHoaDon">
     <wsdl:port name="WS_ChiTietHoaDonSoap" binding="tns:WS_ChiTietHoaDonSoap">
-      <soap:address location="http://35.231.193.118/ChainCafeManagerment/WS_ChiTietHoaDon.asmx" />
+      <soap:address location="http://35.185.83.140/ChainCafeManagerment/WS_chitiethoadon.asmx" />
     </wsdl:port>
     <wsdl:port name="WS_ChiTietHoaDonSoap12" binding="tns:WS_ChiTietHoaDonSoap12">
-      <soap12:address location="http://35.231.193.118/ChainCafeManagerment/WS_ChiTietHoaDon.asmx" />
+      <soap12:address location="http://35.185.83.140/ChainCafeManagerment/WS_chitiethoadon.asmx" />
     </wsdl:port>
     <wsdl:port name="WS_ChiTietHoaDonHttpGet" binding="tns:WS_ChiTietHoaDonHttpGet">
-      <http:address location="http://35.231.193.118/ChainCafeManagerment/WS_ChiTietHoaDon.asmx" />
+      <http:address location="http://35.185.83.140/ChainCafeManagerment/WS_chitiethoadon.asmx" />
     </wsdl:port>
     <wsdl:port name="WS_ChiTietHoaDonHttpPost" binding="tns:WS_ChiTietHoaDonHttpPost">
-      <http:address location="http://35.231.193.118/ChainCafeManagerment/WS_ChiTietHoaDon.asmx" />
+      <http:address location="http://35.185.83.140/ChainCafeManagerment/WS_chitiethoadon.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

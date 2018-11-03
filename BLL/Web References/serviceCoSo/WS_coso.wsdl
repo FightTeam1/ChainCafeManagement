@@ -472,16 +472,16 @@
   </wsdl:binding>
   <wsdl:service name="WS_CoSo">
     <wsdl:port name="WS_CoSoSoap" binding="tns:WS_CoSoSoap">
-      <soap:address location="http://35.231.193.118/ChainCafeManagerment/WS_coso.asmx" />
+      <soap:address location="http://35.185.83.140/ChainCafeManagerment/WS_coso.asmx" />
     </wsdl:port>
     <wsdl:port name="WS_CoSoSoap12" binding="tns:WS_CoSoSoap12">
-      <soap12:address location="http://35.231.193.118/ChainCafeManagerment/WS_coso.asmx" />
+      <soap12:address location="http://35.185.83.140/ChainCafeManagerment/WS_coso.asmx" />
     </wsdl:port>
     <wsdl:port name="WS_CoSoHttpGet" binding="tns:WS_CoSoHttpGet">
-      <http:address location="http://35.231.193.118/ChainCafeManagerment/WS_coso.asmx" />
+      <http:address location="http://35.185.83.140/ChainCafeManagerment/WS_coso.asmx" />
     </wsdl:port>
     <wsdl:port name="WS_CoSoHttpPost" binding="tns:WS_CoSoHttpPost">
-      <http:address location="http://35.231.193.118/ChainCafeManagerment/WS_coso.asmx" />
+      <http:address location="http://35.185.83.140/ChainCafeManagerment/WS_coso.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

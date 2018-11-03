@@ -22,7 +22,7 @@ namespace GUI
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
-            Application.Run(new frmDatHang());
+            Application.Run(new frmMain());
         }
     }
 }

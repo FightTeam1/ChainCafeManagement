@@ -59,5 +59,10 @@ namespace BLL
             }
             return false;
         }
+
+        public KHACHHANG getBySdt(string sdt)
+        {
+            return dal.Find(sdt);
+        }
     }
 }

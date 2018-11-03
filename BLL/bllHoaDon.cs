@@ -21,21 +21,9 @@ namespace BLL
             return dal.Find(MaHD);
         }
 
-        public int addHoaDon(string MaNV, string Sdt, string DiaChi)
+        public string addHoaDon(string MaNV, string Sdt, string DiaChi)
         {
-            if (IsStringsEmpty(MaNV, Sdt, DiaChi))
-            {
-                return 1;
-            }
-            try
-            {
-                dal.Add(MaNV, Sdt, DiaChi);
-            }
-            catch
-            {
-                return 3;
-            }
-            return 0;
+            return dal.Add(MaNV, Sdt, DiaChi);
         }
 
         public bool deleteHoaDon(string MaHoaDon)

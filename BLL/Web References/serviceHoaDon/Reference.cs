@@ -39,6 +39,10 @@ namespace BLL.serviceHoaDon {
         
         private System.Threading.SendOrPostCallback UpdateOperationCompleted;
         
+        private System.Threading.SendOrPostCallback UpdateTrangThaiOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback UpdateDiaChiOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -91,6 +95,12 @@ namespace BLL.serviceHoaDon {
         
         /// <remarks/>
         public event UpdateCompletedEventHandler UpdateCompleted;
+        
+        /// <remarks/>
+        public event UpdateTrangThaiCompletedEventHandler UpdateTrangThaiCompleted;
+        
+        /// <remarks/>
+        public event UpdateDiaChiCompletedEventHandler UpdateDiaChiCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Add", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -254,6 +264,68 @@ namespace BLL.serviceHoaDon {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdateTrangThai", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool UpdateTrangThai(string MaHoaDon, string TrangThai) {
+            object[] results = this.Invoke("UpdateTrangThai", new object[] {
+                        MaHoaDon,
+                        TrangThai});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void UpdateTrangThaiAsync(string MaHoaDon, string TrangThai) {
+            this.UpdateTrangThaiAsync(MaHoaDon, TrangThai, null);
+        }
+        
+        /// <remarks/>
+        public void UpdateTrangThaiAsync(string MaHoaDon, string TrangThai, object userState) {
+            if ((this.UpdateTrangThaiOperationCompleted == null)) {
+                this.UpdateTrangThaiOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateTrangThaiOperationCompleted);
+            }
+            this.InvokeAsync("UpdateTrangThai", new object[] {
+                        MaHoaDon,
+                        TrangThai}, this.UpdateTrangThaiOperationCompleted, userState);
+        }
+        
+        private void OnUpdateTrangThaiOperationCompleted(object arg) {
+            if ((this.UpdateTrangThaiCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UpdateTrangThaiCompleted(this, new UpdateTrangThaiCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdateDiaChi", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool UpdateDiaChi(string MaHoaDon, string DiaChi) {
+            object[] results = this.Invoke("UpdateDiaChi", new object[] {
+                        MaHoaDon,
+                        DiaChi});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void UpdateDiaChiAsync(string MaHoaDon, string DiaChi) {
+            this.UpdateDiaChiAsync(MaHoaDon, DiaChi, null);
+        }
+        
+        /// <remarks/>
+        public void UpdateDiaChiAsync(string MaHoaDon, string DiaChi, object userState) {
+            if ((this.UpdateDiaChiOperationCompleted == null)) {
+                this.UpdateDiaChiOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateDiaChiOperationCompleted);
+            }
+            this.InvokeAsync("UpdateDiaChi", new object[] {
+                        MaHoaDon,
+                        DiaChi}, this.UpdateDiaChiOperationCompleted, userState);
+        }
+        
+        private void OnUpdateDiaChiOperationCompleted(object arg) {
+            if ((this.UpdateDiaChiCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UpdateDiaChiCompleted(this, new UpdateDiaChiCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -296,9 +368,9 @@ namespace BLL.serviceHoaDon {
         
         private string lOAIHDField;
         
-        private KHACHHANG kHACHHANGField;
-        
         private NHANVIEN nHANVIENField;
+        
+        private KHACHHANG kHACHHANGField;
         
         /// <remarks/>
         public string MAHOADON {
@@ -383,16 +455,6 @@ namespace BLL.serviceHoaDon {
         }
         
         /// <remarks/>
-        public KHACHHANG KHACHHANG {
-            get {
-                return this.kHACHHANGField;
-            }
-            set {
-                this.kHACHHANGField = value;
-            }
-        }
-        
-        /// <remarks/>
         public NHANVIEN NHANVIEN {
             get {
                 return this.nHANVIENField;
@@ -401,176 +463,14 @@ namespace BLL.serviceHoaDon {
                 this.nHANVIENField = value;
             }
         }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class KHACHHANG {
-        
-        private string hOTENKHField;
-        
-        private string sDTField;
-        
-        private string eMAILField;
-        
-        private System.Nullable<int> dIEMTICHField;
-        
-        private string hinhAnhField;
         
         /// <remarks/>
-        public string HOTENKH {
+        public KHACHHANG KHACHHANG {
             get {
-                return this.hOTENKHField;
+                return this.kHACHHANGField;
             }
             set {
-                this.hOTENKHField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string SDT {
-            get {
-                return this.sDTField;
-            }
-            set {
-                this.sDTField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string EMAIL {
-            get {
-                return this.eMAILField;
-            }
-            set {
-                this.eMAILField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> DIEMTICH {
-            get {
-                return this.dIEMTICHField;
-            }
-            set {
-                this.dIEMTICHField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string HinhAnh {
-            get {
-                return this.hinhAnhField;
-            }
-            set {
-                this.hinhAnhField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class LOAINHANVIEN {
-        
-        private string mALOAINVField;
-        
-        private string tENLOAINVField;
-        
-        /// <remarks/>
-        public string MALOAINV {
-            get {
-                return this.mALOAINVField;
-            }
-            set {
-                this.mALOAINVField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string TENLOAINV {
-            get {
-                return this.tENLOAINVField;
-            }
-            set {
-                this.tENLOAINVField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class COSO {
-        
-        private string mACSField;
-        
-        private string tENCSField;
-        
-        private string dIACHIField;
-        
-        private string sDTField;
-        
-        private string hinhAnhField;
-        
-        /// <remarks/>
-        public string MACS {
-            get {
-                return this.mACSField;
-            }
-            set {
-                this.mACSField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string TENCS {
-            get {
-                return this.tENCSField;
-            }
-            set {
-                this.tENCSField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string DIACHI {
-            get {
-                return this.dIACHIField;
-            }
-            set {
-                this.dIACHIField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string SDT {
-            get {
-                return this.sDTField;
-            }
-            set {
-                this.sDTField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string HinhAnh {
-            get {
-                return this.hinhAnhField;
-            }
-            set {
-                this.hinhAnhField = value;
+                this.kHACHHANGField = value;
             }
         }
     }
@@ -717,6 +617,190 @@ namespace BLL.serviceHoaDon {
     }
     
     /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class COSO {
+        
+        private string mACSField;
+        
+        private string tENCSField;
+        
+        private string dIACHIField;
+        
+        private string sDTField;
+        
+        private string hinhAnhField;
+        
+        /// <remarks/>
+        public string MACS {
+            get {
+                return this.mACSField;
+            }
+            set {
+                this.mACSField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string TENCS {
+            get {
+                return this.tENCSField;
+            }
+            set {
+                this.tENCSField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DIACHI {
+            get {
+                return this.dIACHIField;
+            }
+            set {
+                this.dIACHIField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SDT {
+            get {
+                return this.sDTField;
+            }
+            set {
+                this.sDTField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string HinhAnh {
+            get {
+                return this.hinhAnhField;
+            }
+            set {
+                this.hinhAnhField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class KHACHHANG {
+        
+        private string hOTENKHField;
+        
+        private string sDTField;
+        
+        private string eMAILField;
+        
+        private System.Nullable<int> dIEMTICHField;
+        
+        private string hinhAnhField;
+        
+        private string mATHANHVIENField;
+        
+        /// <remarks/>
+        public string HOTENKH {
+            get {
+                return this.hOTENKHField;
+            }
+            set {
+                this.hOTENKHField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SDT {
+            get {
+                return this.sDTField;
+            }
+            set {
+                this.sDTField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string EMAIL {
+            get {
+                return this.eMAILField;
+            }
+            set {
+                this.eMAILField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> DIEMTICH {
+            get {
+                return this.dIEMTICHField;
+            }
+            set {
+                this.dIEMTICHField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string HinhAnh {
+            get {
+                return this.hinhAnhField;
+            }
+            set {
+                this.hinhAnhField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string MATHANHVIEN {
+            get {
+                return this.mATHANHVIENField;
+            }
+            set {
+                this.mATHANHVIENField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class LOAINHANVIEN {
+        
+        private string mALOAINVField;
+        
+        private string tENLOAINVField;
+        
+        /// <remarks/>
+        public string MALOAINV {
+            get {
+                return this.mALOAINVField;
+            }
+            set {
+                this.mALOAINVField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string TENLOAINV {
+            get {
+                return this.tENLOAINVField;
+            }
+            set {
+                this.tENLOAINVField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     public delegate void AddCompletedEventHandler(object sender, AddCompletedEventArgs e);
     
@@ -833,6 +917,58 @@ namespace BLL.serviceHoaDon {
         private object[] results;
         
         internal UpdateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void UpdateTrangThaiCompletedEventHandler(object sender, UpdateTrangThaiCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class UpdateTrangThaiCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal UpdateTrangThaiCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void UpdateDiaChiCompletedEventHandler(object sender, UpdateDiaChiCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class UpdateDiaChiCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal UpdateDiaChiCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

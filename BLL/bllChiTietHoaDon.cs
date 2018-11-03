@@ -29,6 +29,7 @@ namespace BLL
             }
             if (ktraTrungKhoaChinh(MaHoaDon, MaSP))
             {
+                updateChiTietHoaDon(MaHoaDon,MaSP,(int)getChiTietHDByMaHD(MaHoaDon)[0].SL_SP + SoLuong);
                 return 2;
             }
             if (!dal.Add(MaHoaDon, MaSP, SoLuong))

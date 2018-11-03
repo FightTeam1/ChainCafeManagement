@@ -356,6 +356,88 @@ namespace BLL.serviceDieuPhoi {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class KHACHHANG {
+        
+        private string hOTENKHField;
+        
+        private string sDTField;
+        
+        private string eMAILField;
+        
+        private System.Nullable<int> dIEMTICHField;
+        
+        private string hinhAnhField;
+        
+        private string mATHANHVIENField;
+        
+        /// <remarks/>
+        public string HOTENKH {
+            get {
+                return this.hOTENKHField;
+            }
+            set {
+                this.hOTENKHField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SDT {
+            get {
+                return this.sDTField;
+            }
+            set {
+                this.sDTField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string EMAIL {
+            get {
+                return this.eMAILField;
+            }
+            set {
+                this.eMAILField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> DIEMTICH {
+            get {
+                return this.dIEMTICHField;
+            }
+            set {
+                this.dIEMTICHField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string HinhAnh {
+            get {
+                return this.hinhAnhField;
+            }
+            set {
+                this.hinhAnhField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string MATHANHVIEN {
+            get {
+                return this.mATHANHVIENField;
+            }
+            set {
+                this.mATHANHVIENField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class LOAINHANVIEN {
         
         private string mALOAINVField;
@@ -530,76 +612,6 @@ namespace BLL.serviceDieuPhoi {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class KHACHHANG {
-        
-        private string hOTENKHField;
-        
-        private string sDTField;
-        
-        private string eMAILField;
-        
-        private System.Nullable<int> dIEMTICHField;
-        
-        private string hinhAnhField;
-        
-        /// <remarks/>
-        public string HOTENKH {
-            get {
-                return this.hOTENKHField;
-            }
-            set {
-                this.hOTENKHField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string SDT {
-            get {
-                return this.sDTField;
-            }
-            set {
-                this.sDTField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string EMAIL {
-            get {
-                return this.eMAILField;
-            }
-            set {
-                this.eMAILField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> DIEMTICH {
-            get {
-                return this.dIEMTICHField;
-            }
-            set {
-                this.dIEMTICHField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string HinhAnh {
-            get {
-                return this.hinhAnhField;
-            }
-            set {
-                this.hinhAnhField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class HOADON {
         
         private string mAHOADONField;
@@ -610,7 +622,7 @@ namespace BLL.serviceDieuPhoi {
         
         private System.Nullable<System.DateTime> nGAYGIOLAPField;
         
-        private System.Nullable<decimal> tHANHTIENField;
+        private System.Nullable<int> tHANHTIENField;
         
         private string tRANGTHAIField;
         
@@ -618,9 +630,9 @@ namespace BLL.serviceDieuPhoi {
         
         private string lOAIHDField;
         
-        private KHACHHANG kHACHHANGField;
-        
         private NHANVIEN nHANVIENField;
+        
+        private KHACHHANG kHACHHANGField;
         
         /// <remarks/>
         public string MAHOADON {
@@ -665,7 +677,7 @@ namespace BLL.serviceDieuPhoi {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<decimal> THANHTIEN {
+        public System.Nullable<int> THANHTIEN {
             get {
                 return this.tHANHTIENField;
             }
@@ -705,22 +717,22 @@ namespace BLL.serviceDieuPhoi {
         }
         
         /// <remarks/>
-        public KHACHHANG KHACHHANG {
-            get {
-                return this.kHACHHANGField;
-            }
-            set {
-                this.kHACHHANGField = value;
-            }
-        }
-        
-        /// <remarks/>
         public NHANVIEN NHANVIEN {
             get {
                 return this.nHANVIENField;
             }
             set {
                 this.nHANVIENField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public KHACHHANG KHACHHANG {
+            get {
+                return this.kHACHHANGField;
+            }
+            set {
+                this.kHACHHANGField = value;
             }
         }
     }

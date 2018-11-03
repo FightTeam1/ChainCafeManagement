@@ -12,7 +12,7 @@ namespace BLL.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.8.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.7.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -26,7 +26,7 @@ namespace BLL.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://35.231.193.118/ChainCafeManagerment/WS_LoaiSP.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://35.185.83.140/ChainCafeManagerment/WS_LoaiSP.asmx")]
         public string BLL_serviceLoaiSanPham_WS_LoaiSP {
             get {
                 return ((string)(this["BLL_serviceLoaiSanPham_WS_LoaiSP"]));
@@ -36,7 +36,7 @@ namespace BLL.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://35.231.193.118/ChainCafeManagerment/WS_coso.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://35.185.83.140/ChainCafeManagerment/WS_coso.asmx")]
         public string BLL_serviceCoSo_WS_CoSo {
             get {
                 return ((string)(this["BLL_serviceCoSo_WS_CoSo"]));
@@ -46,7 +46,7 @@ namespace BLL.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://35.231.193.118/ChainCafeManagerment/WS_khachhang.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://35.185.83.140/ChainCafeManagerment/WS_khachhang.asmx")]
         public string BLL_serviceKhachHang_WS_KhachHang {
             get {
                 return ((string)(this["BLL_serviceKhachHang_WS_KhachHang"]));
@@ -56,7 +56,7 @@ namespace BLL.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://35.231.193.118/ChainCafeManagerment/WS_nhanvien.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://35.185.83.140/ChainCafeManagerment/WS_nhanvien.asmx")]
         public string BLL_serviceNhanVien_WS_NhanVien {
             get {
                 return ((string)(this["BLL_serviceNhanVien_WS_NhanVien"]));
@@ -66,17 +66,27 @@ namespace BLL.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://35.231.193.118/ChainCafeManagerment/WS_DieuPhoi.asmx")]
-        public string BLL_serviceDieuPhoi_WS_DieuPhoi {
+        [global::System.Configuration.DefaultSettingValueAttribute("http://35.185.83.140/ChainCafeManagerment/WS_sanpham.asmx")]
+        public string BLL_serviceSanPham_WS_SanPham {
             get {
-                return ((string)(this["BLL_serviceDieuPhoi_WS_DieuPhoi"]));
+                return ((string)(this["BLL_serviceSanPham_WS_SanPham"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://35.231.193.118/ChainCafeManagerment/WS_ChiTietHoaDon.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://35.185.83.140/ChainCafeManagerment/WS_loainhanvien.asmx")]
+        public string BLL_serviceLoaiNhanVien_WS_LoaiNhanVien {
+            get {
+                return ((string)(this["BLL_serviceLoaiNhanVien_WS_LoaiNhanVien"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://35.185.83.140/ChainCafeManagerment/WS_chitiethoadon.asmx")]
         public string BLL_serviceChiTietHoaDon_WS_ChiTietHoaDon {
             get {
                 return ((string)(this["BLL_serviceChiTietHoaDon_WS_ChiTietHoaDon"]));
@@ -86,10 +96,30 @@ namespace BLL.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://35.231.193.118/ChainCafeManagerment/WS_hoadon.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://35.185.83.140/ChainCafeManagerment/WS_hoadon.asmx")]
         public string BLL_serviceHoaDon_WS_HoaDon {
             get {
                 return ((string)(this["BLL_serviceHoaDon_WS_HoaDon"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://35.185.83.140/ChainCafeManagerment/WS_dieuphoi.asmx")]
+        public string BLL_serviceDieuPhoi_WS_DieuPhoi {
+            get {
+                return ((string)(this["BLL_serviceDieuPhoi_WS_DieuPhoi"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://35.185.83.140/ChainCafeManagerment/WS_tintuc.asmx")]
+        public string BLL_serviceTinTuc_WS_TinTuc {
+            get {
+                return ((string)(this["BLL_serviceTinTuc_WS_TinTuc"]));
             }
         }
     }

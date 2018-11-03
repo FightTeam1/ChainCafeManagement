@@ -16,7 +16,17 @@ namespace BLL
             return dal.FindAll().ToList();
         }
 
-        //public NHANVIEN getNhanVienByMaNV
+        public NHANVIEN getNhanVienByMaNV(string MaNV)
+        {
+            try
+            {
+                return dal.Find(MaNV);
+            }
+            catch
+            {
+                return null;
+            }
+        }
 
         public int addNhanVien(string MaNV, string MaLoaiNV, string MaCS, string HoTenNV, string Sdt, string Cmnd, string Email, string Diachi, string MatKhau)
         {

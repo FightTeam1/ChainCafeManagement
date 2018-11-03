@@ -24,6 +24,7 @@
           <s:element minOccurs="0" maxOccurs="1" name="EMAIL" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="DIEMTICH" nillable="true" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="HinhAnh" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MATHANHVIEN" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:element name="Find">
@@ -556,16 +557,16 @@
   </wsdl:binding>
   <wsdl:service name="WS_KhachHang">
     <wsdl:port name="WS_KhachHangSoap" binding="tns:WS_KhachHangSoap">
-      <soap:address location="http://35.231.193.118/ChainCafeManagerment/WS_khachhang.asmx" />
+      <soap:address location="http://35.185.83.140/ChainCafeManagerment/WS_khachhang.asmx" />
     </wsdl:port>
     <wsdl:port name="WS_KhachHangSoap12" binding="tns:WS_KhachHangSoap12">
-      <soap12:address location="http://35.231.193.118/ChainCafeManagerment/WS_khachhang.asmx" />
+      <soap12:address location="http://35.185.83.140/ChainCafeManagerment/WS_khachhang.asmx" />
     </wsdl:port>
     <wsdl:port name="WS_KhachHangHttpGet" binding="tns:WS_KhachHangHttpGet">
-      <http:address location="http://35.231.193.118/ChainCafeManagerment/WS_khachhang.asmx" />
+      <http:address location="http://35.185.83.140/ChainCafeManagerment/WS_khachhang.asmx" />
     </wsdl:port>
     <wsdl:port name="WS_KhachHangHttpPost" binding="tns:WS_KhachHangHttpPost">
-      <http:address location="http://35.231.193.118/ChainCafeManagerment/WS_khachhang.asmx" />
+      <http:address location="http://35.185.83.140/ChainCafeManagerment/WS_khachhang.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

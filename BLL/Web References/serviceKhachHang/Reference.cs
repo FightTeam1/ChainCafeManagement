@@ -322,6 +322,8 @@ namespace BLL.serviceKhachHang {
         
         private string hinhAnhField;
         
+        private string mATHANHVIENField;
+        
         /// <remarks/>
         public string HOTENKH {
             get {
@@ -370,6 +372,16 @@ namespace BLL.serviceKhachHang {
             }
             set {
                 this.hinhAnhField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string MATHANHVIEN {
+            get {
+                return this.mATHANHVIENField;
+            }
+            set {
+                this.mATHANHVIENField = value;
             }
         }
     }

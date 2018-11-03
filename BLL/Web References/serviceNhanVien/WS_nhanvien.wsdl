@@ -517,16 +517,16 @@
   </wsdl:binding>
   <wsdl:service name="WS_NhanVien">
     <wsdl:port name="WS_NhanVienSoap" binding="tns:WS_NhanVienSoap">
-      <soap:address location="http://35.231.193.118/ChainCafeManagerment/WS_nhanvien.asmx" />
+      <soap:address location="http://35.185.83.140/ChainCafeManagerment/WS_nhanvien.asmx" />
     </wsdl:port>
     <wsdl:port name="WS_NhanVienSoap12" binding="tns:WS_NhanVienSoap12">
-      <soap12:address location="http://35.231.193.118/ChainCafeManagerment/WS_nhanvien.asmx" />
+      <soap12:address location="http://35.185.83.140/ChainCafeManagerment/WS_nhanvien.asmx" />
     </wsdl:port>
     <wsdl:port name="WS_NhanVienHttpGet" binding="tns:WS_NhanVienHttpGet">
-      <http:address location="http://35.231.193.118/ChainCafeManagerment/WS_nhanvien.asmx" />
+      <http:address location="http://35.185.83.140/ChainCafeManagerment/WS_nhanvien.asmx" />
     </wsdl:port>
     <wsdl:port name="WS_NhanVienHttpPost" binding="tns:WS_NhanVienHttpPost">
-      <http:address location="http://35.231.193.118/ChainCafeManagerment/WS_nhanvien.asmx" />
+      <http:address location="http://35.185.83.140/ChainCafeManagerment/WS_nhanvien.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

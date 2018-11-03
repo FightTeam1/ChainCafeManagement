@@ -1,4 +1,4 @@
-﻿namespace GUI.CoSo
+﻿namespace GUI
 {
     partial class frmCoSo
     {
@@ -20,204 +20,199 @@
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+        #region Windows Form Designer generated code
 
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
+        ///
         private void InitializeComponent()
         {
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions11 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions12 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions13 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions14 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions15 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            this.layoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.labelControl = new DevExpress.XtraEditors.LabelControl();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.bbiPrintPreview = new DevExpress.XtraBars.BarButtonItem();
-            this.bsiRecordsCount = new DevExpress.XtraBars.BarStaticItem();
-            this.bbiNew = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiEdit = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiDelete = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiRefresh = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.layoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.itemLabel = new DevExpress.XtraLayout.LayoutControlItem();
+            this.itemGrid = new DevExpress.XtraLayout.LayoutControlItem();
+            this.windowsUIButtonPanel = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
+            this.layoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemLabel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemGrid)).BeginInit();
             this.SuspendLayout();
+            // 
+            // layoutControl
+            // 
+            this.layoutControl.AllowCustomization = false;
+            this.layoutControl.Controls.Add(this.labelControl);
+            this.layoutControl.Controls.Add(this.gridControl);
+            this.layoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl.Name = "layoutControl";
+            this.layoutControl.Root = this.layoutControlGroup;
+            this.layoutControl.Size = new System.Drawing.Size(784, 501);
+            this.layoutControl.TabIndex = 1;
+            // 
+            // labelControl
+            // 
+            this.labelControl.AllowHtmlString = true;
+            this.labelControl.Appearance.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelControl.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.labelControl.Appearance.Options.UseFont = true;
+            this.labelControl.Appearance.Options.UseForeColor = true;
+            this.labelControl.Appearance.Options.UseTextOptions = true;
+            this.labelControl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.labelControl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
+            this.labelControl.Location = new System.Drawing.Point(40, 0);
+            this.labelControl.Name = "labelControl";
+            this.labelControl.Padding = new System.Windows.Forms.Padding(0, 3, 13, 6);
+            this.labelControl.Size = new System.Drawing.Size(704, 34);
+            this.labelControl.StyleController = this.layoutControl;
+            this.labelControl.TabIndex = 4;
+            this.labelControl.Text = "Cơ sở";
             // 
             // gridControl
             // 
-            this.gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl.Location = new System.Drawing.Point(0, 146);
+            this.gridControl.Location = new System.Drawing.Point(40, 34);
             this.gridControl.MainView = this.gridView;
-            this.gridControl.MenuManager = this.ribbonControl;
             this.gridControl.Name = "gridControl";
-            this.gridControl.Size = new System.Drawing.Size(860, 476);
+            this.gridControl.Size = new System.Drawing.Size(704, 467);
             this.gridControl.TabIndex = 2;
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView});
             // 
             // gridView
             // 
-            this.gridView.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.gridView.GridControl = this.gridControl;
             this.gridView.Name = "gridView";
             this.gridView.OptionsBehavior.Editable = false;
-            this.gridView.OptionsBehavior.ReadOnly = true;
-            this.gridView.OptionsFind.AlwaysVisible = true;
+            this.gridView.OptionsCustomization.AllowColumnMoving = false;
+            this.gridView.OptionsCustomization.AllowGroup = false;
+            this.gridView.OptionsCustomization.AllowQuickHideColumns = false;
+            this.gridView.OptionsMenu.EnableColumnMenu = false;
+            this.gridView.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
+            this.gridView.OptionsView.ShowGroupPanel = false;
+            this.gridView.OptionsView.ShowIndicator = false;
             // 
-            // ribbonControl
+            // layoutControlGroup
             // 
-            this.ribbonControl.ExpandCollapseItem.Id = 0;
-            this.ribbonControl.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbonControl.ExpandCollapseItem,
-            this.bbiPrintPreview,
-            this.bsiRecordsCount,
-            this.bbiNew,
-            this.bbiEdit,
-            this.bbiDelete,
-            this.bbiRefresh});
-            this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 20;
-            this.ribbonControl.Name = "ribbonControl";
-            this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage1,
-            this.ribbonPage2});
-            this.ribbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
-            this.ribbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonControl.Size = new System.Drawing.Size(860, 146);
-            this.ribbonControl.StatusBar = this.ribbonStatusBar;
-            this.ribbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
+            this.layoutControlGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup.GroupBordersVisible = false;
+            this.layoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.itemLabel,
+            this.itemGrid});
+            this.layoutControlGroup.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup.Name = "layoutControlGroup";
+            this.layoutControlGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(40, 40, 0, 0);
+            this.layoutControlGroup.Size = new System.Drawing.Size(784, 501);
+            this.layoutControlGroup.TextVisible = false;
             // 
-            // bbiPrintPreview
+            // itemLabel
             // 
-            this.bbiPrintPreview.Caption = "Print Preview";
-            this.bbiPrintPreview.Id = 14;
-            this.bbiPrintPreview.ImageOptions.ImageUri.Uri = "Preview";
-            this.bbiPrintPreview.Name = "bbiPrintPreview";
+            this.itemLabel.Control = this.labelControl;
+            this.itemLabel.Location = new System.Drawing.Point(0, 0);
+            this.itemLabel.Name = "itemLabel";
+            this.itemLabel.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.itemLabel.Size = new System.Drawing.Size(704, 34);
+            this.itemLabel.TextSize = new System.Drawing.Size(0, 0);
+            this.itemLabel.TextVisible = false;
             // 
-            // bsiRecordsCount
+            // itemGrid
             // 
-            this.bsiRecordsCount.Caption = "RECORDS : 0";
-            this.bsiRecordsCount.Id = 15;
-            this.bsiRecordsCount.Name = "bsiRecordsCount";
+            this.itemGrid.Control = this.gridControl;
+            this.itemGrid.Location = new System.Drawing.Point(0, 34);
+            this.itemGrid.Name = "itemGrid";
+            this.itemGrid.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.itemGrid.Size = new System.Drawing.Size(704, 467);
+            this.itemGrid.TextSize = new System.Drawing.Size(0, 0);
+            this.itemGrid.TextVisible = false;
             // 
-            // bbiNew
+            // windowsUIButtonPanel
             // 
-            this.bbiNew.Caption = "New";
-            this.bbiNew.Id = 16;
-            this.bbiNew.ImageOptions.ImageUri.Uri = "New";
-            this.bbiNew.Name = "bbiNew";
-            // 
-            // bbiEdit
-            // 
-            this.bbiEdit.Caption = "Edit";
-            this.bbiEdit.Id = 17;
-            this.bbiEdit.ImageOptions.ImageUri.Uri = "Edit";
-            this.bbiEdit.Name = "bbiEdit";
-            // 
-            // bbiDelete
-            // 
-            this.bbiDelete.Caption = "Delete";
-            this.bbiDelete.Id = 18;
-            this.bbiDelete.ImageOptions.ImageUri.Uri = "Delete";
-            this.bbiDelete.Name = "bbiDelete";
-            // 
-            // bbiRefresh
-            // 
-            this.bbiRefresh.Caption = "Refresh";
-            this.bbiRefresh.Id = 19;
-            this.bbiRefresh.ImageOptions.ImageUri.Uri = "Refresh";
-            this.bbiRefresh.Name = "bbiRefresh";
-            // 
-            // ribbonPage1
-            // 
-            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1,
-            this.ribbonPageGroup2});
-            this.ribbonPage1.MergeOrder = 0;
-            this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "Home";
-            // 
-            // ribbonPageGroup1
-            // 
-            this.ribbonPageGroup1.AllowTextClipping = false;
-            this.ribbonPageGroup1.ItemLinks.Add(this.bbiNew);
-            this.ribbonPageGroup1.ItemLinks.Add(this.bbiEdit);
-            this.ribbonPageGroup1.ItemLinks.Add(this.bbiDelete);
-            this.ribbonPageGroup1.ItemLinks.Add(this.bbiRefresh);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.ShowCaptionButton = false;
-            this.ribbonPageGroup1.Text = "Tasks";
-            // 
-            // ribbonPageGroup2
-            // 
-            this.ribbonPageGroup2.AllowTextClipping = false;
-            this.ribbonPageGroup2.ItemLinks.Add(this.bbiPrintPreview);
-            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.ShowCaptionButton = false;
-            this.ribbonPageGroup2.Text = "Print and Export";
-            // 
-            // ribbonStatusBar
-            // 
-            this.ribbonStatusBar.ItemLinks.Add(this.bsiRecordsCount);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 597);
-            this.ribbonStatusBar.Name = "ribbonStatusBar";
-            this.ribbonStatusBar.Ribbon = this.ribbonControl;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(860, 25);
-            // 
-            // ribbonPage2
-            // 
-            this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup3});
-            this.ribbonPage2.Name = "ribbonPage2";
-            this.ribbonPage2.Text = "ribbonPage2";
-            // 
-            // ribbonPageGroup3
-            // 
-            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
-            this.ribbonPageGroup3.Text = "ribbonPageGroup3";
+            this.windowsUIButtonPanel.AppearanceButton.Hovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
+            this.windowsUIButtonPanel.AppearanceButton.Hovered.FontSizeDelta = -1;
+            this.windowsUIButtonPanel.AppearanceButton.Hovered.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
+            this.windowsUIButtonPanel.AppearanceButton.Hovered.Options.UseBackColor = true;
+            this.windowsUIButtonPanel.AppearanceButton.Hovered.Options.UseFont = true;
+            this.windowsUIButtonPanel.AppearanceButton.Hovered.Options.UseForeColor = true;
+            this.windowsUIButtonPanel.AppearanceButton.Normal.FontSizeDelta = -1;
+            this.windowsUIButtonPanel.AppearanceButton.Normal.Options.UseFont = true;
+            this.windowsUIButtonPanel.AppearanceButton.Pressed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(159)))));
+            this.windowsUIButtonPanel.AppearanceButton.Pressed.FontSizeDelta = -1;
+            this.windowsUIButtonPanel.AppearanceButton.Pressed.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(159)))));
+            this.windowsUIButtonPanel.AppearanceButton.Pressed.Options.UseBackColor = true;
+            this.windowsUIButtonPanel.AppearanceButton.Pressed.Options.UseFont = true;
+            this.windowsUIButtonPanel.AppearanceButton.Pressed.Options.UseForeColor = true;
+            this.windowsUIButtonPanel.BackColor = System.Drawing.Color.Tan;
+            windowsUIButtonImageOptions11.ImageUri.Uri = "New;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions12.ImageUri.Uri = "Edit;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions13.ImageUri.Uri = "Edit/Delete;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions14.ImageUri.Uri = "Refresh;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions15.ImageUri.Uri = "Preview;Size32x32;GrayScaled";
+            this.windowsUIButtonPanel.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("New", true, windowsUIButtonImageOptions11),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Edit", true, windowsUIButtonImageOptions12),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Delete", true, windowsUIButtonImageOptions13),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Refresh", true, windowsUIButtonImageOptions14),
+            new DevExpress.XtraBars.Docking2010.WindowsUISeparator(),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Print", true, windowsUIButtonImageOptions15)});
+            this.windowsUIButtonPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.windowsUIButtonPanel.EnableImageTransparency = true;
+            this.windowsUIButtonPanel.ForeColor = System.Drawing.Color.White;
+            this.windowsUIButtonPanel.Location = new System.Drawing.Point(0, 501);
+            this.windowsUIButtonPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.windowsUIButtonPanel.MaximumSize = new System.Drawing.Size(0, 60);
+            this.windowsUIButtonPanel.MinimumSize = new System.Drawing.Size(60, 60);
+            this.windowsUIButtonPanel.Name = "windowsUIButtonPanel";
+            this.windowsUIButtonPanel.Size = new System.Drawing.Size(784, 60);
+            this.windowsUIButtonPanel.TabIndex = 5;
+            this.windowsUIButtonPanel.Text = "windowsUIButtonPanel";
+            this.windowsUIButtonPanel.UseButtonBackgroundImages = false;
+            this.windowsUIButtonPanel.ButtonClick += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.windowsUIButtonPanel_ButtonClick);
             // 
             // frmCoSo
             // 
+            this.Appearance.BackColor = System.Drawing.Color.White;
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(860, 622);
-            this.Controls.Add(this.ribbonStatusBar);
-            this.Controls.Add(this.gridControl);
-            this.Controls.Add(this.ribbonControl);
+            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.layoutControl);
+            this.Controls.Add(this.windowsUIButtonPanel);
             this.IsMdiContainer = true;
             this.Name = "frmCoSo";
-            this.Ribbon = this.ribbonControl;
-            this.StatusBar = this.ribbonStatusBar;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).EndInit();
+            this.layoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemLabel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemGrid)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
+        private DevExpress.XtraLayout.LayoutControl layoutControl;
+        private DevExpress.XtraEditors.LabelControl labelControl;
         private DevExpress.XtraGrid.GridControl gridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView;
-        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraBars.BarButtonItem bbiPrintPreview;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
-        private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
-        private DevExpress.XtraBars.BarStaticItem bsiRecordsCount;
-        private DevExpress.XtraBars.BarButtonItem bbiNew;
-        private DevExpress.XtraBars.BarButtonItem bbiEdit;
-        private DevExpress.XtraBars.BarButtonItem bbiDelete;
-        private DevExpress.XtraBars.BarButtonItem bbiRefresh;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup;
+        private DevExpress.XtraLayout.LayoutControlItem itemLabel;
+        private DevExpress.XtraLayout.LayoutControlItem itemGrid;
+        private DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel windowsUIButtonPanel;
     }
 }

@@ -48,8 +48,10 @@
     <Compile Include="bllDieuPhoi.cs" />
     <Compile Include="bllHoaDon.cs" />
     <Compile Include="bllKhachHang.cs" />
+    <Compile Include="bllLoaiNhanVien.cs" />
     <Compile Include="bllLoaiSanPham.cs" />
     <Compile Include="bllNhanVien.cs" />
+    <Compile Include="bllSanPham.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -81,12 +83,27 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\serviceLoaiNhanVien\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\serviceLoaiSanPham\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="Web References\serviceNhanVien\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\serviceSanPham\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\serviceTinTuc\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -99,10 +116,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://35.231.193.118/ChainCafeManagerment/WS_ChiTietHoaDon.asmx">
+    <WebReferenceUrl Include="http://35.185.83.140/ChainCafeManagerment/WS_chitiethoadon.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\serviceChiTietHoaDon\</RelPath>
-      <UpdateFromURL>http://35.231.193.118/ChainCafeManagerment/WS_ChiTietHoaDon.asmx</UpdateFromURL>
+      <UpdateFromURL>http://35.185.83.140/ChainCafeManagerment/WS_chitiethoadon.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -110,10 +127,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>BLL_serviceChiTietHoaDon_WS_ChiTietHoaDon</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://35.231.193.118/ChainCafeManagerment/WS_coso.asmx">
+    <WebReferenceUrl Include="http://35.185.83.140/ChainCafeManagerment/WS_coso.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\serviceCoSo\</RelPath>
-      <UpdateFromURL>http://35.231.193.118/ChainCafeManagerment/WS_coso.asmx</UpdateFromURL>
+      <UpdateFromURL>http://35.185.83.140/ChainCafeManagerment/WS_coso.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -121,10 +138,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>BLL_serviceCoSo_WS_CoSo</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://35.231.193.118/ChainCafeManagerment/WS_DieuPhoi.asmx">
+    <WebReferenceUrl Include="http://35.185.83.140/ChainCafeManagerment/WS_dieuphoi.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\serviceDieuPhoi\</RelPath>
-      <UpdateFromURL>http://35.231.193.118/ChainCafeManagerment/WS_DieuPhoi.asmx</UpdateFromURL>
+      <UpdateFromURL>http://35.185.83.140/ChainCafeManagerment/WS_dieuphoi.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -132,10 +149,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>BLL_serviceDieuPhoi_WS_DieuPhoi</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://35.231.193.118/ChainCafeManagerment/WS_hoadon.asmx">
+    <WebReferenceUrl Include="http://35.185.83.140/ChainCafeManagerment/WS_hoadon.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\serviceHoaDon\</RelPath>
-      <UpdateFromURL>http://35.231.193.118/ChainCafeManagerment/WS_hoadon.asmx</UpdateFromURL>
+      <UpdateFromURL>http://35.185.83.140/ChainCafeManagerment/WS_hoadon.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -143,10 +160,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>BLL_serviceHoaDon_WS_HoaDon</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://35.231.193.118/ChainCafeManagerment/WS_khachhang.asmx">
+    <WebReferenceUrl Include="http://35.185.83.140/ChainCafeManagerment/WS_khachhang.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\serviceKhachHang\</RelPath>
-      <UpdateFromURL>http://35.231.193.118/ChainCafeManagerment/WS_khachhang.asmx</UpdateFromURL>
+      <UpdateFromURL>http://35.185.83.140/ChainCafeManagerment/WS_khachhang.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -154,10 +171,21 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>BLL_serviceKhachHang_WS_KhachHang</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://35.231.193.118/ChainCafeManagerment/WS_LoaiSP.asmx">
+    <WebReferenceUrl Include="http://35.185.83.140/ChainCafeManagerment/WS_loainhanvien.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\serviceLoaiNhanVien\</RelPath>
+      <UpdateFromURL>http://35.185.83.140/ChainCafeManagerment/WS_loainhanvien.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BLL_serviceLoaiNhanVien_WS_LoaiNhanVien</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://35.185.83.140/ChainCafeManagerment/WS_LoaiSP.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\serviceLoaiSanPham\</RelPath>
-      <UpdateFromURL>http://35.231.193.118/ChainCafeManagerment/WS_LoaiSP.asmx</UpdateFromURL>
+      <UpdateFromURL>http://35.185.83.140/ChainCafeManagerment/WS_LoaiSP.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -165,16 +193,38 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>BLL_serviceLoaiSanPham_WS_LoaiSP</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://35.231.193.118/ChainCafeManagerment/WS_nhanvien.asmx">
+    <WebReferenceUrl Include="http://35.185.83.140/ChainCafeManagerment/WS_nhanvien.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\serviceNhanVien\</RelPath>
-      <UpdateFromURL>http://35.231.193.118/ChainCafeManagerment/WS_nhanvien.asmx</UpdateFromURL>
+      <UpdateFromURL>http://35.185.83.140/ChainCafeManagerment/WS_nhanvien.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>BLL_serviceNhanVien_WS_NhanVien</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://35.185.83.140/ChainCafeManagerment/WS_sanpham.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\serviceSanPham\</RelPath>
+      <UpdateFromURL>http://35.185.83.140/ChainCafeManagerment/WS_sanpham.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BLL_serviceSanPham_WS_SanPham</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://35.185.83.140/ChainCafeManagerment/WS_tintuc.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\serviceTinTuc\</RelPath>
+      <UpdateFromURL>http://35.185.83.140/ChainCafeManagerment/WS_tintuc.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BLL_serviceTinTuc_WS_TinTuc</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
@@ -190,7 +240,7 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Web References\serviceChiTietHoaDon\WS_ChiTietHoaDon.wsdl" />
+    <None Include="Web References\serviceChiTietHoaDon\WS_chitiethoadon.wsdl" />
     <None Include="Web References\serviceCoSo\COSO.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
@@ -206,7 +256,7 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Web References\serviceDieuPhoi\WS_DieuPhoi.wsdl" />
+    <None Include="Web References\serviceDieuPhoi\WS_dieuphoi.wsdl" />
     <None Include="Web References\serviceHoaDon\HOADON.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
@@ -223,6 +273,14 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\serviceKhachHang\WS_khachhang.wsdl" />
+    <None Include="Web References\serviceLoaiNhanVien\LOAINHANVIEN.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\serviceLoaiNhanVien\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\serviceLoaiNhanVien\WS_loainhanvien.wsdl" />
     <None Include="Web References\serviceLoaiSanPham\LOAISP.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
@@ -239,6 +297,22 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\serviceNhanVien\WS_nhanvien.wsdl" />
+    <None Include="Web References\serviceSanPham\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\serviceSanPham\SANPHAM.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\serviceSanPham\WS_sanpham.wsdl" />
+    <None Include="Web References\serviceTinTuc\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\serviceTinTuc\TINTUC.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\serviceTinTuc\WS_tintuc.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\serviceLoaiSanPham\WS_LoaiSP.disco" />
@@ -253,13 +327,22 @@
     <None Include="Web References\serviceNhanVien\WS_nhanvien.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Web References\serviceDieuPhoi\WS_DieuPhoi.disco" />
+    <None Include="Web References\serviceSanPham\WS_sanpham.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Web References\serviceChiTietHoaDon\WS_ChiTietHoaDon.disco" />
+    <None Include="Web References\serviceLoaiNhanVien\WS_loainhanvien.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\serviceChiTietHoaDon\WS_chitiethoadon.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\serviceHoaDon\WS_hoadon.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\serviceDieuPhoi\WS_dieuphoi.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\serviceTinTuc\WS_tintuc.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

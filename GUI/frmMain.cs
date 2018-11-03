@@ -16,10 +16,47 @@ namespace GUI
         public frmMain()
         {
             InitializeComponent();
-            frmDangNhap frm = new frmDangNhap(Controls.IndexOf(tileControl1));
-            tileControl1.Hide();
-            frm.MdiParent = this;
+            //frmDangNhap frm = new frmDangNhap(Controls.IndexOf(tileControl1));
+
+            //tileControl1.Hide();
+            //frm.MdiParent = this;
+            //frm.Location = new Point(300, 300);
+            //frm.Show();
+        }
+
+        private void tileItem2_ItemClick(object sender, TileItemEventArgs e)
+        {
+            frmGoiMon frm = new frmGoiMon(this);
             frm.Show();
+        }
+
+        private void tileItem1_ItemClick(object sender, TileItemEventArgs e)
+        {
+            frmLoaiSanPham frm = new frmLoaiSanPham(this);
+            frm.Show();
+        }
+
+        private void tileItem3_ItemClick(object sender, TileItemEventArgs e)
+        {
+            frmNhanVien frm = new frmNhanVien(this);
+            frm.Show();
+        }
+
+        private void tileItem5_ItemClick(object sender, TileItemEventArgs e)
+        {
+            frmSanPham frm = new frmSanPham(this);
+            frm.Show();
+        }
+
+        private void tileItem6_ItemClick(object sender, TileItemEventArgs e)
+        {
+            frmCoSo frm = new frmCoSo(this);
+            frm.Show();
+        }
+
+        private void tileItem7_ItemClick(object sender, TileItemEventArgs e)
+        {
+
         }
     }
 }
