@@ -15,6 +15,7 @@ using DevExpress.XtraLayout.Helpers;
 using DevExpress.XtraBars;
 using BLL;
 using BLL.serviceLoaiSanPham;
+using System.Net;
 
 namespace GUI
 {
@@ -22,6 +23,7 @@ namespace GUI
     {
         bllSanPham bllSanPham = new bllSanPham();
         bllLoaiSanPham bllLoaiSanPham = new bllLoaiSanPham();
+        string hinhanh = string.Empty;
 
         public frmThemSanPham()
         {
@@ -34,7 +36,6 @@ namespace GUI
             cboMaLoai.DataSource = bllLoaiSanPham.getAll();
             cboMaLoai.ValueMember = "MALOAISP";
             cboMaLoai.DisplayMember = "TENLOAISP";
-            button1.Click += btnUpload_Click;
             btnBrowse.Click += btnBrowse_Click;
         }
 
@@ -47,7 +48,7 @@ namespace GUI
 
         private void clickSave(object ob, ItemClickEventArgs e)
         {
-            switch (bllSanPham.addSanPham(txtMaSP.Text, cboMaLoai.SelectedValue.ToString(), txtTenSP.Text, int.Parse(txtDonGia.Text), txtHinhAnh.Text))
+            switch (bllSanPham.addSanPham(txtMaSP.Text, cboMaLoai.SelectedValue.ToString(), txtTenSP.Text, int.Parse(txtDonGia.Text), hinhanh))
             {
                 case 0:
                     MessageBox.Show("Thêm thành công");
@@ -71,7 +72,6 @@ namespace GUI
             cboMaLoai.Text = "";
             txtTenSP.Text = "";
             txtDonGia.Text = "0";
-            txtHinhAnh.Text = "";
         }
 
         private void clickClose(object ob, ItemClickEventArgs e)
@@ -92,17 +92,6 @@ namespace GUI
             }
         }
 
-
-        /// <summary>
-
-        /// Allow the user to browse for a file
-
-        /// </summary>
-
-        /// <param name="sender"></param>
-
-        /// <param name="e"></param>
-
         private void btnBrowse_Click(object sender, EventArgs e)
         {
             openFileDialog1.Title = "Open File";
@@ -122,30 +111,23 @@ namespace GUI
             if (openFileDialog1.FileName == "")
                 return;
             else
-                txtFileName.Text = openFileDialog1.FileName;
+            {
+                if (openFileDialog1.FileName != string.Empty) {
+                    hinhanh = bllLoaiSanPham.UploadFile(openFileDialog1.FileName);
+                    pictureBox1.ImageLocation = openFileDialog1.FileName;
+
+                    Image item;
+                    var request = WebRequest.Create("http://35.185.83.140/ChainCafeManagerment/" + hinhanh);
+                    using (var response = request.GetResponse())
+                    using (var stream = response.GetResponseStream()) { item = resizeImage(Bitmap.FromStream(stream), new Size(176,102)); }
+                    pictureBox1.Image = item;
+                }
+            }
         }
 
-
-        /// <summary>
-
-        /// If the user has selected a file, send it to the upload method,
-
-        /// the upload method will convert the file to a byte array and
-
-        /// send it through the web service
-
-        /// </summary>
-
-        /// <param name="sender"></param>
-
-        /// <param name="e"></param>
-
-        private void btnUpload_Click(object sender, EventArgs e)
+        public Image resizeImage(Image imgToResize, Size size)
         {
-            if (txtFileName.Text != string.Empty)
-                txtHinhAnh.Text = bllLoaiSanPham.UploadFile(txtFileName.Text);
-            else
-                MessageBox.Show("You must select a file first.", "No File Selected");
+            return (Image)(new Bitmap(imgToResize, size));
         }
     }
 }

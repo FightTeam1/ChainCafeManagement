@@ -68,7 +68,7 @@
             this.mainRibbonPage});
             this.mainRibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
             this.mainRibbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
-            this.mainRibbonControl.Size = new System.Drawing.Size(790, 146);
+            this.mainRibbonControl.Size = new System.Drawing.Size(592, 143);
             this.mainRibbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             // 
             // bbiSave
@@ -135,7 +135,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(113, 408);
+            this.label5.Location = new System.Drawing.Point(69, 368);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(82, 21);
             this.label5.TabIndex = 24;
@@ -145,7 +145,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(113, 356);
+            this.label4.Location = new System.Drawing.Point(69, 316);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(112, 21);
             this.label4.TabIndex = 25;
@@ -155,7 +155,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(113, 306);
+            this.label3.Location = new System.Drawing.Point(69, 266);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 21);
             this.label3.TabIndex = 26;
@@ -165,7 +165,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(113, 260);
+            this.label2.Location = new System.Drawing.Point(69, 220);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 21);
             this.label2.TabIndex = 27;
@@ -175,7 +175,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(113, 213);
+            this.label1.Location = new System.Drawing.Point(69, 173);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 21);
             this.label1.TabIndex = 28;
@@ -184,7 +184,7 @@
             // txtHinhAnh
             // 
             this.txtHinhAnh.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHinhAnh.Location = new System.Drawing.Point(284, 405);
+            this.txtHinhAnh.Location = new System.Drawing.Point(240, 365);
             this.txtHinhAnh.Name = "txtHinhAnh";
             this.txtHinhAnh.Size = new System.Drawing.Size(241, 29);
             this.txtHinhAnh.TabIndex = 19;
@@ -192,7 +192,7 @@
             // txtSdt
             // 
             this.txtSdt.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSdt.Location = new System.Drawing.Point(284, 353);
+            this.txtSdt.Location = new System.Drawing.Point(240, 313);
             this.txtSdt.Name = "txtSdt";
             this.txtSdt.Size = new System.Drawing.Size(241, 29);
             this.txtSdt.TabIndex = 20;
@@ -200,7 +200,7 @@
             // txtDiaChi
             // 
             this.txtDiaChi.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiaChi.Location = new System.Drawing.Point(284, 303);
+            this.txtDiaChi.Location = new System.Drawing.Point(240, 263);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(241, 29);
             this.txtDiaChi.TabIndex = 21;
@@ -208,7 +208,7 @@
             // txtTenCoSo
             // 
             this.txtTenCoSo.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenCoSo.Location = new System.Drawing.Point(284, 257);
+            this.txtTenCoSo.Location = new System.Drawing.Point(240, 217);
             this.txtTenCoSo.Name = "txtTenCoSo";
             this.txtTenCoSo.Size = new System.Drawing.Size(241, 29);
             this.txtTenCoSo.TabIndex = 22;
@@ -216,7 +216,7 @@
             // txtMaCoSo
             // 
             this.txtMaCoSo.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaCoSo.Location = new System.Drawing.Point(284, 210);
+            this.txtMaCoSo.Location = new System.Drawing.Point(240, 170);
             this.txtMaCoSo.Name = "txtMaCoSo";
             this.txtMaCoSo.Size = new System.Drawing.Size(241, 29);
             this.txtMaCoSo.TabIndex = 23;
@@ -226,7 +226,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(790, 596);
+            this.ClientSize = new System.Drawing.Size(592, 459);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -238,6 +238,7 @@
             this.Controls.Add(this.txtTenCoSo);
             this.Controls.Add(this.txtMaCoSo);
             this.Controls.Add(this.mainRibbonControl);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmThemCoSo";
             this.Ribbon = this.mainRibbonControl;
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbonControl)).EndInit();

@@ -31,8 +31,8 @@ namespace GUI
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGoiMon));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -196,6 +196,7 @@ namespace GUI
             // 
             // btnThemHoaDon
             // 
+            this.btnThemHoaDon.Image = global::GUI.Properties.Resources._106230_32;
             this.btnThemHoaDon.Location = new System.Drawing.Point(24, 51);
             this.btnThemHoaDon.Name = "btnThemHoaDon";
             this.btnThemHoaDon.Size = new System.Drawing.Size(48, 46);
@@ -332,8 +333,8 @@ namespace GUI
             this.dataGridViewDonDatHang.MultiSelect = false;
             this.dataGridViewDonDatHang.Name = "dataGridViewDonDatHang";
             this.dataGridViewDonDatHang.ReadOnly = true;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewDonDatHang.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewDonDatHang.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewDonDatHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewDonDatHang.Size = new System.Drawing.Size(606, 361);
             this.dataGridViewDonDatHang.TabIndex = 0;
@@ -424,8 +425,8 @@ namespace GUI
             this.dataGridViewChiTietHD.MultiSelect = false;
             this.dataGridViewChiTietHD.Name = "dataGridViewChiTietHD";
             this.dataGridViewChiTietHD.ReadOnly = true;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewChiTietHD.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewChiTietHD.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewChiTietHD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewChiTietHD.Size = new System.Drawing.Size(529, 269);
             this.dataGridViewChiTietHD.TabIndex = 1;

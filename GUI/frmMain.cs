@@ -16,12 +16,12 @@ namespace GUI
         public frmMain()
         {
             InitializeComponent();
-            //frmDangNhap frm = new frmDangNhap(Controls.IndexOf(tileControl1));
+            frmDangNhap frm = new frmDangNhap(Controls.IndexOf(tileControl1));
 
-            //tileControl1.Hide();
-            //frm.MdiParent = this;
-            //frm.Location = new Point(300, 300);
-            //frm.Show();
+            tileControl1.Hide();
+            frm.MdiParent = this;
+            frm.Location = new Point(300, 300);
+            frm.Show();
         }
 
         private void tileItem2_ItemClick(object sender, TileItemEventArgs e)
@@ -56,8 +56,7 @@ namespace GUI
 
         private void tileItem7_ItemClick(object sender, TileItemEventArgs e)
         {
-            frmReport frm = new frmReport();
-            frm.Show();
+
         }
     }
 }

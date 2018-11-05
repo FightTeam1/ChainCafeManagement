@@ -39,6 +39,7 @@ namespace GUI
         {
             BindingList<SANPHAM> dataSource = GetDataSource();
             gridControl.DataSource = dataSource;
+            gridView.Columns.Remove(gridView.Columns[gridView.Columns.Count - 1]);
         }
 
         public void hideControls()

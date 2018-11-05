@@ -49,6 +49,7 @@ namespace GUI
             timer1.Tick += timer1_Tick;
             btnXacNhanThanhToan.Click += btnXacNhanThanhToan_Click;
             btnThemHoaDon.Click += clickThemHoaDon;
+            
 
             checkBox.CheckedChanged += checkedChanged;
 
@@ -84,6 +85,14 @@ namespace GUI
 
         private void frmClosing(object sender, FormClosingEventArgs e)
         {
+            try
+            {
+                bllHoaDon.updateHoaDon(hd.MAHOADON, hd.MANV, hd.SDT_KH, (DateTime)hd.NGAYGIOLAP, (int)hd.THANHTIEN, "Đã thanh toán", hd.DIACHI, hd.LOAIHD);
+            }
+            catch
+            {
+                //Không làm nữa 
+            }
             formMainn.Show();
         }
 
@@ -294,7 +303,7 @@ namespace GUI
         {
             return (Image)(new Bitmap(imgToResize, size));
         }
-
+            
 
 
 

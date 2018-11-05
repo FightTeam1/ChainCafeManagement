@@ -133,6 +133,9 @@
   <data name="order" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\order.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="106230-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\106230-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="FoodAndDrink2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FoodAndDrink2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -144,5 +147,8 @@
   </data>
   <data name="FoodAndDrink3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FoodAndDrink3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="106230-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\106230-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
