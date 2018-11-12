@@ -25,13 +25,12 @@ namespace GUI
 
         private void frmLoad(object ob, EventArgs e)
         {
-
-            dateTimePicker1.ValueChanged += valueChanged;
-        }
-
-        private void valueChanged(object ob, EventArgs e)
-        {
-            gridControl1.DataSource = bllHoaDon.filterByDate(dateTimePicker1.Value, DateTime.Now);
+            List<string[]> lst = bllHoaDon.getFilterQuarterly("CS001", 2018);
+            for(int i = 0; i < 4; i++)
+            {
+                chart1.Series["Khoản thu"].Points.AddXY(lst[i][0], lst[i][1]);
+                //chart1.Series["Khoản thu"].Points.AddY(lst[i][1]);
+            }
         }
     }
 }
