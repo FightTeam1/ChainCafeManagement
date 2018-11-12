@@ -166,6 +166,37 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="FilterByDateAndCoSo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MaCS" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Start" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="End" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FilterByDateAndCoSoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FilterByDateAndCoSoResult" type="tns:ArrayOfHOADON" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FilterByDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Start" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="End" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FilterByDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FilterByDateResult" type="tns:ArrayOfHOADON" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="string" nillable="true" type="s:string" />
       <s:element name="ArrayOfHOADON" nillable="true" type="tns:ArrayOfHOADON" />
       <s:element name="HOADON" nillable="true" type="tns:HOADON" />
@@ -213,6 +244,18 @@
   </wsdl:message>
   <wsdl:message name="UpdateDiaChiSoapOut">
     <wsdl:part name="parameters" element="tns:UpdateDiaChiResponse" />
+  </wsdl:message>
+  <wsdl:message name="FilterByDateAndCoSoSoapIn">
+    <wsdl:part name="parameters" element="tns:FilterByDateAndCoSo" />
+  </wsdl:message>
+  <wsdl:message name="FilterByDateAndCoSoSoapOut">
+    <wsdl:part name="parameters" element="tns:FilterByDateAndCoSoResponse" />
+  </wsdl:message>
+  <wsdl:message name="FilterByDateSoapIn">
+    <wsdl:part name="parameters" element="tns:FilterByDate" />
+  </wsdl:message>
+  <wsdl:message name="FilterByDateSoapOut">
+    <wsdl:part name="parameters" element="tns:FilterByDateResponse" />
   </wsdl:message>
   <wsdl:message name="AddHttpGetIn">
     <wsdl:part name="MaNV" type="s:string" />
@@ -265,6 +308,21 @@
   <wsdl:message name="UpdateDiaChiHttpGetOut">
     <wsdl:part name="Body" element="tns:boolean" />
   </wsdl:message>
+  <wsdl:message name="FilterByDateAndCoSoHttpGetIn">
+    <wsdl:part name="MaCS" type="s:string" />
+    <wsdl:part name="Start" type="s:string" />
+    <wsdl:part name="End" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FilterByDateAndCoSoHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfHOADON" />
+  </wsdl:message>
+  <wsdl:message name="FilterByDateHttpGetIn">
+    <wsdl:part name="Start" type="s:string" />
+    <wsdl:part name="End" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FilterByDateHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfHOADON" />
+  </wsdl:message>
   <wsdl:message name="AddHttpPostIn">
     <wsdl:part name="MaNV" type="s:string" />
     <wsdl:part name="Sdt_KH" type="s:string" />
@@ -316,6 +374,21 @@
   <wsdl:message name="UpdateDiaChiHttpPostOut">
     <wsdl:part name="Body" element="tns:boolean" />
   </wsdl:message>
+  <wsdl:message name="FilterByDateAndCoSoHttpPostIn">
+    <wsdl:part name="MaCS" type="s:string" />
+    <wsdl:part name="Start" type="s:string" />
+    <wsdl:part name="End" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FilterByDateAndCoSoHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfHOADON" />
+  </wsdl:message>
+  <wsdl:message name="FilterByDateHttpPostIn">
+    <wsdl:part name="Start" type="s:string" />
+    <wsdl:part name="End" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FilterByDateHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfHOADON" />
+  </wsdl:message>
   <wsdl:portType name="WS_HoaDonSoap">
     <wsdl:operation name="Add">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add HoaDon</wsdl:documentation>
@@ -351,6 +424,14 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update DiaChi of HoaDon by MaHoaDon</wsdl:documentation>
       <wsdl:input message="tns:UpdateDiaChiSoapIn" />
       <wsdl:output message="tns:UpdateDiaChiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FilterByDateAndCoSo">
+      <wsdl:input message="tns:FilterByDateAndCoSoSoapIn" />
+      <wsdl:output message="tns:FilterByDateAndCoSoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FilterByDate">
+      <wsdl:input message="tns:FilterByDateSoapIn" />
+      <wsdl:output message="tns:FilterByDateSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="WS_HoaDonHttpGet">
@@ -389,6 +470,14 @@
       <wsdl:input message="tns:UpdateDiaChiHttpGetIn" />
       <wsdl:output message="tns:UpdateDiaChiHttpGetOut" />
     </wsdl:operation>
+    <wsdl:operation name="FilterByDateAndCoSo">
+      <wsdl:input message="tns:FilterByDateAndCoSoHttpGetIn" />
+      <wsdl:output message="tns:FilterByDateAndCoSoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FilterByDate">
+      <wsdl:input message="tns:FilterByDateHttpGetIn" />
+      <wsdl:output message="tns:FilterByDateHttpGetOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="WS_HoaDonHttpPost">
     <wsdl:operation name="Add">
@@ -425,6 +514,14 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update DiaChi of HoaDon by MaHoaDon</wsdl:documentation>
       <wsdl:input message="tns:UpdateDiaChiHttpPostIn" />
       <wsdl:output message="tns:UpdateDiaChiHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FilterByDateAndCoSo">
+      <wsdl:input message="tns:FilterByDateAndCoSoHttpPostIn" />
+      <wsdl:output message="tns:FilterByDateAndCoSoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FilterByDate">
+      <wsdl:input message="tns:FilterByDateHttpPostIn" />
+      <wsdl:output message="tns:FilterByDateHttpPostOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WS_HoaDonSoap" type="tns:WS_HoaDonSoap">
@@ -485,6 +582,24 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateDiaChi">
       <soap:operation soapAction="http://tempuri.org/UpdateDiaChi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterByDateAndCoSo">
+      <soap:operation soapAction="http://tempuri.org/FilterByDateAndCoSo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterByDate">
+      <soap:operation soapAction="http://tempuri.org/FilterByDate" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -558,6 +673,24 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="FilterByDateAndCoSo">
+      <soap12:operation soapAction="http://tempuri.org/FilterByDateAndCoSo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterByDate">
+      <soap12:operation soapAction="http://tempuri.org/FilterByDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WS_HoaDonHttpGet" type="tns:WS_HoaDonHttpGet">
     <http:binding verb="GET" />
@@ -624,6 +757,24 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="FilterByDateAndCoSo">
+      <http:operation location="/FilterByDateAndCoSo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterByDate">
+      <http:operation location="/FilterByDate" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WS_HoaDonHttpPost" type="tns:WS_HoaDonHttpPost">
     <http:binding verb="POST" />
@@ -683,6 +834,24 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateDiaChi">
       <http:operation location="/UpdateDiaChi" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterByDateAndCoSo">
+      <http:operation location="/FilterByDateAndCoSo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterByDate">
+      <http:operation location="/FilterByDate" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>

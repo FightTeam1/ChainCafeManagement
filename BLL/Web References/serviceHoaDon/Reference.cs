@@ -43,6 +43,10 @@ namespace BLL.serviceHoaDon {
         
         private System.Threading.SendOrPostCallback UpdateDiaChiOperationCompleted;
         
+        private System.Threading.SendOrPostCallback FilterByDateAndCoSoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FilterByDateOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -101,6 +105,12 @@ namespace BLL.serviceHoaDon {
         
         /// <remarks/>
         public event UpdateDiaChiCompletedEventHandler UpdateDiaChiCompleted;
+        
+        /// <remarks/>
+        public event FilterByDateAndCoSoCompletedEventHandler FilterByDateAndCoSoCompleted;
+        
+        /// <remarks/>
+        public event FilterByDateCompletedEventHandler FilterByDateCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Add", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -322,6 +332,70 @@ namespace BLL.serviceHoaDon {
             if ((this.UpdateDiaChiCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.UpdateDiaChiCompleted(this, new UpdateDiaChiCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/FilterByDateAndCoSo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public HOADON[] FilterByDateAndCoSo(string MaCS, System.DateTime Start, System.DateTime End) {
+            object[] results = this.Invoke("FilterByDateAndCoSo", new object[] {
+                        MaCS,
+                        Start,
+                        End});
+            return ((HOADON[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FilterByDateAndCoSoAsync(string MaCS, System.DateTime Start, System.DateTime End) {
+            this.FilterByDateAndCoSoAsync(MaCS, Start, End, null);
+        }
+        
+        /// <remarks/>
+        public void FilterByDateAndCoSoAsync(string MaCS, System.DateTime Start, System.DateTime End, object userState) {
+            if ((this.FilterByDateAndCoSoOperationCompleted == null)) {
+                this.FilterByDateAndCoSoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFilterByDateAndCoSoOperationCompleted);
+            }
+            this.InvokeAsync("FilterByDateAndCoSo", new object[] {
+                        MaCS,
+                        Start,
+                        End}, this.FilterByDateAndCoSoOperationCompleted, userState);
+        }
+        
+        private void OnFilterByDateAndCoSoOperationCompleted(object arg) {
+            if ((this.FilterByDateAndCoSoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FilterByDateAndCoSoCompleted(this, new FilterByDateAndCoSoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/FilterByDate", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public HOADON[] FilterByDate(System.DateTime Start, System.DateTime End) {
+            object[] results = this.Invoke("FilterByDate", new object[] {
+                        Start,
+                        End});
+            return ((HOADON[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FilterByDateAsync(System.DateTime Start, System.DateTime End) {
+            this.FilterByDateAsync(Start, End, null);
+        }
+        
+        /// <remarks/>
+        public void FilterByDateAsync(System.DateTime Start, System.DateTime End, object userState) {
+            if ((this.FilterByDateOperationCompleted == null)) {
+                this.FilterByDateOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFilterByDateOperationCompleted);
+            }
+            this.InvokeAsync("FilterByDate", new object[] {
+                        Start,
+                        End}, this.FilterByDateOperationCompleted, userState);
+        }
+        
+        private void OnFilterByDateOperationCompleted(object arg) {
+            if ((this.FilterByDateCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FilterByDateCompleted(this, new FilterByDateCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -978,6 +1052,58 @@ namespace BLL.serviceHoaDon {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void FilterByDateAndCoSoCompletedEventHandler(object sender, FilterByDateAndCoSoCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FilterByDateAndCoSoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FilterByDateAndCoSoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public HOADON[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((HOADON[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void FilterByDateCompletedEventHandler(object sender, FilterByDateCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FilterByDateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FilterByDateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public HOADON[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((HOADON[])(this.results[0]));
             }
         }
     }

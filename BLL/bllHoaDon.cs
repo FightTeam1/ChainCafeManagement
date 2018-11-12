@@ -16,6 +16,17 @@ namespace BLL
             return dal.FindAll().ToList();
         }
 
+        public List<HOADON> filterByDate(DateTime start, DateTime end)
+        {
+            return dal.FilterByDate(start,end).ToList();
+
+        }
+
+        public List<HOADON> filterByDateAndCoSo(string maCS, DateTime start, DateTime end)
+        {
+            return dal.FilterByDateAndCoSo(maCS, start, end).ToList();
+        }
+
         public HOADON getByMaHD(string MaHD)
         {
             return dal.Find(MaHD);
