@@ -527,6 +527,5 @@ C:\Users\Admin\Desktop\CNPM\ChainCafeManagement\GUI\obj\Debug\GUI.exe
 C:\Users\Admin\Desktop\CNPM\ChainCafeManagement\GUI\obj\Debug\GUI.pdb
 C:\Users\Admin\Desktop\CNPM\ChainCafeManagement\GUI\obj\Debug\GUI.csprojAssemblyReference.cache
 C:\Users\Admin\Desktop\CNPM\ChainCafeManagement\GUI\obj\Debug\GUI.frmLoaiNhanVien.resources
-C:\Users\Admin\Desktop\CNPM\ChainCafeManagement\GUI\obj\Debug\GUI.frmThongKe.resources
 C:\Users\Admin\Desktop\CNPM\ChainCafeManagement\GUI\bin\Debug\DevExpress.XtraCharts.v17.1.UI.dll
 C:\Users\Admin\Desktop\CNPM\ChainCafeManagement\GUI\bin\Debug\DevExpress.XtraCharts.v17.1.UI.xml

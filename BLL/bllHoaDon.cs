@@ -15,6 +15,37 @@ namespace BLL
         {
             return dal.FindAll().ToList();
         }
+
+        //public string[] getFilterByDay(string maCS, DateTime date)
+        //{
+        //    long tong = 0;
+        //    DateTime start = new DateTime(date.Year, date.Month, date.Day, 0, 0, 0);
+        //    DateTime end = new DateTime(date.Year, date.Month, date.Day, 23, 59, 59);
+        //    foreach (HOADON hd in dal.FilterByDateAndCoSo(maCS, start, end))
+        //    {
+        //        tong += (long)hd.THANHTIEN; 
+        //    }
+        //    string ngay = "";
+        //    ngay += date.Day + "/" + date.Month;
+        //    return new string[] { ngay, tong.ToString()};
+        //}
+
+        //public List<string[]> getFilterByDays(string maCS, DateTime start, DateTime end)
+        //{
+        //    List<string[]> lst = new List<string[]>();
+        //    DateTime dt = start;
+        //    bool stop = false;
+        //    while(!stop)
+        //    {
+        //        lst.Add(getFilterByDay(maCS, dt));
+        //        dt = dt.AddDays(1);
+        //        if (dt == end)
+        //        {
+        //            stop = true;
+        //        }
+        //    }
+        //    return lst;
+        //}
         
         public string[] getFilterByMonth(string maCS, int month, int year)
         {
