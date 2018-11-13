@@ -20,7 +20,7 @@ namespace WebService
         DataClassesDataContext dc = new DataClassesDataContext();
 
         [WebMethod(Description = "Add TinTuc")]
-        public bool Add(string MaTin, string TieuDe, string NoiDung, string HinhAnh, string MaNV, DateTime NgayDang)
+        public bool Add(string MaTin, string TieuDe, string NoiDung, string HinhAnh, string MaNV, string MoTaNgan)
         {
             try
             {
@@ -30,7 +30,8 @@ namespace WebService
                 tinTuc.NOIDUNG = NoiDung;
                 tinTuc.HINHANH = HinhAnh;
                 tinTuc.MANV = MaNV;
-                tinTuc.NGAYDANG = NgayDang;
+                tinTuc.NGAYDANG = DateTime.Now;
+                tinTuc.MOTANGAN = MoTaNgan;
 
                 dc.TINTUCs.InsertOnSubmit(tinTuc);
                 dc.SubmitChanges();
@@ -87,7 +88,7 @@ namespace WebService
         }
 
         [WebMethod(Description = "Update TinTuc by MaTin")]
-        public bool Update(string MaTin, string TieuDe, string NoiDung, string HinhAnh, string MaNV, DateTime NgayDang)
+        public bool Update(string MaTin, string TieuDe, string NoiDung, string HinhAnh, string MaNV, string MoTaNgan)
         {
             //try
             //{
@@ -96,8 +97,8 @@ namespace WebService
                 tinTuc.NOIDUNG = NoiDung;
                 tinTuc.HINHANH = HinhAnh;
                 tinTuc.MANV = MaNV;
-                tinTuc.NGAYDANG = NgayDang;
-                
+                tinTuc.MOTANGAN = MoTaNgan;    
+
                 dc.SubmitChanges();
                 return true;
             //}

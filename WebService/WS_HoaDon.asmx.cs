@@ -170,5 +170,33 @@ namespace WebService
                 return false;
             }
         }
+
+        [WebMethod]
+        public List<HOADON> FilterByDateAndCoSo(string MaCS, DateTime Start, DateTime End)
+        {
+            try
+            {
+                var nhanViens = (from nv in dc.NHANVIENs where nv.MACS == MaCS select nv.MANV).ToList();
+                return (from hd in dc.HOADONs where nhanViens.Contains(hd.MANV) && hd.NGAYGIOLAP >= Start && hd.NGAYGIOLAP <= End select hd).ToList();
+            }
+            catch
+            {
+                return new List<HOADON>();
+            }
+        }
+
+        [WebMethod]
+        public List<HOADON> FilterByDate(DateTime Start, DateTime End)
+        {
+            try
+            {
+                return (from hd in dc.HOADONs where hd.NGAYGIOLAP >= Start && hd.NGAYGIOLAP <= End select hd).ToList();
+            }
+            catch
+            {
+                return new List<HOADON>();
+            }
+        }
+
     }
 }

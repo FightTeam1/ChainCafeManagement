@@ -103,8 +103,8 @@
       <Column Name="DIACHI_NV" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="MATKHAU" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Association Name="NHANVIEN_PHIEUNHAP" Member="PHIEUNHAPs" AccessModifier="Internal" ThisKey="MANV" OtherKey="MANV" Type="PHIEUNHAP" />
-      <Association Name="NHANVIEN_TINTUC" Member="TINTUCs" AccessModifier="Internal" ThisKey="MANV" OtherKey="MANV" Type="TINTUC" />
       <Association Name="NHANVIEN_HOADON" Member="HOADONs" AccessModifier="Internal" ThisKey="MANV" OtherKey="MANV" Type="HOADON" />
+      <Association Name="NHANVIEN_TINTUC" Member="TINTUCs" AccessModifier="Internal" ThisKey="MANV" OtherKey="MANV" Type="TINTUC" />
       <Association Name="COSO_NHANVIEN" Member="COSO" ThisKey="MACS" OtherKey="MACS" Type="COSO" IsForeignKey="true" />
       <Association Name="LOAINHANVIEN_NHANVIEN" Member="LOAINHANVIEN" ThisKey="MALOAINV" OtherKey="MALOAINV" Type="LOAINHANVIEN" IsForeignKey="true" />
     </Type>
@@ -145,27 +145,6 @@
       <Association Name="SANPHAM_SP_NGUYENLIEU" Member="SANPHAM" ThisKey="MASP" OtherKey="MASP" Type="SANPHAM" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.TINTUC" Member="TINTUCs">
-    <Type Name="TINTUC">
-      <Column Name="MATIN" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TIEUDE" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="NOIDUNG" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-      <Column Name="HINHANH" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="MANV" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="NGAYDANG" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="NHANVIEN_TINTUC" Member="NHANVIEN" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.KHACHHANG" Member="KHACHHANGs">
-    <Type Name="KHACHHANG">
-      <Column Name="HOTENKH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="SDT" Type="System.String" DbType="VarChar(14) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="EMAIL" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="DIEMTICH" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="HinhAnh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Association Name="KHACHHANG_HOADON" Member="HOADONs" AccessModifier="Internal" ThisKey="SDT" OtherKey="SDT_KH" Type="HOADON" />
-    </Type>
-  </Table>
   <Table Name="dbo.SANPHAM" Member="SANPHAMs">
     <Type Name="SANPHAM">
       <Column Name="MASP" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -198,8 +177,31 @@
       <Column Name="LOAIHD" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Association Name="HOADON_CHITIETHOADON" Member="CHITIETHOADONs" AccessModifier="Internal" ThisKey="MAHOADON" OtherKey="MAHOADON" Type="CHITIETHOADON" />
       <Association Name="HOADON_DIEUPHOI" Member="DIEUPHOIs" AccessModifier="Internal" ThisKey="MAHOADON" OtherKey="MAHOADON" Type="DIEUPHOI" />
-      <Association Name="KHACHHANG_HOADON" Member="KHACHHANG" ThisKey="SDT_KH" OtherKey="SDT" Type="KHACHHANG" IsForeignKey="true" />
       <Association Name="NHANVIEN_HOADON" Member="NHANVIEN" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" IsForeignKey="true" />
+      <Association Name="KHACHHANG_HOADON" Member="KHACHHANG" ThisKey="SDT_KH" OtherKey="SDT" Type="KHACHHANG" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KHACHHANG" Member="KHACHHANGs">
+    <Type Name="KHACHHANG">
+      <Column Name="HOTENKH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(14) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EMAIL" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="DIEMTICH" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HinhAnh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MATHANHVIEN" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="KHACHHANG_HOADON" Member="HOADONs" AccessModifier="Internal" ThisKey="SDT" OtherKey="SDT_KH" Type="HOADON" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TINTUC" Member="TINTUCs">
+    <Type Name="TINTUC">
+      <Column Name="MATIN" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TIEUDE" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="NOIDUNG" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="HINHANH" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MANV" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="NGAYDANG" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MOTANGAN" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Association Name="NHANVIEN_TINTUC" Member="NHANVIEN" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

@@ -81,6 +81,7 @@
     <Content Include="WS_LoaiSP.asmx" />
     <Content Include="WS_NhanVien.asmx" />
     <Content Include="WS_SanPham.asmx" />
+    <Content Include="WS_ThongKe.asmx" />
     <Content Include="WS_TinTuc.asmx" />
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +140,10 @@
     </Compile>
     <Compile Include="WS_SanPham.asmx.cs">
       <DependentUpon>WS_SanPham.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WS_ThongKe.asmx.cs">
+      <DependentUpon>WS_ThongKe.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="WS_TinTuc.asmx.cs">

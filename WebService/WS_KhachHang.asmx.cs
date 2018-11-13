@@ -55,6 +55,27 @@ namespace WebService
                 khachHang.EMAIL = Email;
                 khachHang.DIEMTICH = DiemTich;
                 khachHang.HinhAnh = HinhAnh;
+
+                if (dc.KHACHHANGs.Count() == 0)
+                {
+                    khachHang.MATHANHVIEN = "MTV1";
+                }
+                else
+                {
+                    var list = dc.KHACHHANGs.ToList();
+                    string MaTV = "MTV1";
+                    string prefix = "MTV";
+                    foreach (var kh in list)
+                    {
+                        int num = int.Parse(kh.MATHANHVIEN.Substring(prefix.Length));
+                        if (num > int.Parse(MaTV.Substring(prefix.Length)))
+                        {
+                            MaTV = kh.MATHANHVIEN;
+                        }
+                    }
+                    khachHang.MATHANHVIEN= Util.autoGenerationCode("MTV", MaTV);
+                }
+
                 dc.KHACHHANGs.InsertOnSubmit(khachHang);
                 dc.SubmitChanges();
                 return true;
@@ -91,6 +112,7 @@ namespace WebService
                 khachHang.EMAIL = Email;
                 khachHang.DIEMTICH = DiemTich;
                 khachHang.HinhAnh = HinhAnh;
+
                 dc.SubmitChanges();
                 return true;
             }
