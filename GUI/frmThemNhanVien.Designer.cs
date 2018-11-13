@@ -76,7 +76,7 @@
             this.mainRibbonPage});
             this.mainRibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
             this.mainRibbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
-            this.mainRibbonControl.Size = new System.Drawing.Size(592, 143);
+            this.mainRibbonControl.Size = new System.Drawing.Size(592, 146);
             this.mainRibbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             // 
             // bbiSave
@@ -145,7 +145,7 @@
             this.txtMaNV.Location = new System.Drawing.Point(283, 169);
             this.txtMaNV.Name = "txtMaNV";
             this.txtMaNV.Size = new System.Drawing.Size(179, 29);
-            this.txtMaNV.TabIndex = 2;
+            this.txtMaNV.TabIndex = 0;
             // 
             // txtHoten
             // 
@@ -153,7 +153,7 @@
             this.txtHoten.Location = new System.Drawing.Point(283, 279);
             this.txtHoten.Name = "txtHoten";
             this.txtHoten.Size = new System.Drawing.Size(179, 29);
-            this.txtHoten.TabIndex = 2;
+            this.txtHoten.TabIndex = 3;
             // 
             // txtSdt
             // 
@@ -161,7 +161,7 @@
             this.txtSdt.Location = new System.Drawing.Point(283, 316);
             this.txtSdt.Name = "txtSdt";
             this.txtSdt.Size = new System.Drawing.Size(179, 29);
-            this.txtSdt.TabIndex = 2;
+            this.txtSdt.TabIndex = 4;
             // 
             // txtCMND
             // 
@@ -169,7 +169,7 @@
             this.txtCMND.Location = new System.Drawing.Point(283, 348);
             this.txtCMND.Name = "txtCMND";
             this.txtCMND.Size = new System.Drawing.Size(179, 29);
-            this.txtCMND.TabIndex = 2;
+            this.txtCMND.TabIndex = 5;
             // 
             // txtEmail
             // 
@@ -177,7 +177,7 @@
             this.txtEmail.Location = new System.Drawing.Point(283, 380);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(179, 29);
-            this.txtEmail.TabIndex = 2;
+            this.txtEmail.TabIndex = 6;
             // 
             // txtDiaChi
             // 
@@ -185,7 +185,7 @@
             this.txtDiaChi.Location = new System.Drawing.Point(283, 420);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(179, 29);
-            this.txtDiaChi.TabIndex = 2;
+            this.txtDiaChi.TabIndex = 7;
             // 
             // txtMatKhau
             // 
@@ -193,7 +193,7 @@
             this.txtMatKhau.Location = new System.Drawing.Point(283, 459);
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.Size = new System.Drawing.Size(179, 29);
-            this.txtMatKhau.TabIndex = 2;
+            this.txtMatKhau.TabIndex = 8;
             // 
             // label1
             // 
@@ -292,7 +292,7 @@
             this.cboLoai.Location = new System.Drawing.Point(283, 204);
             this.cboLoai.Name = "cboLoai";
             this.cboLoai.Size = new System.Drawing.Size(179, 29);
-            this.cboLoai.TabIndex = 4;
+            this.cboLoai.TabIndex = 1;
             // 
             // cboCoSo
             // 
@@ -301,7 +301,7 @@
             this.cboCoSo.Location = new System.Drawing.Point(283, 241);
             this.cboCoSo.Name = "cboCoSo";
             this.cboCoSo.Size = new System.Drawing.Size(179, 29);
-            this.cboCoSo.TabIndex = 4;
+            this.cboCoSo.TabIndex = 2;
             // 
             // frmThemNhanVien
             // 

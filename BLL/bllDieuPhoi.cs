@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 
 namespace BLL
@@ -14,17 +15,42 @@ namespace BLL
 
         public List<DIEUPHOI> getDieuPhoiOfCoSo(string MaCS)
         {
-            return dal.Find(MaCS).ToList();
+            try
+            {
+                return dal.Find(MaCS).ToList();
+            }
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return new List<DIEUPHOI>();
+            }
         }
 
         public List<DIEUPHOI> getAll()
         {
-            return dal.FindAll().ToList();
+            try
+            {
+                return dal.FindAll().ToList();
+            }
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return new List<DIEUPHOI>();
+            }
+
         }
         
         public bool deleteDieuPhoi(string MaCS, string MaHoaDon)
         {
-            return dal.Delete(MaCS, MaHoaDon);
+            try
+            {
+                return dal.Delete(MaCS, MaHoaDon);
+            }
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return false;
+            }
         }
     }
 }

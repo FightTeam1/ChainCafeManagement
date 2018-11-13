@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BLL
 {
@@ -13,7 +14,15 @@ namespace BLL
 
         public List<HOADON> getAll()
         {
-            return dal.FindAll().ToList();
+            try
+            {
+                return dal.FindAll().ToList();
+            }
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return new List<HOADON>();
+            }
         }
 
         //public string[] getFilterByDay(string maCS, DateTime date)
@@ -49,68 +58,132 @@ namespace BLL
 
         public string[] getFilterByMonth(string maCS, int month, int year)
         {
-            List<HOADON> lst = new List<HOADON>();
-            DateStart_End startend = new DateStart_End(month, year);
-            lst = dal.FilterByDateAndCoSo(maCS, startend.Start, startend.End).ToList();
-            long tong = 0;
-            foreach(HOADON hd in lst)
+            try
             {
-                tong += (long)hd.THANHTIEN;
+                List<HOADON> lst = new List<HOADON>();
+                DateStart_End startend = new DateStart_End(month, year);
+                lst = dal.FilterByDateAndCoSo(maCS, startend.Start, startend.End).ToList();
+                long tong = 0;
+                foreach (HOADON hd in lst)
+                {
+                    tong += (long)hd.THANHTIEN;
+                }
+                return new string[] { month.ToString(), tong.ToString() };
             }
-            return new string[] { month.ToString(), tong.ToString() };
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return new string[] { };
+            }
         }
 
         public List<string[]> getFilterMonthly(string maCS, int year)
         {
-            List<string[]> lst = new List<string[]>();
-            for(int i = 1; i < 13; i++)
+            try
             {
-                lst.Add(getFilterByMonth(maCS, i, year));
+                List<string[]> lst = new List<string[]>();
+                for (int i = 1; i < 13; i++)
+                {
+                    lst.Add(getFilterByMonth(maCS, i, year));
+                }
+                return lst;
             }
-            return lst;
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return new List<string[]>();
+            }
         }
 
         public List<string[]> getFilterQuarterly(string maCS, int year)
         {
-            List<string[]> lst = new List<string[]>();
-            int x = 0;
-            for(int i = 1; i < 5; i++)
+            try
             {
-                long tong = 0;
-                for(int j = 0; j < 3; j++)
+                List<string[]> lst = new List<string[]>();
+                int x = 0;
+                for (int i = 1; i < 5; i++)
                 {
-                    tong += long.Parse(getFilterByMonth(maCS, i + j + x, year)[1]);
+                    long tong = 0;
+                    for (int j = 0; j < 3; j++)
+                    {
+                        tong += long.Parse(getFilterByMonth(maCS, i + j + x, year)[1]);
+                    }
+                    string ten = "Quý " + i.ToString();
+                    lst.Add(new string[] { ten, tong.ToString() });
+                    x += 3;
                 }
-                string ten = "Quý " + i.ToString();
-                lst.Add(new string[] { ten, tong.ToString() });
-                x += 3;
+                return lst;
             }
-            return lst;
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return new List<string[]>();
+            }
         }
 
         public HOADON getByMaHD(string MaHD)
         {
-            return dal.Find(MaHD);
+            try
+            {
+                return dal.Find(MaHD);
+            }
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return new HOADON();
+            }
         }
 
         public string addHoaDon(string MaNV, string Sdt, string DiaChi)
         {
-            return dal.Add(MaNV, Sdt, DiaChi);
+            try
+            {
+                return dal.Add(MaNV, Sdt, DiaChi);
+            }
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return "";
+            }
         }
 
         public bool deleteHoaDon(string MaHoaDon)
         {
-            return dal.Delete(MaHoaDon);
+            try
+            {
+                return dal.Delete(MaHoaDon);
+            }
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return false;
+            }
         }
 
         public bool updateHoaDon(string MaHD, string MaNV, string Sdt, DateTime NgayGioLap, int ThanhTien, string TrangThai, string DiaChi, string LoaiHD)
         {
-            return dal.Update(MaHD, MaNV, Sdt, NgayGioLap, ThanhTien, TrangThai, DiaChi, LoaiHD);
+            try
+            {
+                return dal.Update(MaHD, MaNV, Sdt, NgayGioLap, ThanhTien, TrangThai, DiaChi, LoaiHD);
+            }
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return false;
+            }
         }
 
         public bool IsStringsEmpty(string MaNV, string Sdt, string DiaChi)
         {
-            return (string.Equals(MaNV, string.Empty) || string.Equals(Sdt, string.Empty) || string.Equals(DiaChi, string.Empty));
+            try
+            {
+                return (string.Equals(MaNV, string.Empty) || string.Equals(Sdt, string.Empty) || string.Equals(DiaChi, string.Empty));
+            }
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return false;
+            }
         }
     }
 

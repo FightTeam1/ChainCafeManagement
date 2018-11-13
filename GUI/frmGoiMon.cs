@@ -16,51 +16,49 @@ namespace GUI
     public partial class frmGoiMon : DevExpress.XtraEditors.XtraForm
     {
         public frmMain formMainn;
-
+        string nhanvien, coso;
         bllLoaiSanPham bllLoaiSanPham = new bllLoaiSanPham();
         bllSanPham bllSanPham = new bllSanPham();
         bllHoaDon bllHoaDon = new bllHoaDon();
         bllChiTietHoaDon bllChiTietHoaDon = new bllChiTietHoaDon();
         bllKhachHang bllKhachHang = new bllKhachHang();
-
         bllDieuPhoi bllDieuPhoi = new bllDieuPhoi();
         bllNhanVien bllNhanVien = new bllNhanVien();
-
         List<BLL.serviceDieuPhoi.DIEUPHOI> listDieuPhoi = new List<BLL.serviceDieuPhoi.DIEUPHOI>();
         List<BLL.serviceChiTietHoaDon.CHITIETHOADON> listChiTietHD = new List<BLL.serviceChiTietHoaDon.CHITIETHOADON>();
         public string MaNV = "NV001";
         string _MaCS = "";
         string MaHDSelected = "";
-        string maNhanVien = "NV002";
         bool order = false;
         public string nameMa;
-
         public int sl = 0;
         public bool kq = false;
-
         public BLL.serviceHoaDon.HOADON hd = new BLL.serviceHoaDon.HOADON();
+        int i = 0;
 
-        public frmGoiMon(frmMain formMain)
+        public frmGoiMon(frmMain formMain, string nv, string cs)
         {
             InitializeComponent();
+            coso = cs;
+            nhanvien = nv;
             Load += frmLoad;
             dataGridViewDonDatHang.SelectionChanged += dataGridViewDonDatHang_SelectionChanged;
             btnDuyet.Click += btnDuyet_Click;
             timer1.Tick += timer1_Tick;
             btnXacNhanThanhToan.Click += btnXacNhanThanhToan_Click;
             btnThemHoaDon.Click += clickThemHoaDon;
-            
 
+            btnInTamTinh.Enabled = btnThanhToan.Enabled = false;
             checkBox.CheckedChanged += checkedChanged;
 
             _MaCS = bllNhanVien.getNhanVienByMaNV(MaNV).MACS;
             timer1.Enabled = true;
 
-
+            txtDienThoai.ReadOnly = true;
 
             this.formMainn = formMain;
             formMainn.Hide();
-
+            btnXacNhanKH.Click += clickXacNhan;
             FormClosing += frmClosing;
         }
 
@@ -108,20 +106,23 @@ namespace GUI
         private void clickThemHoaDon(object ob, EventArgs e)
         {
             order = true;
-            string str = bllHoaDon.addHoaDon(maNhanVien, "0000000000", "");
+            string str = bllHoaDon.addHoaDon(nhanvien, "0000000000", "");
             checkBox.Enabled = true;
             btnKiemKH.Enabled = true;
             hd = bllHoaDon.getByMaHD(str);
-            txtDienThoai.ReadOnly = false;
             if ( ktra(str))
             {
-                MessageBox.Show("Thêm thành công");
+                btnInTamTinh.Enabled = true;
                 bllHoaDon.updateHoaDon(hd.MAHOADON, hd.MANV, hd.SDT_KH, (DateTime)hd.NGAYGIOLAP, (int)hd.THANHTIEN, "Chưa thanh toán", hd.DIACHI, hd.LOAIHD);
                 hd = bllHoaDon.getByMaHD(hd.MAHOADON);
                 gridControl1.DataSource = bllChiTietHoaDon.getChiTietHDByMaHD(str);
                 ganGiaTri(hd);
-                gridView1.Columns.Remove(gridView1.Columns[gridView1.Columns.Count - 1]);
-                gridView1.Columns.Remove(gridView1.Columns[gridView1.Columns.Count - 1]);
+                if(i == 0)
+                {
+                    gridView1.Columns.Remove(gridView1.Columns[gridView1.Columns.Count - 1]);
+                    gridView1.Columns.Remove(gridView1.Columns[gridView1.Columns.Count - 1]);
+                    i++;
+                }
                 return;
             }
             else
@@ -151,7 +152,7 @@ namespace GUI
             txtMaHoaDon.Text = hd.MAHOADON;
             txtDienThoai.Text = hd.SDT_KH;
             txtNgayLap.Text = hd.NGAYGIOLAP.Value.Date.ToString();
-            txtNhanVienLap.Text = hd.MANV;
+            txtNhanVienLap.Text = bllNhanVien.getNhanVienByMaNV(hd.MANV).HOTENNV;
             txtThanhTien.Text = hd.THANHTIEN.ToString();
             txtTrangThai.Text = hd.TRANGTHAI;
         }
@@ -222,7 +223,6 @@ namespace GUI
         public void ChiTietHoadDon(string maHD, string maSP, int sl)
         {
             bllChiTietHoaDon.addChiTietHoaDon(maHD,maSP,sl);
-            MessageBox.Show(maSP);
             hd = bllHoaDon.getByMaHD(hd.MAHOADON);
             gridControl1.DataSource = bllChiTietHoaDon.getChiTietHDByMaHD(hd.MAHOADON);
             
@@ -444,12 +444,22 @@ namespace GUI
 
         private void btnInTamTinh_Click(object sender, EventArgs e)
         {
-            order = false;
-            checkBox.Enabled = false;
-            btnKiemKH.Enabled = false;
-            txtDienThoai.ReadOnly = true;
-            bllHoaDon.updateHoaDon(hd.MAHOADON, hd.MANV, hd.SDT_KH, (DateTime)hd.NGAYGIOLAP, (int)hd.THANHTIEN, "In tạm tính", hd.DIACHI, hd.LOAIHD);
-            gridControl1.DataSource = bllChiTietHoaDon.getChiTietHDByMaHD(hd.MAHOADON);
+            if (gridView1.RowCount > 0)
+            {
+                order = false;
+                checkBox.Enabled = false;
+                btnKiemKH.Enabled = false;
+                txtDienThoai.ReadOnly = true;
+                bllHoaDon.updateHoaDon(hd.MAHOADON, hd.MANV, hd.SDT_KH, (DateTime)hd.NGAYGIOLAP, (int)hd.THANHTIEN, "In tạm tính", hd.DIACHI, hd.LOAIHD);
+                gridControl1.DataSource = bllChiTietHoaDon.getChiTietHDByMaHD(hd.MAHOADON);
+                btnInTamTinh.Enabled = false;
+                btnThanhToan.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Hóa đơn rỗng!");
+                return;
+            }
         }
 
         private void btnThanhToan_Click(object sender, EventArgs e)
@@ -458,12 +468,12 @@ namespace GUI
             bllHoaDon.updateHoaDon(hd.MAHOADON, hd.MANV, hd.SDT_KH, (DateTime)hd.NGAYGIOLAP, (int)hd.THANHTIEN, "Đã thanh toán", hd.DIACHI, hd.LOAIHD);
             gridControl1.DataSource = new List<BLL.serviceChiTietHoaDon.CHITIETHOADON>();
             ganGiaTriRong();
+            btnThanhToan.Enabled = false;
         }
 
         private void btnKiemKH_Click(object sender, EventArgs e)
         {
             List<BLL.serviceKhachHang.KHACHHANG> lst = bllKhachHang.getAll();
-            MessageBox.Show(txtDienThoai.Text);
             foreach(BLL.serviceKhachHang.KHACHHANG kh in lst)
             {  
                 if (string.Equals(kh.SDT, txtDienThoai.Text))

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BLL.serviceSanPham;
+using System.Windows.Forms;
 
 namespace BLL
 {
@@ -13,34 +14,66 @@ namespace BLL
 
         public List<SANPHAM> getAll()
         {
-            return dal.FindAll().ToList();
+            try
+            {
+                return dal.FindAll().ToList();
+            }
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return new List<SANPHAM>();
+            }
         }
 
         public int addSanPham(string MaSP, string MaLoaiSP, string TenSP, int DonGia, string HinhAnh)
         {
-            if (IsStringsEmpty(MaSP, MaLoaiSP, TenSP, DonGia, HinhAnh))
+            try
             {
-                return 1;
+                if (IsStringsEmpty(MaSP, MaLoaiSP, TenSP, DonGia, HinhAnh))
+                {
+                    return 1;
+                }
+                if (ktraTrungMaLoai(MaSP))
+                {
+                    return 2;
+                }
+                if (!dal.Add(MaSP, MaLoaiSP, TenSP, DonGia, HinhAnh))
+                {
+                    return 3;
+                }
+                return 0;
             }
-            if (ktraTrungMaLoai(MaSP))
+            catch
             {
-                return 2;
-            }
-            if (!dal.Add(MaSP, MaLoaiSP, TenSP, DonGia, HinhAnh))
-            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
                 return 3;
             }
-            return 0;
         }
 
         public bool deleteSanPham(string maSanPham)
         {
-            return dal.Delete(maSanPham);
+            try
+            {
+                return dal.Delete(maSanPham);
+            }
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return false;
+            }
         }
 
         public bool updateSanPham(string MaSP, string MaLoaiSP, string TenSP, int DonGia, string HinhAnh)
         {
-            return dal.Update(MaSP, MaLoaiSP, TenSP, DonGia, HinhAnh);
+            try
+            {
+                return dal.Update(MaSP, MaLoaiSP, TenSP, DonGia, HinhAnh);
+            }
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return false;
+            }
         }
 
         public bool IsStringsEmpty(string MaSP, string MaLoaiSP, string TenSP, int DonGia, string HinhAnh)
@@ -50,19 +83,35 @@ namespace BLL
 
         public bool ktraTrungMaLoai(string maSanPham)
         {
-            foreach (SANPHAM sanpham in getAll())
+            try
             {
-                if (string.Equals(sanpham.MASP, maSanPham))
+                foreach (SANPHAM sanpham in getAll())
                 {
-                    return true; ;
+                    if (string.Equals(sanpham.MASP, maSanPham))
+                    {
+                        return true; ;
+                    }
                 }
+                return false;
             }
-            return false;
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return false;
+            }
         }
 
         public List<SANPHAM> getBy(string maLoai)
         {
-            return dal.FindByMaLoaiSP(maLoai).ToList();
+            try
+            {
+                return dal.FindByMaLoaiSP(maLoai).ToList();
+            }
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return new List<SANPHAM>();
+            }
         }
     }
 }

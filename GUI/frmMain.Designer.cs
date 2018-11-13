@@ -36,6 +36,7 @@
             DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement6 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement7 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement8 = new DevExpress.XtraEditors.TileItemElement();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.tileItem4 = new DevExpress.XtraEditors.TileItem();
@@ -47,6 +48,8 @@
             this.tileItem5 = new DevExpress.XtraEditors.TileItem();
             this.tileItem6 = new DevExpress.XtraEditors.TileItem();
             this.tileItem7 = new DevExpress.XtraEditors.TileItem();
+            this.tileItem8 = new DevExpress.XtraEditors.TileItem();
+            this.tileGroup1 = new DevExpress.XtraEditors.TileGroup();
             this.SuspendLayout();
             // 
             // defaultLookAndFeel1
@@ -79,11 +82,13 @@
             this.tileControl1.AppearanceItem.Normal.Options.UseFont = true;
             this.tileControl1.AppearanceText.Font = new System.Drawing.Font("Tahoma", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tileControl1.AppearanceText.Options.UseFont = true;
+            this.tileControl1.ColumnCount = 2;
             this.tileControl1.Cursor = System.Windows.Forms.Cursors.Default;
             this.tileControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tileControl1.Groups.Add(this.tileGroup2);
+            this.tileControl1.Groups.Add(this.tileGroup1);
             this.tileControl1.Location = new System.Drawing.Point(0, 0);
-            this.tileControl1.MaxId = 10;
+            this.tileControl1.MaxId = 11;
             this.tileControl1.Name = "tileControl1";
             this.tileControl1.ShowGroupText = true;
             this.tileControl1.ShowText = true;
@@ -155,13 +160,28 @@
             // 
             // tileItem7
             // 
-            tileItemElement7.Text = "Đăng xuất";
+            tileItemElement7.Text = "Thống kê";
             tileItemElement7.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             this.tileItem7.Elements.Add(tileItemElement7);
             this.tileItem7.Id = 9;
             this.tileItem7.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
             this.tileItem7.Name = "tileItem7";
             this.tileItem7.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileItem7_ItemClick);
+            // 
+            // tileItem8
+            // 
+            tileItemElement8.Text = "Đăng xuất";
+            tileItemElement8.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileItem8.Elements.Add(tileItemElement8);
+            this.tileItem8.Id = 10;
+            this.tileItem8.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
+            this.tileItem8.Name = "tileItem8";
+            this.tileItem8.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileItem8_ItemClick);
+            // 
+            // tileGroup1
+            // 
+            this.tileGroup1.Items.Add(this.tileItem8);
+            this.tileGroup1.Name = "tileGroup1";
             // 
             // frmMain
             // 
@@ -188,5 +208,7 @@
         private DevExpress.XtraEditors.TileItem tileItem5;
         private DevExpress.XtraEditors.TileItem tileItem6;
         private DevExpress.XtraEditors.TileItem tileItem7;
+        private DevExpress.XtraEditors.TileItem tileItem8;
+        private DevExpress.XtraEditors.TileGroup tileGroup1;
     }
 }

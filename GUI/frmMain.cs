@@ -13,10 +13,12 @@ namespace GUI
 {
     public partial class frmMain : DevExpress.XtraEditors.XtraForm
     {
+        frmDangNhap frm;
+
         public frmMain()
         {
             InitializeComponent();
-            frmDangNhap frm = new frmDangNhap(Controls.IndexOf(tileControl1));
+            frm = new frmDangNhap(Controls.IndexOf(tileControl1));
 
             tileControl1.Hide();
             frm.MdiParent = this;
@@ -26,7 +28,7 @@ namespace GUI
 
         private void tileItem2_ItemClick(object sender, TileItemEventArgs e)
         {
-            frmGoiMon frm = new frmGoiMon(this);
+            frmGoiMon frm = new frmGoiMon(this,this.frm.nhanvien,this.frm.coso);
             frm.Show();
         }
 
@@ -56,7 +58,21 @@ namespace GUI
 
         private void tileItem7_ItemClick(object sender, TileItemEventArgs e)
         {
+            frmThongKe frm = new frmThongKe(this.frm.coso,this);
+            frm.Show();
+        }
 
+        private void tileItem8_ItemClick(object sender, TileItemEventArgs e)
+        {
+            DialogResult h = MessageBox.Show("Chắc chắn đăng xuất?", "Thông báo", MessageBoxButtons.YesNo);
+            if (string.Equals(h.ToString(), "Yes"))
+            {
+                tileControl1.Hide();
+                frm.Show();
+                frm.reset();
+            }
+            else
+                return;
         }
     }
 }

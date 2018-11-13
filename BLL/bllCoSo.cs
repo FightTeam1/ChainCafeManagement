@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BLL.serviceCoSo;
+using System.Windows.Forms;
 
 namespace BLL
 {
@@ -13,34 +14,70 @@ namespace BLL
 
         public List<COSO> getAll()
         {
-            return dal.FindAll().ToList();
+            try
+            {
+                return dal.FindAll().ToList();
+            }
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return new List<COSO>();
+            }
+
         }
 
         public int addCoSo(string MaCS, string TenCS, string DiaChi, string Sdt, string HinhAnh)
         {
-            if (IsStringsEmpty(MaCS, TenCS, DiaChi, Sdt, HinhAnh))
+            try
             {
-                return 1;
+                if (IsStringsEmpty(MaCS, TenCS, DiaChi, Sdt, HinhAnh))
+                {
+                    return 1;
+                }
+                if (ktraTrungMaCoSo(MaCS))
+                {
+                    return 2;
+                }
+                if (!dal.Add(MaCS, TenCS, DiaChi, Sdt, HinhAnh))
+                {
+                    return 3;
+                }
+                return 0;
             }
-            if (ktraTrungMaCoSo(MaCS))
+            catch
             {
-                return 2;
-            }
-            if (!dal.Add(MaCS, TenCS, DiaChi, Sdt, HinhAnh))
-            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
                 return 3;
             }
-            return 0;
+
         }
 
         public bool updateCoSo(string MaCS, string TenCS, string DiaChi, string Sdt, string HinhAnh)
         {
-            return dal.Update(MaCS, TenCS, DiaChi, Sdt, HinhAnh);
+            try
+            {
+                return dal.Update(MaCS, TenCS, DiaChi, Sdt, HinhAnh);
+            }
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return false;
+            }
+
         }
 
         public bool deleteCoSo(string MaCS)
         {
-            return dal.Delete(MaCS);
+            try
+            {
+                return dal.Delete(MaCS);
+            }
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return false;
+            }
+
         }
 
         public bool IsStringsEmpty(string MaCS, string TenCS, string DiaChi, string Sdt, string HinhAnh)
@@ -50,14 +87,23 @@ namespace BLL
 
         public bool ktraTrungMaCoSo(string maCS)
         {
-            foreach (COSO coso in getAll())
+            try
             {
-                if (string.Equals(coso.MACS, maCS))
+                foreach (COSO coso in getAll())
                 {
-                    return true; ;
+                    if (string.Equals(coso.MACS, maCS))
+                    {
+                        return true; ;
+                    }
                 }
+                return false;
             }
-            return false;
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return false;
+            }
+
         }
 
     }

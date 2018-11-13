@@ -68,7 +68,7 @@
             this.mainRibbonPage});
             this.mainRibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
             this.mainRibbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
-            this.mainRibbonControl.Size = new System.Drawing.Size(647, 143);
+            this.mainRibbonControl.Size = new System.Drawing.Size(647, 146);
             this.mainRibbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             // 
             // bbiSave
@@ -187,7 +187,7 @@
             this.txtHinhAnh.Location = new System.Drawing.Point(279, 369);
             this.txtHinhAnh.Name = "txtHinhAnh";
             this.txtHinhAnh.Size = new System.Drawing.Size(241, 29);
-            this.txtHinhAnh.TabIndex = 29;
+            this.txtHinhAnh.TabIndex = 4;
             // 
             // txtSdt
             // 
@@ -195,7 +195,7 @@
             this.txtSdt.Location = new System.Drawing.Point(279, 317);
             this.txtSdt.Name = "txtSdt";
             this.txtSdt.Size = new System.Drawing.Size(241, 29);
-            this.txtSdt.TabIndex = 30;
+            this.txtSdt.TabIndex = 3;
             // 
             // txtDiaChi
             // 
@@ -203,7 +203,7 @@
             this.txtDiaChi.Location = new System.Drawing.Point(279, 267);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(241, 29);
-            this.txtDiaChi.TabIndex = 31;
+            this.txtDiaChi.TabIndex = 2;
             // 
             // txtTenCoSo
             // 
@@ -211,7 +211,7 @@
             this.txtTenCoSo.Location = new System.Drawing.Point(279, 221);
             this.txtTenCoSo.Name = "txtTenCoSo";
             this.txtTenCoSo.Size = new System.Drawing.Size(241, 29);
-            this.txtTenCoSo.TabIndex = 32;
+            this.txtTenCoSo.TabIndex = 1;
             // 
             // txtMaCoSo
             // 
@@ -219,7 +219,7 @@
             this.txtMaCoSo.Location = new System.Drawing.Point(279, 174);
             this.txtMaCoSo.Name = "txtMaCoSo";
             this.txtMaCoSo.Size = new System.Drawing.Size(241, 29);
-            this.txtMaCoSo.TabIndex = 33;
+            this.txtMaCoSo.TabIndex = 0;
             // 
             // frmCapNhatCoSo
             // 

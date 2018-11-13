@@ -131,7 +131,7 @@
             this.mainRibbonPage});
             this.mainRibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
             this.mainRibbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
-            this.mainRibbonControl.Size = new System.Drawing.Size(674, 143);
+            this.mainRibbonControl.Size = new System.Drawing.Size(674, 146);
             this.mainRibbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             // 
             // txtMaSP
@@ -140,7 +140,7 @@
             this.txtMaSP.Location = new System.Drawing.Point(197, 163);
             this.txtMaSP.Name = "txtMaSP";
             this.txtMaSP.Size = new System.Drawing.Size(234, 29);
-            this.txtMaSP.TabIndex = 1;
+            this.txtMaSP.TabIndex = 0;
             // 
             // txtTenSP
             // 
@@ -156,7 +156,7 @@
             this.txtDonGia.Location = new System.Drawing.Point(197, 272);
             this.txtDonGia.Name = "txtDonGia";
             this.txtDonGia.Size = new System.Drawing.Size(234, 29);
-            this.txtDonGia.TabIndex = 1;
+            this.txtDonGia.TabIndex = 3;
             // 
             // label1
             // 
@@ -205,7 +205,7 @@
             this.cboMaLoai.Location = new System.Drawing.Point(197, 236);
             this.cboMaLoai.Name = "cboMaLoai";
             this.cboMaLoai.Size = new System.Drawing.Size(234, 29);
-            this.cboMaLoai.TabIndex = 3;
+            this.cboMaLoai.TabIndex = 2;
             // 
             // btnBrowse
             // 

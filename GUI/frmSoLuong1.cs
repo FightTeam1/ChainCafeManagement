@@ -25,7 +25,11 @@ namespace GUI
         {
             try
             {
-                int.Parse(str);
+                if(int.Parse(str) == 0)
+                {
+                    MessageBox.Show("Số lượng không được bằng 0");
+                    return false;
+                }
                 return true;
             }
             catch
@@ -39,7 +43,7 @@ namespace GUI
             if (ktra(textBox1.Text))
             {
                 frmmon.ChiTietHoadDon(frmmon.hd.MAHOADON, frmmon.nameMa, int.Parse(textBox1.Text));
-                MessageBox.Show(frmmon.hd.MAHOADON + " " + frmmon.nameMa + " " + textBox1.Text);
+                Close();
             }
             else
             {

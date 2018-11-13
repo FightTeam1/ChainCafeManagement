@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BLL.serviceLoaiSanPham;
+using System.Windows.Forms;
 
 namespace BLL
 {
@@ -14,34 +15,66 @@ namespace BLL
 
         public List<LOAISP> getAll()
         {
-            return dal.FindAll().ToList();
+            try
+            {
+                return dal.FindAll().ToList();
+            }
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return new List<LOAISP>();
+            }
         }
         
         public int addLoaiSP(string maLoaiSP, string tenLoaiSP, string hinhAnh)
         {
-            if (IsStringsEmpty(maLoaiSP, tenLoaiSP, hinhAnh))
+            try
             {
-                return 1;
+                if (IsStringsEmpty(maLoaiSP, tenLoaiSP, hinhAnh))
+                {
+                    return 1;
+                }
+                if (ktraTrungMaLoai(maLoaiSP))
+                {
+                    return 2;
+                }
+                if (!dal.Add(maLoaiSP, tenLoaiSP, hinhAnh))
+                {
+                    return 3;
+                }
+                return 0;
             }
-            if (ktraTrungMaLoai(maLoaiSP))
+            catch
             {
-                return 2;
-            }
-            if (!dal.Add(maLoaiSP, tenLoaiSP, hinhAnh))
-            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
                 return 3;
             }
-            return 0;
         }
 
         public bool deleteLoaiSP(string maLoaiSP)
         {
-            return dal.Delete(maLoaiSP);
+            try
+            {
+                return dal.Delete(maLoaiSP);
+            }
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return false;
+            }
         }
 
         public bool updateLoaiSP(string maLoaiSP, string tenLoaiSP, string hinhAnh)
         {
-            return dal.Update(maLoaiSP, tenLoaiSP, hinhAnh);
+            try
+            {
+                return dal.Update(maLoaiSP, tenLoaiSP, hinhAnh);
+            }
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return false;
+            }
         }
 
         public bool IsStringsEmpty(string maLoaiSP, string tenLoaiSP, string hinhAnh)
@@ -51,14 +84,22 @@ namespace BLL
 
         public bool ktraTrungMaLoai(string maLoaiSP)
         {
-            foreach (LOAISP loai in getAll())
+            try
             {
-                if (string.Equals(loai.MALOAISP, maLoaiSP))
+                foreach (LOAISP loai in getAll())
                 {
-                    return true; ;
+                    if (string.Equals(loai.MALOAISP, maLoaiSP))
+                    {
+                        return true; ;
+                    }
                 }
+                return false;
             }
-            return false;
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return false;
+            }
         }
 
         public string UploadFile(string filename)
@@ -116,7 +157,7 @@ namespace BLL
             catch (Exception ex)
             {
                 // display an error message to the user
-                //MessageBox.Show(ex.Message.ToString(), "Upload Error");
+                MessageBox.Show(ex.Message.ToString(), "Upload Error");
                 return "";
             }
         }

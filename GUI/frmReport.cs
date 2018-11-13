@@ -21,7 +21,7 @@ namespace GUI
 
         private void loadForm(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

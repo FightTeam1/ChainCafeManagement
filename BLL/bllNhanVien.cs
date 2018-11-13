@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BLL
 {
@@ -13,7 +14,15 @@ namespace BLL
 
         public List<NHANVIEN> getAll()
         {
-            return dal.FindAll().ToList();
+            try
+            {
+                return dal.FindAll().ToList();
+            }
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return new List<NHANVIEN>();
+            }
         }
 
         public NHANVIEN getNhanVienByMaNV(string MaNV)
@@ -24,35 +33,60 @@ namespace BLL
             }
             catch
             {
-                return null;
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return new NHANVIEN();
             }
         }
 
         public int addNhanVien(string MaNV, string MaLoaiNV, string MaCS, string HoTenNV, string Sdt, string Cmnd, string Email, string Diachi, string MatKhau)
         {
-            if (IsStringsEmpty(MaNV, MaLoaiNV, MaCS, HoTenNV, Sdt, Cmnd, Email, Diachi, MatKhau))
+            try
             {
-                return 1;
+                if (IsStringsEmpty(MaNV, MaLoaiNV, MaCS, HoTenNV, Sdt, Cmnd, Email, Diachi, MatKhau))
+                {
+                    return 1;
+                }
+                if (ktraTrungMaNhanVien(MaNV))
+                {
+                    return 2;
+                }
+                if (!dal.Add(MaNV, MaLoaiNV, MaCS, HoTenNV, Sdt, Cmnd, Email, Diachi, MatKhau))
+                {
+                    return 3;
+                }
+                return 0;
             }
-            if (ktraTrungMaNhanVien(MaNV))
+            catch
             {
-                return 2;
-            }
-            if (!dal.Add(MaNV, MaLoaiNV, MaCS, HoTenNV, Sdt, Cmnd, Email, Diachi, MatKhau))
-            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
                 return 3;
             }
-            return 0;
         }
 
         public bool updateNhanVien(string MaNV, string MaLoaiNV, string MaCS, string HoTenNV, string Sdt, string Cmnd, string Email, string Diachi, string MatKhau)
         {
-            return dal.Update(MaNV, MaLoaiNV, MaCS, HoTenNV, Sdt, Cmnd, Email, Diachi, MatKhau);
+            try
+            {
+                return dal.Update(MaNV, MaLoaiNV, MaCS, HoTenNV, Sdt, Cmnd, Email, Diachi, MatKhau);
+            }
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return false;
+            }
         }
 
         public bool deleteNhanVien(string MaNV)
         {
-            return dal.Delete(MaNV);
+            try
+            {
+                return dal.Delete(MaNV);
+            }
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return false;
+            }
         }
 
         public bool IsStringsEmpty(string MaNV, string MaLoaiNV, string MaCS, string HoTenNV, string Sdt, string Cmnd, string Email, string Diachi, string MatKhau)
@@ -63,14 +97,22 @@ namespace BLL
 
         public bool ktraTrungMaNhanVien(string MaNV)
         {
-            foreach (NHANVIEN nhanVien in getAll())
+            try
             {
-                if (string.Equals(nhanVien.MANV, MaNV))
+                foreach (NHANVIEN nhanVien in getAll())
                 {
-                    return true;
+                    if (string.Equals(nhanVien.MANV, MaNV))
+                    {
+                        return true;
+                    }
                 }
+                return false;
             }
-            return false;
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return false;
+            }
         }
     }
 }

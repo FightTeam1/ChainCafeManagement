@@ -11,13 +11,18 @@ namespace GUI
         public rpHoaDon()
         {
             InitializeComponent();
-            
+            gido();
         }
-
-        private void gido()
+        
+        void gido()
         {
-            
+            XRTableRow row = new XRTableRow();
+            XRTableCell cell = new XRTableCell();
+            cell.Text = "một con vịt";
+            row.Cells.Add(cell);
+            row.Cells.Add(cell);
+            xrTable1.Rows.Add(row);
+            //xrTableRow1.Cells.Add(cell);
         }
-
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BLL.serviceKhachHang;
+using System.Windows.Forms;
 
 namespace BLL
 {
@@ -13,34 +14,66 @@ namespace BLL
 
         public List<KHACHHANG> getAll()
         {
-            return dal.FindAll().ToList();
+            try
+            {
+                return dal.FindAll().ToList();
+            }
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return new List<KHACHHANG>();
+            }
         }
 
         public int addKhachHang(string HoTen, string Sdt, string Email, string DiemTich, string HinhAnh)
         {
-            if (IsStringsEmpty(HoTen, Sdt, Email, DiemTich, HinhAnh))
+            try
             {
-                return 1;
+                if (IsStringsEmpty(HoTen, Sdt, Email, DiemTich, HinhAnh))
+                {
+                    return 1;
+                }
+                if (ktraTrungMaLoai(Sdt))
+                {
+                    return 2;
+                }
+                if (!dal.Add(HoTen, Sdt, Email, int.Parse(DiemTich), HinhAnh))
+                {
+                    return 3;
+                }
+                return 0;
             }
-            if (ktraTrungMaLoai(Sdt))
+            catch
             {
-                return 2;
-            }
-            if (!dal.Add(HoTen, Sdt, Email, int.Parse(DiemTich), HinhAnh))
-            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
                 return 3;
             }
-            return 0;
         }
 
         public bool deleteKhachHang(string sdt)
         {
-            return dal.Delete(sdt);
+            try
+            {
+                return dal.Delete(sdt);
+            }
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return false;
+            }
         }
 
         public bool updateKhachHang(string HoTen, string Sdt, string Email, string DiemTich, string HinhAnh)
         {
-            return dal.Update(HoTen, Sdt, Email, int.Parse(DiemTich), HinhAnh);
+            try
+            {
+                return dal.Update(HoTen, Sdt, Email, int.Parse(DiemTich), HinhAnh);
+            }
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return false;
+            }
         }
 
         public bool IsStringsEmpty(string HoTen, string Sdt, string Email, string DiemTich, string HinhAnh)
@@ -50,19 +83,35 @@ namespace BLL
 
         public bool ktraTrungMaLoai(string sdt)
         {
-            foreach (KHACHHANG kh in getAll())
+            try
             {
-                if (string.Equals(kh.SDT, sdt))
+                foreach (KHACHHANG kh in getAll())
                 {
-                    return true; ;
+                    if (string.Equals(kh.SDT, sdt))
+                    {
+                        return true; ;
+                    }
                 }
+                return false;
             }
-            return false;
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return false;
+            }
         }
 
         public KHACHHANG getBySdt(string sdt)
         {
-            return dal.Find(sdt);
+            try
+            {
+                return dal.Find(sdt);
+            }
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return new KHACHHANG();
+            }
         }
     }
 }

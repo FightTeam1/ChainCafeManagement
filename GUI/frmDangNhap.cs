@@ -16,6 +16,7 @@ namespace GUI
     {
         bllDangNhap bllDangNhap = new bllDangNhap();
         int index;
+        public string coso, nhanvien;
 
         public frmDangNhap(int index)
         {
@@ -46,7 +47,8 @@ namespace GUI
 
         private void clickTextBox(object sender, EventArgs e) //Sự kiện click của TextBox
         {
-            ((TextBox)sender).Text = "";
+            if(String.Equals(((TextBox)sender).Text,"Tên đăng nhập") || String.Equals(((TextBox)sender).Text,"Mật khẩu"))
+                ((TextBox)sender).Text = "";
         }
 
         private void leaveTenDangNhap(object sender, EventArgs e) //Sự kiện bỏ focus TextBox tên đăng nhập
@@ -79,18 +81,23 @@ namespace GUI
 
         private void clickDangNhap(object sender, EventArgs e) //Sự kiện click của btn đăng nhập
         {
+
             switch (bllDangNhap.ketquaDangNhap(txtTenDangNhap.Text, txtMatKhau.Text))
             {
                 case 0:
                     MessageBox.Show("Đăng nhập thành công!", "Thông báo");
-                    this.MdiParent.Controls[index].Show();
-                    this.Hide();
+                    MdiParent.Controls[index].Show();
+                    coso = bllDangNhap.coso;
+                    nhanvien = bllDangNhap.nhanvien;
+                    Hide();
                     return;
                 case 1:
                     MessageBox.Show("Tên đăng nhập không tồn tại!", "Thông báo");
                     return;
                 case 2:
                     MessageBox.Show("Sai mật khẩu", "Thông báo");
+                    return;
+                case 3:
                     return;
             }
         }

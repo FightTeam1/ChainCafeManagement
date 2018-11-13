@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BLL
 {
@@ -13,40 +14,81 @@ namespace BLL
 
         public List<CHITIETHOADON> getAll()
         {
-            return dal.FindAll().ToList();
+            try
+            {
+                return dal.FindAll().ToList();
+            }
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return new List<CHITIETHOADON>();
+            }
         }
 
         public List<CHITIETHOADON> getChiTietHDByMaHD(string MaHoaDon)
         {
-            return dal.FindByMaHD(MaHoaDon).ToList();
+            try
+            {
+                return dal.FindByMaHD(MaHoaDon).ToList();
+            }
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return new List<CHITIETHOADON>();
+
+            }
         }
 
         public int addChiTietHoaDon(string MaHoaDon, string MaSP, int SoLuong)
         {
-            if (IsStringsEmpty(MaHoaDon, MaSP, SoLuong))
+            try
             {
-                return 1;
+                if (IsStringsEmpty(MaHoaDon, MaSP, SoLuong))
+                {
+                    return 1;
+                }
+                if (ktraTrungKhoaChinh(MaHoaDon, MaSP))
+                {
+                    updateChiTietHoaDon(MaHoaDon, MaSP, (int)getChiTietHDByMaHD(MaHoaDon)[0].SL_SP + SoLuong);
+                    return 2;
+                }
+                if (!dal.Add(MaHoaDon, MaSP, SoLuong))
+                {
+                    return 3;
+                }
+                return 0;
             }
-            if (ktraTrungKhoaChinh(MaHoaDon, MaSP))
+            catch
             {
-                updateChiTietHoaDon(MaHoaDon,MaSP,(int)getChiTietHDByMaHD(MaHoaDon)[0].SL_SP + SoLuong);
-                return 2;
-            }
-            if (!dal.Add(MaHoaDon, MaSP, SoLuong))
-            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
                 return 3;
             }
-            return 0;
         }
 
         public bool deleteChiTietHoaDon(string MaHoaDon, string MaSP)
         {
-            return dal.Delete(MaHoaDon, MaSP);
+            try
+            {
+                return dal.Delete(MaHoaDon, MaSP);
+            }
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return false;
+            }
         }
 
         public bool updateChiTietHoaDon(string MaHoaDon, string MaSP, int SoLuong)
         {
-            return dal.Update(MaHoaDon, MaSP, SoLuong);
+            try
+            {
+                return dal.Update(MaHoaDon, MaSP, SoLuong);
+            }
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return false;
+            }
         }
 
         public bool IsStringsEmpty(string MaHoaDon, string MaSP, int SoLuong)
@@ -56,14 +98,22 @@ namespace BLL
 
         public bool ktraTrungKhoaChinh(string MaHD, string MaSP)
         {
-            foreach (CHITIETHOADON ct in getAll())
+            try
             {
-                if (string.Equals(ct.MAHOADON, MaHD) && string.Equals(ct.MASP, MaSP))
+                foreach (CHITIETHOADON ct in getAll())
                 {
-                    return true; ;
+                    if (string.Equals(ct.MAHOADON, MaHD) && string.Equals(ct.MASP, MaSP))
+                    {
+                        return true; ;
+                    }
                 }
+                return false;
             }
-            return false;
+            catch
+            {
+                MessageBox.Show("Kiểm tra kết nối mạng");
+                return false;
+            }
         }
     }
 }

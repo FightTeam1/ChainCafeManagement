@@ -34,7 +34,6 @@
             // viewer
             // 
             this.viewer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.viewer.DocumentSource = typeof(GUI.rpHoaDon);
             this.viewer.IsMetric = true;
             this.viewer.Location = new System.Drawing.Point(0, 0);
             this.viewer.Name = "viewer";

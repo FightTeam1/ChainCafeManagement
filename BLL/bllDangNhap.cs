@@ -4,30 +4,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BLL.serviceNhanVien;
+using System.Windows.Forms;
 
 namespace BLL
 {
     public class bllDangNhap
     {
         WS_NhanVien dal = new WS_NhanVien();
+        public string coso, nhanvien;
 
         public int ketquaDangNhap(string tendangnhap, string matkhau) //Hàm kiểm tra tên đăng nhập và mật khẩu
         {
-            foreach(NHANVIEN nv in dal.FindAll())
+            try
             {
-                if (string.Equals(nv.MANV, tendangnhap))
+                foreach (NHANVIEN nv in dal.FindAll())
                 {
-                    if (string.Equals(nv.MATKHAU, matkhau))
+                    if (string.Equals(nv.MANV, tendangnhap))
                     {
-                        return 0; //Kết quả đăng nhập thành công
-                    }
-                    else
-                    {
-                        return 2; // Nhập sai mật khẩu
+                        if (string.Equals(nv.MATKHAU, matkhau))
+                        {
+                            coso = nv.MACS;
+                            nhanvien = nv.MANV;
+                            return 0; //Kết quả đăng nhập thành công
+                        }
+                        else
+                        {
+                            return 2; // Nhập sai mật khẩu
+                        }
                     }
                 }
+                return 1; // Tên đăng nhập không tồn tại
             }
-            return 1; // Tên đăng nhập không tồn tại
+            catch
+            {
+                MessageBox.Show("Kiểm tra lại kết nối mạng");
+                return 3;
+            }
+
         }
     }
 }
