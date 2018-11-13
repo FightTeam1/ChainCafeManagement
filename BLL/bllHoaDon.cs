@@ -19,15 +19,15 @@ namespace BLL
         //public string[] getFilterByDay(string maCS, DateTime date)
         //{
         //    long tong = 0;
-        //    DateTime start = new DateTime(date.Year, date.Month, date.Day, 0, 0, 0);
-        //    DateTime end = new DateTime(date.Year, date.Month, date.Day, 23, 59, 59);
-        //    foreach (HOADON hd in dal.FilterByDateAndCoSo(maCS, start, end))
+        //    List<HOADON> lst = new List<HOADON>();
+        //    lst = dal.FilterByDateAndCoSo(maCS, date, date).ToList();
+        //    foreach (HOADON hd in lst)
         //    {
-        //        tong += (long)hd.THANHTIEN; 
+        //        tong += (long)hd.THANHTIEN;
         //    }
         //    string ngay = "";
         //    ngay += date.Day + "/" + date.Month;
-        //    return new string[] { ngay, tong.ToString()};
+        //    return new string[] { ngay, tong.ToString() };
         //}
 
         //public List<string[]> getFilterByDays(string maCS, DateTime start, DateTime end)
@@ -35,7 +35,7 @@ namespace BLL
         //    List<string[]> lst = new List<string[]>();
         //    DateTime dt = start;
         //    bool stop = false;
-        //    while(!stop)
+        //    while (!stop)
         //    {
         //        lst.Add(getFilterByDay(maCS, dt));
         //        dt = dt.AddDays(1);
@@ -46,7 +46,7 @@ namespace BLL
         //    }
         //    return lst;
         //}
-        
+
         public string[] getFilterByMonth(string maCS, int month, int year)
         {
             List<HOADON> lst = new List<HOADON>();
