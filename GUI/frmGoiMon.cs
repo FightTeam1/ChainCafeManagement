@@ -35,6 +35,7 @@ namespace GUI
         public bool kq = false;
         public BLL.serviceHoaDon.HOADON hd = new BLL.serviceHoaDon.HOADON();
         int i = 0;
+        frmReport frmReport;
 
         public frmGoiMon(frmMain formMain, string nv, string cs)
         {
@@ -451,9 +452,13 @@ namespace GUI
                 btnKiemKH.Enabled = false;
                 txtDienThoai.ReadOnly = true;
                 bllHoaDon.updateHoaDon(hd.MAHOADON, hd.MANV, hd.SDT_KH, (DateTime)hd.NGAYGIOLAP, (int)hd.THANHTIEN, "In tạm tính", hd.DIACHI, hd.LOAIHD);
+                hd = bllHoaDon.getByMaHD(hd.MAHOADON);
+                ganGiaTri(hd);
                 gridControl1.DataSource = bllChiTietHoaDon.getChiTietHDByMaHD(hd.MAHOADON);
                 btnInTamTinh.Enabled = false;
                 btnThanhToan.Enabled = true;
+                frmReport = new frmReport(hd.MAHOADON);
+                frmReport.Show();
             }
             else
             {
@@ -464,7 +469,7 @@ namespace GUI
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-
+            frmReport.Close();
             bllHoaDon.updateHoaDon(hd.MAHOADON, hd.MANV, hd.SDT_KH, (DateTime)hd.NGAYGIOLAP, (int)hd.THANHTIEN, "Đã thanh toán", hd.DIACHI, hd.LOAIHD);
             gridControl1.DataSource = new List<BLL.serviceChiTietHoaDon.CHITIETHOADON>();
             ganGiaTriRong();

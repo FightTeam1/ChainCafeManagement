@@ -13,15 +13,12 @@ namespace GUI
 {
     public partial class frmReport : DevExpress.XtraEditors.XtraForm
     {
-        public frmReport()
+        public frmReport(string hd)
         {
             InitializeComponent();
-            Load += loadForm;
-        }
-
-        private void loadForm(object sender, EventArgs e)
-        {
-
+            rpHoaDon report = new rpHoaDon(hd);
+            viewer.DocumentSource = report;
         }
     }
 }
+

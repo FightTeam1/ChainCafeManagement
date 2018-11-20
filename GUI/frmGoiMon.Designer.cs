@@ -397,7 +397,7 @@ namespace GUI
             // btnXacNhanThanhToan
             // 
             this.btnXacNhanThanhToan.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXacNhanThanhToan.Location = new System.Drawing.Point(825, 174);
+            this.btnXacNhanThanhToan.Location = new System.Drawing.Point(713, 179);
             this.btnXacNhanThanhToan.Name = "btnXacNhanThanhToan";
             this.btnXacNhanThanhToan.Size = new System.Drawing.Size(106, 56);
             this.btnXacNhanThanhToan.TabIndex = 2;
@@ -407,7 +407,7 @@ namespace GUI
             // btnDuyet
             // 
             this.btnDuyet.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDuyet.Location = new System.Drawing.Point(678, 174);
+            this.btnDuyet.Location = new System.Drawing.Point(566, 179);
             this.btnDuyet.Name = "btnDuyet";
             this.btnDuyet.Size = new System.Drawing.Size(95, 56);
             this.btnDuyet.TabIndex = 2;

@@ -99,6 +99,7 @@
             this.gridView.OptionsCustomization.AllowColumnMoving = false;
             this.gridView.OptionsCustomization.AllowGroup = false;
             this.gridView.OptionsCustomization.AllowQuickHideColumns = false;
+            this.gridView.OptionsFind.AlwaysVisible = true;
             this.gridView.OptionsMenu.EnableColumnMenu = false;
             this.gridView.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
