@@ -40,6 +40,7 @@ namespace GUI
         {
             txtMatKhau.Text = "Mật khẩu";
             txtTenDangNhap.Text = "Tên đăng nhập";
+            checkPasswordShow.Checked = false;
         }
 
 

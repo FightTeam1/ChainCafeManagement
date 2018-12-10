@@ -19,3 +19,10 @@ C:\Users\Admin\Desktop\CNPM\ChainCafeManagement\BLL\obj\Debug\BLL.csproj.CoreCom
 C:\Users\Admin\Desktop\CNPM\ChainCafeManagement\BLL\obj\Debug\BLL.dll
 C:\Users\Admin\Desktop\CNPM\ChainCafeManagement\BLL\obj\Debug\BLL.pdb
 C:\Users\Admin\Desktop\CNPM\ChainCafeManagement\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+D:\Folders\CNPM\ChainCafeManagement\BLL\bin\Debug\BLL.dll.config
+D:\Folders\CNPM\ChainCafeManagement\BLL\bin\Debug\BLL.dll
+D:\Folders\CNPM\ChainCafeManagement\BLL\bin\Debug\BLL.pdb
+D:\Folders\CNPM\ChainCafeManagement\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+D:\Folders\CNPM\ChainCafeManagement\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\Folders\CNPM\ChainCafeManagement\BLL\obj\Debug\BLL.dll
+D:\Folders\CNPM\ChainCafeManagement\BLL\obj\Debug\BLL.pdb
