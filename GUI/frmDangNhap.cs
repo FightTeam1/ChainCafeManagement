@@ -82,26 +82,32 @@ namespace GUI
 
         private void clickDangNhap(object sender, EventArgs e) //Sự kiện click của btn đăng nhập
         {
-
-            switch (bllDangNhap.ketquaDangNhap(txtTenDangNhap.Text, txtMatKhau.Text))
-            {
-                case 0:
-                    MessageBox.Show("Đăng nhập thành công!", "Thông báo");
-                    MdiParent.Controls[index].Show();
-                    coso = bllDangNhap.coso;
-                    nhanvien = bllDangNhap.nhanvien;
-                    Hide();
-                    return;
-                case 1:
-                    MessageBox.Show("Tên đăng nhập không tồn tại!", "Thông báo");
-                    return;
-                case 2:
-                    MessageBox.Show("Sai mật khẩu", "Thông báo");
-                    return;
-                case 3:
-                    return;
-            }
-        }
+			if (txtTenDangNhap.Text != "Tên đăng nhập")
+			{
+				switch (bllDangNhap.ketquaDangNhap(txtTenDangNhap.Text, txtMatKhau.Text))
+				{
+					case 0:
+						MessageBox.Show("Đăng nhập thành công!", "Thông báo");
+						MdiParent.Controls[index].Show();
+						coso = bllDangNhap.coso;
+						nhanvien = bllDangNhap.nhanvien;
+						Hide();
+						return;
+					case 1:
+						MessageBox.Show("Tên đăng nhập không tồn tại!", "Thông báo");
+						return;
+					case 2:
+						MessageBox.Show("Sai mật khẩu", "Thông báo");
+						return;
+					case 3:
+						return;
+				}
+			}
+			else
+			{
+				MessageBox.Show("Nhập tên đăng nhập");
+			}
+		}
 
         #endregion
     }

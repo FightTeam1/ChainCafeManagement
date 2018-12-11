@@ -25,9 +25,8 @@ namespace GUI
         {
             try
             {
-                if(int.Parse(str) == 0)
+                if(int.Parse(str) < 0)
                 {
-                    MessageBox.Show("Số lượng không được bằng 0");
                     return false;
                 }
                 return true;
@@ -47,7 +46,7 @@ namespace GUI
             }
             else
             {
-                MessageBox.Show("Số lượng phải là số");
+                MessageBox.Show("Số lượng không hợp lệ");
                 return;
             }
         }

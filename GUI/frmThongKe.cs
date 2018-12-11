@@ -27,7 +27,6 @@ namespace GUI
             InitializeComponent();
             coso = cs;
             cboNam.Items.AddRange(lstNam);
-            thongke(2018);
             cboNam.SelectedIndexChanged += indexChanged;
             frmMainn = frm;
             frmMainn.Hide();

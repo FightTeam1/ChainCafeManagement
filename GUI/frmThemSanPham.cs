@@ -37,7 +37,16 @@ namespace GUI
             cboMaLoai.ValueMember = "MALOAISP";
             cboMaLoai.DisplayMember = "TENLOAISP";
             btnBrowse.Click += btnBrowse_Click;
+			Load += load;
         }
+
+		private void load(object ob, EventArgs e)
+		{
+			txtMaSP.Text = "";
+			cboMaLoai.SelectedIndex = 0;
+			txtTenSP.Text = "";
+			txtDonGia.Text = "20000";
+		}
 
         private void frmCloing(object sender, FormClosingEventArgs e)
         {
@@ -48,30 +57,45 @@ namespace GUI
 
         private void clickSave(object ob, ItemClickEventArgs e)
         {
-            switch (bllSanPham.addSanPham(txtMaSP.Text, cboMaLoai.SelectedValue.ToString(), txtTenSP.Text, int.Parse(txtDonGia.Text), hinhanh))
-            {
-                case 0:
-                    MessageBox.Show("Thêm thành công");
-                    Close();
-                    break;
-                case 1:
-                    MessageBox.Show("Dữ liệu không được trống");
-                    return;
-                case 2:
-                    MessageBox.Show("Mã sản phẩm bị trùng");
-                    return;
-                case 3:
-                    MessageBox.Show("Thêm không thành công");
-                    return;
-            }
+			int a;
+			try {
+				a = int.Parse(txtDonGia.Text);
+				if (a < 20000)
+				{
+					MessageBox.Show("Đơn giá phải lớn hơn hoặc bằng 20.000VND");
+					return;
+				}
+			} catch { MessageBox.Show("Đơn giá không hợp lệ"); return; }
+			try
+			{
+				switch (bllSanPham.addSanPham(txtMaSP.Text, cboMaLoai.SelectedValue.ToString(), txtTenSP.Text, a, hinhanh))
+				{
+					case 0:
+						MessageBox.Show("Thêm thành công");
+						Close();
+						break;
+					case 1:
+						MessageBox.Show("Dữ liệu không được trống");
+						return;
+					case 2:
+						MessageBox.Show("Mã sản phẩm bị trùng");
+						return;
+					case 3:
+						MessageBox.Show("Thêm không thành công");
+						return;
+				}
+			}
+			catch { MessageBox.Show("Loại sản phẩm không đúng"); }
+
         }
 
         private void clickReset(object ob, ItemClickEventArgs e)
         {
             txtMaSP.Text = "";
-            cboMaLoai.Text = "";
+			cboMaLoai.SelectedIndex = 0;
             txtTenSP.Text = "";
-            txtDonGia.Text = "0";
+            txtDonGia.Text = "20000";
+			pictureBox1.ImageLocation = "";
         }
 
         private void clickClose(object ob, ItemClickEventArgs e)

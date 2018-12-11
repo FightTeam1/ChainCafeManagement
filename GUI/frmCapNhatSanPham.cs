@@ -28,8 +28,13 @@ namespace GUI
         {
             InitializeComponent();
 
-            //Khởi tạo giá trị cho sp
-            sp.MASP = MaSP;
+			cboMaLoai.DataSource = bllLoaiSanPham.getAll();
+			cboMaLoai.ValueMember = "MALOAISP";
+			cboMaLoai.DisplayMember = "TENLOAISP";
+
+
+			//Khởi tạo giá trị cho sp
+			sp.MASP = MaSP;
             sp.TENSP = TenSP;
             sp.MALOAISP = MaLoaiSP;
             sp.DONGIA = DonGia;
@@ -38,7 +43,6 @@ namespace GUI
             //gán giá trị cho controls
             txtTenSP.Text = TenSP;
             txtMaSP.Text = MaSP;
-            cboMaLoai.ValueMember = MaLoaiSP;
             txtDonGia.Text = DonGia.ToString();
             txtHinhAnh.Text = HinhAnh;
 
@@ -46,11 +50,15 @@ namespace GUI
             bbiSave.ItemClick += clickSave;
             bbiReset.ItemClick += clickReset;
             bbiClose.ItemClick += clickClose;
-            cboMaLoai.DataSource = bllLoaiSanPham.getAll();
-            cboMaLoai.ValueMember = "MALOAISP";
-            cboMaLoai.DisplayMember = "TENLOAISP";
+			Load += load;
+
             FormClosing += frmCloing;
         }
+
+		private void load(object ob, EventArgs e)
+		{
+			cboMaLoai.SelectedValue = sp.MALOAISP;
+		}
 
         private void frmCloing(object sender, FormClosingEventArgs e)
         {
@@ -75,8 +83,8 @@ namespace GUI
         private void clickReset(object ob, ItemClickEventArgs e)
         {
             txtMaSP.Text = sp.MASP;
-            cboMaLoai.Text = sp.MALOAISP;
-            txtTenSP.Text = sp.TENSP;
+			cboMaLoai.SelectedValue = sp.MALOAISP;
+			txtTenSP.Text = sp.TENSP;
             txtDonGia.Text = sp.DONGIA.ToString();
             txtHinhAnh.Text = sp.HinhAnh;
         }
