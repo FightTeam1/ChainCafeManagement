@@ -1,0 +1,877 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Add">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MaNV" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Sdt_KH" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DiaChi" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindAll">
+        <s:complexType />
+      </s:element>
+      <s:element name="FindAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindAllResult" type="tns:ArrayOfHOADON" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfHOADON">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="HOADON" nillable="true" type="tns:HOADON" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="HOADON">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MAHOADON" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MANV" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SDT_KH" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NGAYGIOLAP" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="THANHTIEN" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TRANGTHAI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DIACHI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LOAIHD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NHANVIEN" type="tns:NHANVIEN" />
+          <s:element minOccurs="0" maxOccurs="1" name="KHACHHANG" type="tns:KHACHHANG" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="NHANVIEN">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MANV" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MALOAINV" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MACS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HOTENNV" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SDT_NV" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CMND" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EMAIL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DIACHI_NV" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MATKHAU" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="COSO" type="tns:COSO" />
+          <s:element minOccurs="0" maxOccurs="1" name="LOAINHANVIEN" type="tns:LOAINHANVIEN" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="COSO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MACS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TENCS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DIACHI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SDT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HinhAnh" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LOAINHANVIEN">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MALOAINV" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TENLOAINV" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="KHACHHANG">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="HOTENKH" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SDT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EMAIL" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DIEMTICH" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="HinhAnh" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MATHANHVIEN" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Find">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MaHoaDon" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindResult" type="tns:HOADON" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Delete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MaHoaDon" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MaHoaDon" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MaNV" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Sdt_KH" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NgayGioLap" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="ThanhTien" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrangThai" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DiaChi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LoaiHD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateTrangThai">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MaHoaDon" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrangThai" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateTrangThaiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateTrangThaiResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDiaChi">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MaHoaDon" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DiaChi" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDiaChiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateDiaChiResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FilterByDateAndCoSo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MaCS" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Start" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="End" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FilterByDateAndCoSoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FilterByDateAndCoSoResult" type="tns:ArrayOfHOADON" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FilterByDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Start" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="End" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FilterByDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FilterByDateResult" type="tns:ArrayOfHOADON" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="ArrayOfHOADON" nillable="true" type="tns:ArrayOfHOADON" />
+      <s:element name="HOADON" nillable="true" type="tns:HOADON" />
+      <s:element name="boolean" type="s:boolean" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddSoapIn">
+    <wsdl:part name="parameters" element="tns:Add" />
+  </wsdl:message>
+  <wsdl:message name="AddSoapOut">
+    <wsdl:part name="parameters" element="tns:AddResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindAllSoapIn">
+    <wsdl:part name="parameters" element="tns:FindAll" />
+  </wsdl:message>
+  <wsdl:message name="FindAllSoapOut">
+    <wsdl:part name="parameters" element="tns:FindAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindSoapIn">
+    <wsdl:part name="parameters" element="tns:Find" />
+  </wsdl:message>
+  <wsdl:message name="FindSoapOut">
+    <wsdl:part name="parameters" element="tns:FindResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:Delete" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTrangThaiSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateTrangThai" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTrangThaiSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateTrangThaiResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDiaChiSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDiaChi" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDiaChiSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDiaChiResponse" />
+  </wsdl:message>
+  <wsdl:message name="FilterByDateAndCoSoSoapIn">
+    <wsdl:part name="parameters" element="tns:FilterByDateAndCoSo" />
+  </wsdl:message>
+  <wsdl:message name="FilterByDateAndCoSoSoapOut">
+    <wsdl:part name="parameters" element="tns:FilterByDateAndCoSoResponse" />
+  </wsdl:message>
+  <wsdl:message name="FilterByDateSoapIn">
+    <wsdl:part name="parameters" element="tns:FilterByDate" />
+  </wsdl:message>
+  <wsdl:message name="FilterByDateSoapOut">
+    <wsdl:part name="parameters" element="tns:FilterByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddHttpGetIn">
+    <wsdl:part name="MaNV" type="s:string" />
+    <wsdl:part name="Sdt_KH" type="s:string" />
+    <wsdl:part name="DiaChi" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="FindAllHttpGetIn" />
+  <wsdl:message name="FindAllHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfHOADON" />
+  </wsdl:message>
+  <wsdl:message name="FindHttpGetIn">
+    <wsdl:part name="MaHoaDon" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FindHttpGetOut">
+    <wsdl:part name="Body" element="tns:HOADON" />
+  </wsdl:message>
+  <wsdl:message name="DeleteHttpGetIn">
+    <wsdl:part name="MaHoaDon" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHttpGetIn">
+    <wsdl:part name="MaHoaDon" type="s:string" />
+    <wsdl:part name="MaNV" type="s:string" />
+    <wsdl:part name="Sdt_KH" type="s:string" />
+    <wsdl:part name="NgayGioLap" type="s:string" />
+    <wsdl:part name="ThanhTien" type="s:string" />
+    <wsdl:part name="TrangThai" type="s:string" />
+    <wsdl:part name="DiaChi" type="s:string" />
+    <wsdl:part name="LoaiHD" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTrangThaiHttpGetIn">
+    <wsdl:part name="MaHoaDon" type="s:string" />
+    <wsdl:part name="TrangThai" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTrangThaiHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDiaChiHttpGetIn">
+    <wsdl:part name="MaHoaDon" type="s:string" />
+    <wsdl:part name="DiaChi" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDiaChiHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="FilterByDateAndCoSoHttpGetIn">
+    <wsdl:part name="MaCS" type="s:string" />
+    <wsdl:part name="Start" type="s:string" />
+    <wsdl:part name="End" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FilterByDateAndCoSoHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfHOADON" />
+  </wsdl:message>
+  <wsdl:message name="FilterByDateHttpGetIn">
+    <wsdl:part name="Start" type="s:string" />
+    <wsdl:part name="End" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FilterByDateHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfHOADON" />
+  </wsdl:message>
+  <wsdl:message name="AddHttpPostIn">
+    <wsdl:part name="MaNV" type="s:string" />
+    <wsdl:part name="Sdt_KH" type="s:string" />
+    <wsdl:part name="DiaChi" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="FindAllHttpPostIn" />
+  <wsdl:message name="FindAllHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfHOADON" />
+  </wsdl:message>
+  <wsdl:message name="FindHttpPostIn">
+    <wsdl:part name="MaHoaDon" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FindHttpPostOut">
+    <wsdl:part name="Body" element="tns:HOADON" />
+  </wsdl:message>
+  <wsdl:message name="DeleteHttpPostIn">
+    <wsdl:part name="MaHoaDon" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHttpPostIn">
+    <wsdl:part name="MaHoaDon" type="s:string" />
+    <wsdl:part name="MaNV" type="s:string" />
+    <wsdl:part name="Sdt_KH" type="s:string" />
+    <wsdl:part name="NgayGioLap" type="s:string" />
+    <wsdl:part name="ThanhTien" type="s:string" />
+    <wsdl:part name="TrangThai" type="s:string" />
+    <wsdl:part name="DiaChi" type="s:string" />
+    <wsdl:part name="LoaiHD" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTrangThaiHttpPostIn">
+    <wsdl:part name="MaHoaDon" type="s:string" />
+    <wsdl:part name="TrangThai" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTrangThaiHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDiaChiHttpPostIn">
+    <wsdl:part name="MaHoaDon" type="s:string" />
+    <wsdl:part name="DiaChi" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDiaChiHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="FilterByDateAndCoSoHttpPostIn">
+    <wsdl:part name="MaCS" type="s:string" />
+    <wsdl:part name="Start" type="s:string" />
+    <wsdl:part name="End" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FilterByDateAndCoSoHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfHOADON" />
+  </wsdl:message>
+  <wsdl:message name="FilterByDateHttpPostIn">
+    <wsdl:part name="Start" type="s:string" />
+    <wsdl:part name="End" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FilterByDateHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfHOADON" />
+  </wsdl:message>
+  <wsdl:portType name="WS_HoaDonSoap">
+    <wsdl:operation name="Add">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add HoaDon</wsdl:documentation>
+      <wsdl:input message="tns:AddSoapIn" />
+      <wsdl:output message="tns:AddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindAll">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Find all HoaDon</wsdl:documentation>
+      <wsdl:input message="tns:FindAllSoapIn" />
+      <wsdl:output message="tns:FindAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Find">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Find HoaDon by MaHoaDon</wsdl:documentation>
+      <wsdl:input message="tns:FindSoapIn" />
+      <wsdl:output message="tns:FindSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete HoaDon by MaHoaDon</wsdl:documentation>
+      <wsdl:input message="tns:DeleteSoapIn" />
+      <wsdl:output message="tns:DeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update HoaDon by MaHoaDon</wsdl:documentation>
+      <wsdl:input message="tns:UpdateSoapIn" />
+      <wsdl:output message="tns:UpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTrangThai">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update TrangThai of HoaDon by MaHoaDon</wsdl:documentation>
+      <wsdl:input message="tns:UpdateTrangThaiSoapIn" />
+      <wsdl:output message="tns:UpdateTrangThaiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDiaChi">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update DiaChi of HoaDon by MaHoaDon</wsdl:documentation>
+      <wsdl:input message="tns:UpdateDiaChiSoapIn" />
+      <wsdl:output message="tns:UpdateDiaChiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FilterByDateAndCoSo">
+      <wsdl:input message="tns:FilterByDateAndCoSoSoapIn" />
+      <wsdl:output message="tns:FilterByDateAndCoSoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FilterByDate">
+      <wsdl:input message="tns:FilterByDateSoapIn" />
+      <wsdl:output message="tns:FilterByDateSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WS_HoaDonHttpGet">
+    <wsdl:operation name="Add">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add HoaDon</wsdl:documentation>
+      <wsdl:input message="tns:AddHttpGetIn" />
+      <wsdl:output message="tns:AddHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindAll">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Find all HoaDon</wsdl:documentation>
+      <wsdl:input message="tns:FindAllHttpGetIn" />
+      <wsdl:output message="tns:FindAllHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Find">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Find HoaDon by MaHoaDon</wsdl:documentation>
+      <wsdl:input message="tns:FindHttpGetIn" />
+      <wsdl:output message="tns:FindHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete HoaDon by MaHoaDon</wsdl:documentation>
+      <wsdl:input message="tns:DeleteHttpGetIn" />
+      <wsdl:output message="tns:DeleteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update HoaDon by MaHoaDon</wsdl:documentation>
+      <wsdl:input message="tns:UpdateHttpGetIn" />
+      <wsdl:output message="tns:UpdateHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTrangThai">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update TrangThai of HoaDon by MaHoaDon</wsdl:documentation>
+      <wsdl:input message="tns:UpdateTrangThaiHttpGetIn" />
+      <wsdl:output message="tns:UpdateTrangThaiHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDiaChi">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update DiaChi of HoaDon by MaHoaDon</wsdl:documentation>
+      <wsdl:input message="tns:UpdateDiaChiHttpGetIn" />
+      <wsdl:output message="tns:UpdateDiaChiHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FilterByDateAndCoSo">
+      <wsdl:input message="tns:FilterByDateAndCoSoHttpGetIn" />
+      <wsdl:output message="tns:FilterByDateAndCoSoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FilterByDate">
+      <wsdl:input message="tns:FilterByDateHttpGetIn" />
+      <wsdl:output message="tns:FilterByDateHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WS_HoaDonHttpPost">
+    <wsdl:operation name="Add">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add HoaDon</wsdl:documentation>
+      <wsdl:input message="tns:AddHttpPostIn" />
+      <wsdl:output message="tns:AddHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindAll">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Find all HoaDon</wsdl:documentation>
+      <wsdl:input message="tns:FindAllHttpPostIn" />
+      <wsdl:output message="tns:FindAllHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Find">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Find HoaDon by MaHoaDon</wsdl:documentation>
+      <wsdl:input message="tns:FindHttpPostIn" />
+      <wsdl:output message="tns:FindHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete HoaDon by MaHoaDon</wsdl:documentation>
+      <wsdl:input message="tns:DeleteHttpPostIn" />
+      <wsdl:output message="tns:DeleteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update HoaDon by MaHoaDon</wsdl:documentation>
+      <wsdl:input message="tns:UpdateHttpPostIn" />
+      <wsdl:output message="tns:UpdateHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTrangThai">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update TrangThai of HoaDon by MaHoaDon</wsdl:documentation>
+      <wsdl:input message="tns:UpdateTrangThaiHttpPostIn" />
+      <wsdl:output message="tns:UpdateTrangThaiHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDiaChi">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update DiaChi of HoaDon by MaHoaDon</wsdl:documentation>
+      <wsdl:input message="tns:UpdateDiaChiHttpPostIn" />
+      <wsdl:output message="tns:UpdateDiaChiHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FilterByDateAndCoSo">
+      <wsdl:input message="tns:FilterByDateAndCoSoHttpPostIn" />
+      <wsdl:output message="tns:FilterByDateAndCoSoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FilterByDate">
+      <wsdl:input message="tns:FilterByDateHttpPostIn" />
+      <wsdl:output message="tns:FilterByDateHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WS_HoaDonSoap" type="tns:WS_HoaDonSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Add">
+      <soap:operation soapAction="http://tempuri.org/Add" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindAll">
+      <soap:operation soapAction="http://tempuri.org/FindAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Find">
+      <soap:operation soapAction="http://tempuri.org/Find" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap:operation soapAction="http://tempuri.org/Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="http://tempuri.org/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTrangThai">
+      <soap:operation soapAction="http://tempuri.org/UpdateTrangThai" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDiaChi">
+      <soap:operation soapAction="http://tempuri.org/UpdateDiaChi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterByDateAndCoSo">
+      <soap:operation soapAction="http://tempuri.org/FilterByDateAndCoSo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterByDate">
+      <soap:operation soapAction="http://tempuri.org/FilterByDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WS_HoaDonSoap12" type="tns:WS_HoaDonSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Add">
+      <soap12:operation soapAction="http://tempuri.org/Add" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindAll">
+      <soap12:operation soapAction="http://tempuri.org/FindAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Find">
+      <soap12:operation soapAction="http://tempuri.org/Find" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap12:operation soapAction="http://tempuri.org/Delete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap12:operation soapAction="http://tempuri.org/Update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTrangThai">
+      <soap12:operation soapAction="http://tempuri.org/UpdateTrangThai" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDiaChi">
+      <soap12:operation soapAction="http://tempuri.org/UpdateDiaChi" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterByDateAndCoSo">
+      <soap12:operation soapAction="http://tempuri.org/FilterByDateAndCoSo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterByDate">
+      <soap12:operation soapAction="http://tempuri.org/FilterByDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WS_HoaDonHttpGet" type="tns:WS_HoaDonHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="Add">
+      <http:operation location="/Add" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindAll">
+      <http:operation location="/FindAll" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Find">
+      <http:operation location="/Find" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <http:operation location="/Delete" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <http:operation location="/Update" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTrangThai">
+      <http:operation location="/UpdateTrangThai" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDiaChi">
+      <http:operation location="/UpdateDiaChi" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterByDateAndCoSo">
+      <http:operation location="/FilterByDateAndCoSo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterByDate">
+      <http:operation location="/FilterByDate" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WS_HoaDonHttpPost" type="tns:WS_HoaDonHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="Add">
+      <http:operation location="/Add" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindAll">
+      <http:operation location="/FindAll" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Find">
+      <http:operation location="/Find" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <http:operation location="/Delete" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <http:operation location="/Update" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTrangThai">
+      <http:operation location="/UpdateTrangThai" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDiaChi">
+      <http:operation location="/UpdateDiaChi" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterByDateAndCoSo">
+      <http:operation location="/FilterByDateAndCoSo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterByDate">
+      <http:operation location="/FilterByDate" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WS_HoaDon">
+    <wsdl:port name="WS_HoaDonSoap" binding="tns:WS_HoaDonSoap">
+      <soap:address location="http://35.185.83.140/ChainCafeManagerment/WS_hoadon.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WS_HoaDonSoap12" binding="tns:WS_HoaDonSoap12">
+      <soap12:address location="http://35.185.83.140/ChainCafeManagerment/WS_hoadon.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WS_HoaDonHttpGet" binding="tns:WS_HoaDonHttpGet">
+      <http:address location="http://35.185.83.140/ChainCafeManagerment/WS_hoadon.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WS_HoaDonHttpPost" binding="tns:WS_HoaDonHttpPost">
+      <http:address location="http://35.185.83.140/ChainCafeManagerment/WS_hoadon.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

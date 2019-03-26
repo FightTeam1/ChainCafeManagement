@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://35.185.83.140/ChainCafeManagerment/WS_dieuphoi.asmx?wsdl" filename="WS_dieuphoi.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://35.185.83.140/ChainCafeManagerment/WS_dieuphoi.asmx?disco" filename="WS_dieuphoi.disco" />
+  </Results>
+</DiscoveryClientResultsFile>

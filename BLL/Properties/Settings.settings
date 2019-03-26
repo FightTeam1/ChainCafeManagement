@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BLL.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="BLL_serviceLoaiSanPham_WS_LoaiSP" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://35.185.83.140/ChainCafeManagerment/WS_LoaiSP.asmx</Value>
+    </Setting>
+    <Setting Name="BLL_serviceCoSo_WS_CoSo" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://35.185.83.140/ChainCafeManagerment/WS_coso.asmx</Value>
+    </Setting>
+    <Setting Name="BLL_serviceKhachHang_WS_KhachHang" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://35.185.83.140/ChainCafeManagerment/WS_khachhang.asmx</Value>
+    </Setting>
+    <Setting Name="BLL_serviceNhanVien_WS_NhanVien" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://35.185.83.140/ChainCafeManagerment/WS_nhanvien.asmx</Value>
+    </Setting>
+    <Setting Name="BLL_serviceSanPham_WS_SanPham" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://35.185.83.140/ChainCafeManagerment/WS_sanpham.asmx</Value>
+    </Setting>
+    <Setting Name="BLL_serviceLoaiNhanVien_WS_LoaiNhanVien" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://35.185.83.140/ChainCafeManagerment/WS_loainhanvien.asmx</Value>
+    </Setting>
+    <Setting Name="BLL_serviceChiTietHoaDon_WS_ChiTietHoaDon" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://35.185.83.140/ChainCafeManagerment/WS_chitiethoadon.asmx</Value>
+    </Setting>
+    <Setting Name="BLL_serviceHoaDon_WS_HoaDon" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://35.185.83.140/ChainCafeManagerment/WS_hoadon.asmx</Value>
+    </Setting>
+    <Setting Name="BLL_serviceDieuPhoi_WS_DieuPhoi" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://35.185.83.140/ChainCafeManagerment/WS_dieuphoi.asmx</Value>
+    </Setting>
+    <Setting Name="BLL_serviceTinTuc_WS_TinTuc" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://35.185.83.140/ChainCafeManagerment/WS_tintuc.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
